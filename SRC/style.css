@@ -1,0 +1,36 @@
+<style>
+	<body bgcolor=lightGreen>
+	header {
+   		background-color:Aqua;
+   		color:white;
+   		text-align:center;
+   		padding:5px;	
+	}
+
+	aside {
+   		line-height:30px;
+  		background-color:#eeeeee;
+   		height:250px;
+   		width:110px;
+   		float:left;
+   		padding:5px;	      
+	}
+
+	article{
+   		width:350px;
+   		float:left;
+ 	  	padding:30px;	 	
+	}
+
+	footer {
+   		background-color:Aqua;
+   		color:white;
+   		clear:both;
+   		text-align:center;
+   		padding:5px;	 	
+   		width: 100%;
+   		bottom: 0;
+   		position: fixed;
+	}
+</style>
+
