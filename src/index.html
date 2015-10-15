@@ -15,7 +15,7 @@
 			<a href="http://www.w3schools.com">Home</a><br>
 			<a href="http://www.w3schools.com">Profile </a><br>
 			<a href="http://www.w3schools.com">Follows </a><br>
-			<a> Welcome, User. </a>
+			<a> Welcome, User. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
 
@@ -28,14 +28,13 @@
 			</p>
 		</div>
 		
-		
 		<div id = "login">
 			<form>
 				User name:<br>
-				<input type="text" name="firstname"/>
+				<input type="text" id = "userIn"/>
 				<br>
 				Password: <br>
-				<input type="text" name="lastname"/>
+				<input type="text" id = "passIn"/>
 				<br> <br>
 				<input type ="button" onclick = "login()" Value = "Login"/>
 			</form>

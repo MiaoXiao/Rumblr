@@ -3,29 +3,28 @@
 #Filler{}
 body {
     background-color: turquoise;
-    padding:0px;
+    padding:0%;
 }
 
 #login{
    color:black;
    background-color:lightblue;
-   padding: 10px 10px 10px 10px;
-   width: 200px;
-   height: 130px;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
    position: absolute;
    top: 40%;
    left: 40%;
    margin-left: -(50)px;
    margin-top: -(50)px;
+   text-align:left;
    
 }
 #navi {
-   line-height:30px;
+   line-height:200%;
    background-color:#eeeeee;
-   height:160px;
-   width:110px;
    float:left;
-   padding:5px;	   
+   width:10%;
+   padding:0.5%;	   
    margin-top:1%;  
    visibility:hidden;
 }
@@ -33,7 +32,7 @@ body {
    background-color:Aqua;
    color:white;
    text-align:center;
-   padding:5px;	
+   padding:0.5%;	
    margin-bottom:1%;
 }
 
@@ -45,9 +44,8 @@ body {
     float:left;
     text-align:left;
 	margin-top: 1%; 
-	margin-left: 10%;
+	margin-left: 2%;
 	visibility:hidden; 
-    	
 }
 footer {
    background-color:Aqua;
