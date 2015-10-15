@@ -3,6 +3,7 @@
 	<body>
 		<head> 
 			<link rel="stylesheet" type="text/css" href="style.css">
+			<script src="handling.js"></script>
 		</head>
 		<div id = "topBar">
 			<header>
@@ -11,15 +12,19 @@
 		</div>
 	<div id = "Body">
 		<div id = "navi">
-		<a href="http://www.w3schools.com">Home</a><br>
-		<a href="http://www.w3schools.com">Profile </a><br>
-		<a href="http://www.w3schools.com">Follows </a><br>
-
-			<a> Welcome, User. </a> <br>
+			<a href="http://www.w3schools.com">Home</a><br>
+			<a href="http://www.w3schools.com">Profile </a><br>
+			<a href="http://www.w3schools.com">Follows </a><br>
+			<a> Welcome, User. </a>
+			<a onclick = "logout()" >Sign out?</a>
 		</div>
 
 		<div id = "post">
-			<p> "posts would go here, most likely by chronological, held by the database, and separated into sections."
+			<p> sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.
+			</p>
+			<p>
+				<img src = "http://treasure.diylol.com/uploads/post/image/834603/resized_lizard-meme-generator-huehuehue-3492ee.jpg" style="padding-right:10px;float:left;width:100;px;height:100px;">
+				And the user login would go here
 			</p>
 		</div>
 		
@@ -27,14 +32,15 @@
 		<div id = "login">
 			<form>
 				User name:<br>
-				<input type="text" name="firstname">
+				<input type="text" name="firstname"/>
 				<br>
 				Password: <br>
-				<input type="text" name="lastname">
+				<input type="text" name="lastname"/>
 				<br> <br>
-				<input type ="submit" name = "enter">
+				<input type ="button" onclick = "login()" Value = "Login"/>
 			</form>
 		</div>
+		
 	</div>
 		<div id = "Footer"> 
 			<footer>

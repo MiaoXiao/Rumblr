@@ -22,11 +22,12 @@ body {
 #navi {
    line-height:30px;
    background-color:#eeeeee;
-   height:130px;
+   height:160px;
    width:110px;
    float:left;
    padding:5px;	   
    margin-top:1%;  
+   visibility:hidden;
 }
 #topBar {
    background-color:Aqua;
@@ -38,13 +39,14 @@ body {
 
 #post{
 	background-color:lightBlue;
+	padding: 10px;
 	position:relative;
     width:40%;
-    height:500px;
     float:left;
-    text-align:center;
+    text-align:left;
 	margin-top: 1%; 
-	margin-left: 10%;  
+	margin-left: 10%;
+	visibility:hidden; 
     	
 }
 footer {
