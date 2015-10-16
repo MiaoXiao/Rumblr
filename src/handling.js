@@ -1,6 +1,7 @@
 function login(){
 	document.getElementById("navi").style.visibility = "visible";
 	document.getElementById("post").style.visibility = "visible";
+	document.getElementById("postBar").style.visibility = "visible";
 	document.getElementById("createAcc").style.visibility = "hidden";
 	document.getElementById("login").style.visibility = "hidden";
 };
@@ -18,6 +19,4 @@ function createAcc(){
 }
 
 function verifyAcc(){
-	
-	
 }

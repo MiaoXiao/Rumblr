@@ -1,9 +1,28 @@
 <style>
 
 #Filler{}
-body {
+
+#header {
+    color: lightblue;
     background-color: turquoise;
-    padding:0%;
+    text-align:center;
+    padding:1%;
+}
+	
+#navi{
+	text-align:left;
+	padding:0%;	
+	visibility:hidden;
+}
+
+.topSelect {
+	text-align:center;
+	background-color:lightblue;
+	height:20px;
+	width:7%;
+	margin-right:1%;
+	padding:1%;
+	float:left;
 }
 
 #login{
@@ -34,13 +53,14 @@ body {
    visibility:hidden;
 }
 
-#navi {
+#postBar {
    line-height:200%;
    background-color:#eeeeee;
    float:left;
    width:10%;
    padding:0.5%;	   
-   margin-top:1%;  
+   margin-top:1%;
+   margin-left:1%;  
    visibility:hidden;
 }
 #topBar {
@@ -57,7 +77,7 @@ body {
 	position:relative;
     width:40%;
     float:left;
-    text-align:left;
+    text-align:center;
 	margin-top: 1%; 
 	margin-left: 2%;
 	visibility:hidden; 

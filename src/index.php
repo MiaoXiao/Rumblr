@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<body>
-		<head> 
-			<link rel="stylesheet" type="text/css" href="style.css">
-			<script src="handling.js"></script>
-		</head>
-		<div id = "topBar">
-			<header>
-				<h1>UCRumbler</h1>
-			</header>
-		</div>
-	<div id = "Body">
+<body style="background-color:lightgrey">
+	<head> 
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="handling.js"></script>
+	</head>
+	
+	<div id = "header">
+		<header id = "title">
+			<h1>UCRumbler</h1>
+		</header>
 		<div id = "navi">
-			<a href="http://www.w3schools.com">Home</a><br>
-			<a href="http://www.w3schools.com">Profile </a><br>
-			<a href="http://www.w3schools.com">Follows </a><br>
+			<div class = "topSelect">
+				<a href="http://www.w3schools.com"> Front Page </a>
+			</div>
+			<div class = "topSelect">
+				<a href="http://www.w3schools.com"> Profile </a>
+			</div>
+			<div class = "topSelect">
+				<a href="http://www.w3schools.com"> Inbox </a>
+			</div>
+			<div class = "topSelect">
+				<a href="http://www.w3schools.com"> Settings </a>
+			</div>	
+		</div>
+	</div>
+	<br>
+	<br>
+	
+	<div id = "Body">
+		<div id = "postBar">
+			<a>Test</a><br>
+			<a>Photo </a><br>
+			<a>Quote </a><br>
 			<a> Welcome, User. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
@@ -30,20 +48,20 @@
 		
 		<div id = "login">
 			<form>
-				User name:<br>
+				Username:<br>
 				<input type="text" id = "userIn"/>
 				<br>
 				Password: <br>
-				<input type="text" id = "passIn"/>
+				<input type="password" id = "passIn"/>
 				<br> <br>
 				<input type ="button" onclick = "login()" Value = "Login"/>
 				<input type ="button" onclick = "createAcc()" Value = "Create Account"/>
 			</form>
 		</div>
-		
+	
 		<div id = "createAcc">
 			<form>
-				User name:<br>
+				Username:<br>
 				<input type="text" id = "userAcc"/>
 				<br>
 				Password: <br>
@@ -54,12 +72,12 @@
 				<input type ="button" onclick = "verifyAcc()" Value = "Create"/>
 			</form>
 		</div>
-		
+	
 	</div>
-		<div id = "Footer"> 
-			<footer>
-				HUEHUEHUEHUHEHUEHUE
-			</footer>
-		</div>
-	</body>
+	<div id = "Footer"> 
+		<footer>
+			HUEHUEHUEHUHEHUEHUE
+		</footer>
+	</div>
+</body>
 </html>
