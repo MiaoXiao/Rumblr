@@ -31,9 +31,13 @@
 	
 	<div id = "Body">
 		<div id = "postBar">
-			<a>Test</a><br>
+			<a>Text</a><br>
 			<a>Photo </a><br>
-			<a>Quote </a><br>
+			<a>Quote </a><br
+			<a>Link</a><br>
+			<a>Chat </a><br>
+			<a>Audio </a><br>
+			<a>Video </a><br>
 			<a> Welcome, User. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
@@ -55,7 +59,7 @@
 				Password: <br>
 				<input type="password" id = "passIn" name = "password"/>
 				<br> <br>
-				<input type ="button" onclick = "login()" Value = "Login"/>
+				<input type ="button" onclick = "loginButton()" Value = "Login"/>
 				<input type ="button" onclick = "createAcc()" Value = "Create Account"/>
 			</form>
 		</div>
@@ -74,6 +78,7 @@
 				<input type="text" id = "passverifyAcc" name = "passwordverify_enter"/>
 				<br> <br>
 				<input type ="button" onclick = "verifyAcc()" Value = "Create"/>
+				<input type ="button" onclick = "logout()" Value = "Cancel"/>
 			</form>
 		</div>
 	

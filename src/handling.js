@@ -1,4 +1,4 @@
-function login(){
+function loginButton(){
 	document.getElementById("navi").style.visibility = "visible";
 	document.getElementById("post").style.visibility = "visible";
 	document.getElementById("postBar").style.visibility = "visible";
