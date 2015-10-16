@@ -3,8 +3,8 @@
 $password = $login = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $login = test_input($_POST["userIn"]);
-   $password = test_input($_POST["passIn"]);
+   $login = test_input($_POST["login"]);
+   $password = test_input($_POST["password"]);
 }
 
 function test_input($data) {

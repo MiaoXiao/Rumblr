@@ -50,10 +50,10 @@
 		<div id = "login">
 			<form>
 				Username:<br>
-				<input type="text" id = "userIn"/>
+				<input type="text" id = "userIn" name = "login"/>
 				<br>
 				Password: <br>
-				<input type="password" id = "passIn"/>
+				<input type="password" id = "passIn" name = "password"/>
 				<br> <br>
 				<input type ="button" onclick = "login()" Value = "Login"/>
 				<input type ="button" onclick = "createAcc()" Value = "Create Account"/>
