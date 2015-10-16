@@ -4,6 +4,7 @@
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>
+		<?php include 'login.php';?>
 	</head>
 	
 	<div id = "header">
@@ -60,9 +61,6 @@
 		</div>
 	
 		<div id = "createAcc">
-			<form>
-				Username:<br>
-				<input type="text" id = "userAcc"/>
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 				User Name: <br>
 				<input type="text" id = "usernameAcc" name = "username_enter"/>
