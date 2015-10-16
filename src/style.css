@@ -19,6 +19,21 @@ body {
    text-align:left;
    
 }
+
+#createAcc{
+   color:black;
+   background-color:lightblue;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   top: 40%;
+   left: 40%;
+   margin-left: -(50)px;
+   margin-top: -(50)px;
+   text-align:left;
+   visibility:hidden;
+}
+
 #navi {
    line-height:200%;
    background-color:#eeeeee;
