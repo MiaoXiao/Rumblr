@@ -63,11 +63,17 @@
 			<form>
 				Username:<br>
 				<input type="text" id = "userAcc"/>
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+				User Name: <br>
+				<input type="text" id = "usernameAcc" name = "username_enter"/>
+				<br>
+				Login Name: <br>
+				<input type="text" id = "loginAcc" name = "login_enter"/>
 				<br>
 				Password: <br>
-				<input type="text" id = "passAcc"/> <br>
+				<input type="text" id = "passAcc" name = "password_enter"/> <br>
 				Verify Password: <br>
-				<input type="text" id = "passVeri"/>
+				<input type="text" id = "passverifyAcc" name = "passwordverify_enter"/>
 				<br> <br>
 				<input type ="button" onclick = "verifyAcc()" Value = "Create"/>
 			</form>
