@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:DarkCyan">
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>

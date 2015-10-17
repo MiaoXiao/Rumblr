@@ -2,9 +2,30 @@
 
 #Filler{}
 
+a:link {
+    color: White;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: White;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: LemonChiffon;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
 #header {
-    color: lightblue;
-    background-color: turquoise;
+    color: White;
+    background-color: CadetBlue;
     text-align:center;
     padding:1%;
 }
@@ -17,7 +38,7 @@
 
 .topSelect {
 	text-align:center;
-	background-color:lightblue;
+	background-color:CadetBlue;
 	height:20px;
 	width:7%;
 	margin-right:1%;
@@ -27,7 +48,7 @@
 
 #login{
    color:black;
-   background-color:lightblue;
+   background-color:CadetBlue;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -41,7 +62,7 @@
 
 #createAcc{
    color:black;
-   background-color:lightblue;
+   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -55,7 +76,7 @@
 
 #postBar {
    line-height:200%;
-   background-color:#eeeeee;
+   background-color:CadetBlue;
    float:left;
    width:10%;
    padding:0.5%;	   
@@ -64,7 +85,7 @@
    visibility:hidden;
 }
 #topBar {
-   background-color:Aqua;
+   background-color:CadetBlue;
    color:white;
    text-align:center;
    padding:0.5%;	
@@ -72,7 +93,7 @@
 }
 
 #post{
-	background-color:lightBlue;
+	background-color:CadetBlue;
 	padding: 10px;
 	position:relative;
     width:40%;
@@ -83,7 +104,7 @@
 	visibility:hidden; 
 }
 footer {
-   background-color:Aqua;
+   background-color:CadetBlue;
    color:white;
    clear:both;
    text-align:center;	
