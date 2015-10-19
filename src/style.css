@@ -2,6 +2,10 @@
 
 #Filler{}
 
+.error {
+	color: #FF0000;
+}
+
 a:link {
     color: White;
     background-color: transparent;
