@@ -10,7 +10,6 @@ function logout(){
 	location.reload();
 };
 
-
 function createAcc(){
 	document.getElementById("navi").style.visibility = "hidden";
 	document.getElementById("post").style.visibility = "hidden";

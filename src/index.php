@@ -2,11 +2,12 @@
 <html>
 <body style="background-color:DarkCyan">
 	<head> 
+		
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="handling.js"></script>
-		<?php include 'login.php';?>
+		<script src="handling.js"></script>\
+		<?php include 'connect.php';?>
+		<?php include 'createacc.php';?>
 	</head>
-	
 	<div id = "header">
 		<header id = "title">
 			<h1>UCRumbler</h1>
@@ -65,7 +66,7 @@
 		</div>
 	
 		<div id = "createAcc">
-			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				User Name: <br>
 				<input type="text" id = "usernameAcc" name = "username_enter"/>
 				<br>
@@ -77,7 +78,7 @@
 				Verify Password: <br>
 				<input type="text" id = "passverifyAcc" name = "passwordverify_enter"/>
 				<br> <br>
-				<input type ="button" onclick = "verifyAcc()" Value = "Create"/>
+				<input type ="submit" onclick = "verifyAcc()" name = "createacc" Value = "Create"/>
 				<input type ="button" onclick = "logout()" Value = "Cancel"/>
 			</form>
 		</div>
