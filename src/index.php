@@ -2,7 +2,6 @@
 <html>
 <body style="background-color:DarkCyan">
 	<head> 
-		
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>\
 		<?php include 'connect.php';?>
@@ -74,9 +73,9 @@
 				<input type="text" id = "loginAcc" name = "login_enter"/>
 				<br>
 				Password: <br>
-				<input type="text" id = "passAcc" name = "password_enter"/> <br>
+				<input type="password" id = "passAcc" name = "password_enter"/> <br>
 				Verify Password: <br>
-				<input type="text" id = "passverifyAcc" name = "passwordverify_enter"/>
+				<input type="password" id = "passverifyAcc" name = "passwordverify_enter"/>
 				<br> <br>
 				<input type ="submit" onclick = "verifyAcc()" name = "createacc" Value = "Create"/>
 				<input type ="button" onclick = "logout()" Value = "Cancel"/>
