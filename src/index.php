@@ -3,7 +3,7 @@
 <body style="background-color:DarkCyan">
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="handling.js"></script>\
+		<script src="handling.js"></script>
 		<?php include 'connect.php';?>
 		<?php include 'createacc.php';?>
 	</head>
@@ -66,15 +66,19 @@
 	
 		<div id = "createAcc">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				User Name: <br>
+				Create Username: <br>
+				<span class="error"> <?php echo $err_username;?></span>
 				<input type="text" id = "usernameAcc" name = "username_enter"/>
 				<br>
-				Login Name: <br>
+				Create Login: <br>
+				<span class="error"> <?php echo $err_login;?></span>
 				<input type="text" id = "loginAcc" name = "login_enter"/>
 				<br>
-				Password: <br>
+				Create Password: <br>
+				<span class="error"> <?php echo $err_password;?></span>
 				<input type="password" id = "passAcc" name = "password_enter"/> <br>
 				Verify Password: <br>
+				<span class="error"> <?php echo $err_vpassword;?></span>
 				<input type="password" id = "passverifyAcc" name = "passwordverify_enter"/>
 				<br> <br>
 				<input type ="submit" onclick = "verifyAcc()" name = "createacc" Value = "Create"/>
