@@ -9,7 +9,7 @@
 	</head>
 	<div id = "header">
 		<header id = "title">
-			<h1>UCRumbler</h1>
+			<h1 onclick = "createPost()" >UCRumbler</h1>
 		</header>
 		<div id = "navi">
 			<div class = "topSelect">
@@ -33,7 +33,7 @@
 		<div id = "postBar">
 			<a>Text</a><br>
 			<a>Photo </a><br>
-			<a>Quote </a><br
+			<a>Quote </a><br>
 			<a>Link</a><br>
 			<a>Chat </a><br>
 			<a>Audio </a><br>
@@ -42,13 +42,7 @@
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
 
-		<div id = "post">
-			<p> sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.
-			</p>
-			<p>
-				<img src = "http://treasure.diylol.com/uploads/post/image/834603/resized_lizard-meme-generator-huehuehue-3492ee.jpg" style="padding-right:10px;float:left;width:100;px;height:100px;">
-				And the user login would go here
-			</p>
+		<div id = "posts">
 		</div>
 		
 		<div id = "login">
