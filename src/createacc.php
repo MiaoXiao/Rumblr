@@ -13,7 +13,7 @@ if(isset($_POST['createacc'])) {
 	
 	//check username input
 	if (empty($_POST["username_enter"])) {
-		//$err_username = "A username is required!";
+		$err_username = "A username is required!";
 		$formsuccess = false;
 	} else {
 		$acc_username = test_input($_POST["username_enter"]);
@@ -21,7 +21,7 @@ if(isset($_POST['createacc'])) {
 
 	//check login input
 	if (empty($_POST["login_enter"])) {
-		//$err_login = "A login is required!";
+		$err_login = "A login is required!";
 		$formsuccess = false;
 	} else {
 		$acc_login = test_input($_POST["login_enter"]);
@@ -29,7 +29,7 @@ if(isset($_POST['createacc'])) {
 
 	//check password input
 	if (empty($_POST["password_enter"])) {
-		//$err_password = "A password is required!";
+		$err_password = "A password is required!";
 		$formsuccess = false;
 	} else {
 		$acc_password = test_input($_POST["password_enter"]);
@@ -37,7 +37,7 @@ if(isset($_POST['createacc'])) {
 
 	//check if passwords match
 	if (($_POST["password_enter"]) != ($_POST["passwordverify_enter"])) {
-		//$err_vpassword = "Passwords do not match!";
+		$err_vpassword = "Passwords do not match!";
 		$formsuccess = false;
 	} else {
 		$acc_vpassword = test_input($_POST["passwordverify_enter"]);
