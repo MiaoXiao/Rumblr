@@ -33,7 +33,7 @@
 		<div id = "postBar">
 			<a>Text</a><br>
 			<a>Photo </a><br>
-			<a>Quote </a><br
+			<a>Quote </a><br>
 			<a>Link</a><br>
 			<a>Chat </a><br>
 			<a>Audio </a><br>
