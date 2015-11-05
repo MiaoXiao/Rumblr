@@ -143,3 +143,47 @@ function createVid(){
 	post.visibility = 'hidden'; 	
     document.getElementById("posts").appendChild(post);
 }
+
+
+function posts() {
+	document.getElementById("navi").style.visibility = "visible";
+	document.getElementById("posts").style.visibility = "visible";
+	document.getElementById("createAcc").style.visibility = "hidden";
+	document.getElementById("login").style.visibility = "hidden";
+	document.getElementById("quote").style.visibility = "hidden";
+	document.getElementById("link").style.visibility = "hidden";
+	document.getElementById("chat").style.visibility = "hidden";
+}
+
+function postQuote() {
+	document.getElementById("navi").style.visibility = "visible";
+	document.getElementById("posts").style.visibility = "hidden";
+	document.getElementById("createAcc").style.visibility = "hidden";
+	document.getElementById("login").style.visibility = "hidden";
+	document.getElementById("quote").style.visibility = "visible";
+	document.getElementById("link").style.visibility = "hidden";
+	document.getElementById("chat").style.visibility = "hidden";
+
+}
+
+function postLink() {
+	document.getElementById("navi").style.visibility = "visible";
+	document.getElementById("posts").style.visibility = "hidden";
+	document.getElementById("createAcc").style.visibility = "hidden";
+	document.getElementById("login").style.visibility = "hidden";
+	document.getElementById("quote").style.visibility = "hidden";
+	document.getElementById("chat").style.visibility = "hidden";
+	document.getElementById("link").style.visibility = "visible";
+}
+
+function postChat() {
+	document.getElementById("navi").style.visibility = "visible";
+	document.getElementById("posts").style.visibility = "hidden";
+	document.getElementById("createAcc").style.visibility = "hidden";
+	document.getElementById("login").style.visibility = "hidden";
+	document.getElementById("quote").style.visibility = "hidden";
+	document.getElementById("link").style.visibility = "hidden";
+	document.getElementById("chat").style.visibility = "visible";
+
+}
+

@@ -32,15 +32,63 @@
 	
 	<div id = "Body">
 		<div id = "postBar">
-			<a>Text</a><br>
+			<a onclick = "posts()">Text</a><br>
+
 			<a>Photo </a><br>
-			<a>Quote </a><br>
-			<a>Link</a><br>
-			<a>Chat </a><br>
+
+			<a onclick = "postQuote()">Quote </a><br>
+			
+			<a onclick = "postLink()">Link</a><br>
+
+			<a onclick = "postChat()">Chat </a><br>
+
 			<a>Audio </a><br>
 			<a>Video </a><br>
 			<a onclick = "hide(3)"> Welcome, User. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
+		</div>
+
+
+
+
+		<div id = "quote">
+			<form>
+				Create QUOTE post:<br>
+				<input type="text" style="font-size:12pt;height:120px;width:200px;">
+				<br><br>
+				<input type="submit" value = "POST!">
+
+			</form>
+		</div>
+
+		<div id = "posts">
+			<form>
+				Create TEXT post:<br>
+				<input type="text" style="font-size:12pt;height:120px;width:200px;">
+				<br><br>
+				<input type="Submit" value = "POST!">
+
+			</form>
+		</div>
+
+		<div id = "link">
+			<form>
+				Create LINK post:<br>
+				<input type = "text" name="type here" size = "50">
+				<br><br>
+				<input type="Submit" value = "POST!">
+
+			</form>
+		</div>
+
+		<div id = "chat">
+			<form>
+				Create CHAT post:<br>
+				<input type="text" style="font-size:12pt;height:220px;width:200px;">
+				<br><br>
+				<input type="Submit" value = "POST!">
+
+			</form>
 		</div>
 
 

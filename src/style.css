@@ -108,6 +108,69 @@ a:active {
 	visibility:hidden; 
 }
 
+#text{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   top: 30%;
+   left: 30%;
+   margin-left: -(50)px;
+   margin-top: -(50)px;
+   text-align:left;
+   visibility:hidden;
+
+}
+
+#link{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   top: 30%;
+   left: 30%;
+   margin-left: -(50)px;
+   margin-top: -(50)px;
+   text-align:left;
+   visibility:hidden;
+
+
+}
+
+#quote{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   top: 30%;
+   left: 30%;
+   margin-left: -(50)px;
+   margin-top: -(50)px;
+   text-align:left;
+   visibility:hidden;
+
+
+}
+
+#chat{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   top: 30%;
+   left: 30%;
+   margin-left: -(50)px;
+   margin-top: -(50)px;
+   text-align:left;
+   visibility:hidden;
+
+
+}
+
 #profile {
 	background-color:CadetBlue;
 	padding: 1%;
