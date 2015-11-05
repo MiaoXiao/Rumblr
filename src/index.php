@@ -13,10 +13,10 @@
 		</header>
 		<div id = "navi">
 			<div class = "topSelect">
-				<a href="http://www.w3schools.com"> Front Page </a>
+				<a onclick = "hide(2)"> Front Page </a>
 			</div>
 			<div class = "topSelect">
-				<a href="http://www.w3schools.com"> Profile </a>
+				<a onclick = "hide(3)"> Profile </a>
 			</div>
 			<div class = "topSelect">
 				<a href="http://www.w3schools.com"> Inbox </a>
@@ -38,12 +38,11 @@
 			<a>Chat </a><br>
 			<a>Audio </a><br>
 			<a>Video </a><br>
-			<a> Welcome, User. </a><br>
+			<a onclick = "hide(3)"> Welcome, User. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
 
-		<div id = "posts">
-		</div>
+
 		
 		<div id = "login">
 			<form>
@@ -53,8 +52,8 @@
 				Password: <br>
 				<input type="password" id = "passIn" name = "password"/>
 				<br> <br>
-				<input type ="button" onclick = "loginButton()" Value = "Login"/>
-				<input type ="button" onclick = "createAcc()" Value = "Create Account"/>
+				<input type ="button" onclick = "hide(2)" Value = "Login"/>
+				<input type ="button" onclick = "hide(1)" Value = "Create Account"/>
 			</form>
 		</div>
 	
@@ -78,6 +77,18 @@
 				<input type ="submit" onclick = "verifyAcc()" name = "createacc" Value = "Create"/>
 				<input type ="button" onclick = "logout()" Value = "Cancel"/>
 			</form>
+		</div>
+		
+		<div id = "posts"></div>
+		
+		<div id="profile">
+			<img id="profPic" src ="http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg"/>
+			<p>Username:<b>FirstUser</b></p>
+			<p>Gender: Questionable</p>
+			<p>Created: As of 2 minutes from now</p>
+			<p>Date of Birth: before the big Bang</p>
+			<P>Interests: Elder gods, the secrets of time, getting an A on this project</P>
+			<P>Description: A look into madness itself, with nights not filled with sleep, but code lines of poor syntax</P>
 		</div>
 	
 	</div>

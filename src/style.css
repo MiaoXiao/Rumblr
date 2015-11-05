@@ -102,11 +102,34 @@ a:active {
 	position:relative;
     width:40%;
     float:left;
-    text-align:center;
+    text-align:left;
 	margin-top: 1%; 
 	margin-left: 2%;
 	visibility:hidden; 
 }
+
+#profile {
+	background-color:CadetBlue;
+	padding: 1%;
+	position:absolute;
+	margin-top:1%;
+	margin-left:13.5%;
+    width:40%;
+    float:left;
+    text-align:left;
+	visibility:hidden; 
+}
+
+
+#profPic {
+	position:relative;
+	width:20%;
+	height: 20%;
+	padding:2%;
+	text-align:left;
+	float:left;
+}
+
 footer {
    background-color:CadetBlue;
    color:white;
