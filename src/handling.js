@@ -40,10 +40,10 @@ function createText(){
 	var post = document.createElement("div");
     var desc = document.createElement("P");
     var user = document.createElement("P");
-    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
-    var ta = document.createTextNode("FirstUser: 11/11/11");
-    user.appendChild(ta);
-    desc.appendChild(t);
+    var td = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var tu = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(tu);
+    desc.appendChild(td);
 
     var Text = document.createElement("div");
     var tt = document.createTextNode("HUEHUEHUEHUEHUEHUEUHUEHUHEUHEHU EHUEHUEHUEHUEHUEHUEHUEHUEHUEUHEU HEHUEHUEHUEHUEHUEUHEHUEHU EHUHUEHUEHUEHUEHUE.");
@@ -95,10 +95,10 @@ function createText(){
 	var post = document.createElement("div");
     var desc = document.createElement("P");
     var user = document.createElement("P");
-    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
-    var ta = document.createTextNode("FirstUser: 11/11/11");
-    user.appendChild(ta);
-    desc.appendChild(t);
+    var td = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var tu = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(tu);
+    desc.appendChild(td);
 
     var Text = document.createElement("div");
     var tt = document.createTextNode("HUEHUEHUEHUEHUEHUEUHUEHUHEUHEHU EHUEHUEHUEHUEHUEHUEHUEHUEHUEUHEU HEHUEHUEHUEHUEHUEUHEHUEHU EHUHUEHUEHUEHUEHUE.");
@@ -121,10 +121,10 @@ function createVid(){
 	var post = document.createElement("div");
     var desc = document.createElement("P");
     var user = document.createElement("P");
-    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
-    var ta = document.createTextNode("FirstUser: 11/11/11");
-    user.appendChild(ta);
-    desc.appendChild(t);
+    var td = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var tu = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(tu);
+    desc.appendChild(td);
 
     var vid = document.createElement("iframe");
     vid.style.width= "100%";
