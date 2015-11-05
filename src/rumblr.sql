@@ -2,8 +2,8 @@
 -- version 4.4.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 05, 2015 at 10:26 AM
+-- Host: localhost
+-- Generation Time: Nov 05, 2015 at 10:37 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -17,27 +17,29 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rumblr`
+-- Database: `testrumblr`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logininfo`
+-- Table structure for table `login`
 --
 
-CREATE TABLE IF NOT EXISTS `logininfo` (
-  `loginid` int(6) unsigned NOT NULL,
+CREATE TABLE IF NOT EXISTS `login` (
+  `loginID` int(11) NOT NULL,
   `login` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `logininfo`
+-- Dumping data for table `login`
 --
 
-INSERT INTO `logininfo` (`loginid`, `login`, `password`) VALUES
-(1, 'Doe', 'johnfuckingdoe');
+INSERT INTO `login` (`loginID`, `login`, `password`) VALUES
+(27, 'pop', 'pop'),
+(28, 'pop', 'pop'),
+(29, 'sdjfhq', 'pop');
 
 -- --------------------------------------------------------
 
@@ -57,17 +59,26 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `interests` text,
   `blogdesc` text,
   `username` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`profileID`, `lname`, `fname`, `nickname`, `gender`, `birthday`, `profilecreation`, `photo`, `interests`, `blogdesc`, `username`) VALUES
+(27, 'jknsdf', 'poudfj', NULL, 'Male', '2015-11-20', '2015-11-05 08:37:37', NULL, NULL, NULL, ''),
+(28, 'pop', 'pop', NULL, 'Male', '2015-11-10', '2015-11-05 08:37:49', NULL, NULL, NULL, ''),
+(29, 'ad', 'pop', NULL, 'Male', '2015-11-25', '2015-11-05 08:39:10', NULL, NULL, NULL, 'isjodfsd');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `logininfo`
+-- Indexes for table `login`
 --
-ALTER TABLE `logininfo`
-  ADD PRIMARY KEY (`loginid`);
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`loginID`);
 
 --
 -- Indexes for table `profile`
@@ -80,15 +91,15 @@ ALTER TABLE `profile`
 --
 
 --
--- AUTO_INCREMENT for table `logininfo`
+-- AUTO_INCREMENT for table `login`
 --
-ALTER TABLE `logininfo`
-  MODIFY `loginid` int(6) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+ALTER TABLE `login`
+  MODIFY `loginID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profileID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `profileID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
