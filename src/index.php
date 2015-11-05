@@ -32,13 +32,13 @@
 	
 	<div id = "Body">
 		<div id = "postBar">
-			<a onclick = "createText()">Text</a><br>
-			<a onclick = "createPic()">Photo </a><br>
+			<a>Text</a><br>
+			<a>Photo </a><br>
 			<a>Quote </a><br>
 			<a>Link</a><br>
 			<a>Chat </a><br>
 			<a>Audio </a><br>
-			<a onclick = "createVid()" >Video </a><br>
+			<a>Video </a><br>
 			<a onclick = "hide(3)"> Welcome, User. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
