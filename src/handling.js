@@ -35,13 +35,41 @@ function logout(){
 	location.reload();
 }
 
-function createPost(){
-	var post = document.createElement("div");
-    var text = document.createElement("P");
-    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
-    text.appendChild(t);
 
-;
+function createText(){
+	var post = document.createElement("div");
+    var desc = document.createElement("P");
+    var user = document.createElement("P");
+    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var ta = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(ta);
+    desc.appendChild(t);
+
+    var Text = document.createElement("div");
+    var tt = document.createTextNode("HUEHUEHUEHUEHUEHUEUHUEHUHEUHEHU EHUEHUEHUEHUEHUEHUEHUEHUEHUEUHEU HEHUEHUEHUEHUEHUEUHEHUEHU EHUHUEHUEHUEHUEHUE.");
+	Text.appendChild(tt);
+	post.appendChild(Text);
+    post.appendChild(user);
+    post.appendChild(desc);
+    post.style.backgroundColor = 'darkCyan';
+	post.style.padding = '10px';
+	post.position = 'relative';
+    post.width = '40%';
+    post.style.cssfloat = 'left';
+    post.textalign = 'left';
+	post.style.margin = '1%'; 
+	post.visibility = 'hidden'; 	
+    document.getElementById("posts").appendChild(post);
+}
+
+function createPic(){
+	var post = document.createElement("div");
+    var desc = document.createElement("P");
+    var user = document.createElement("P");
+    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var ta = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(ta);
+    desc.appendChild(t);
 
     var pic = document.createElement("img");
     pic.src= "http://treasure.diylol.com/uploads/post/image/834603/resized_lizard-meme-generator-huehuehue-3492ee.jpg";
@@ -50,7 +78,8 @@ function createPost(){
     pic.style.float= '100px';
     pic.style.cssfloat= 'left';
     post.appendChild(pic);
-    post.appendChild(text)
+    post.appendChild(user);
+    post.appendChild(desc);
     post.style.backgroundColor = 'darkCyan';
 	post.style.padding = '10px';
 	post.position = 'relative';
@@ -58,6 +87,59 @@ function createPost(){
     post.style.cssfloat = 'left';
     post.textalign = 'left';
 	post.style.margin = '1%'; 
-	post.visibility = 'hidden'; 
+	post.visibility = 'hidden'; 	
+    document.getElementById("posts").appendChild(post);
+}
+
+function createText(){
+	var post = document.createElement("div");
+    var desc = document.createElement("P");
+    var user = document.createElement("P");
+    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var ta = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(ta);
+    desc.appendChild(t);
+
+    var Text = document.createElement("div");
+    var tt = document.createTextNode("HUEHUEHUEHUEHUEHUEUHUEHUHEUHEHU EHUEHUEHUEHUEHUEHUEHUEHUEHUEUHEU HEHUEHUEHUEHUEHUEUHEHUEHU EHUHUEHUEHUEHUEHUE.");
+	Text.appendChild(tt);
+	post.appendChild(Text);
+    post.appendChild(user);
+    post.appendChild(desc);
+    post.style.backgroundColor = 'darkCyan';
+	post.style.padding = '10px';
+	post.position = 'relative';
+    post.width = '40%';
+    post.style.cssfloat = 'left';
+    post.textalign = 'left';
+	post.style.margin = '1%'; 
+	post.visibility = 'hidden'; 	
+    document.getElementById("posts").appendChild(post);
+}
+
+function createVid(){
+	var post = document.createElement("div");
+    var desc = document.createElement("P");
+    var user = document.createElement("P");
+    var t = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var ta = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(ta);
+    desc.appendChild(t);
+
+    var vid = document.createElement("iframe");
+    vid.style.width= "100%";
+    vid.style.height= "300px";
+    vid.src="http://www.youtube.com/embed/ZZ5LpwO-An4"
+    post.appendChild(vid);
+    post.appendChild(user);
+    post.appendChild(desc);
+    post.style.backgroundColor = 'darkCyan';
+	post.style.padding = '10px';
+	post.position = 'relative';
+    post.width = '40%';
+    post.style.cssfloat = 'left';
+    post.textalign = 'left';
+	post.style.margin = '1%'; 
+	post.visibility = 'hidden'; 	
     document.getElementById("posts").appendChild(post);
 }
