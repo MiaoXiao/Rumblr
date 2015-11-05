@@ -60,21 +60,49 @@
 	
 		<div id = "createAcc">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				
+				First Name: <br>
+				<span class="error"> <?php ?></span>
+				<input type="text" id = "fnameAcc" name = "fname_enter"/>
+				
+				<br>
+				Last Name: <br>
+				<span class="error"> <?php ?></span>
+				<input type="text" id = "lnameAcc" name = "lname_enter"/>
+				<br>
+				
+				Gender: <br>
+				<span class="error"> <?php ?></span>
+				<input type="radio" id = "genderAcc" name = "sex"  value="Male"> Male
+				<input type="radio" id = "genderAcc" name = "sex"  value="Female"> Female
+				<br>
+				
+				Birthday: <br>
+				<span class="error"> <?php ?></span>
+				<input type="date" id = "birthdayAcc" name = "birthday_enter"/>
+				<br>
+				
 				Create Username: <br>
-				<span class="error"> <?php echo $err_username;?></span>
+				<span class="error"> <?php ?></span>
 				<input type="text" id = "usernameAcc" name = "username_enter"/>
 				<br>
+				
 				Create Login: <br>
-				<span class="error"> <?php echo $err_login;?></span>
+				<span class="error"> <?php ?></span>
 				<input type="text" id = "loginAcc" name = "login_enter"/>
 				<br>
+				
 				Create Password: <br>
-				<span class="error"> <?php echo $err_password;?></span>
-				<input type="password" id = "passAcc" name = "password_enter"/> <br>
+				<span class="error"> <?php ?></span>
+				<input type="password" id = "passAcc" name = "password_enter"/> 
+				<br>
+				
 				Verify Password: <br>
-				<span class="error"> <?php echo $err_vpassword;?></span>
+				<span class="error"> <?php ?></span>
 				<input type="password" id = "passverifyAcc" name = "passwordverify_enter"/>
-				<br> <br>
+				<br>
+				 
+				<br>
 				<input type ="submit" onclick = "verifyAcc()" name = "createacc" Value = "Create"/>
 				<input type ="button" onclick = "logout()" Value = "Cancel"/>
 			</form>
