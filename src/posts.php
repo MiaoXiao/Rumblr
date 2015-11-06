@@ -169,4 +169,56 @@ if(isset($_POST['chat_sub'])) {
 	}
 }
 
+//audio field
+if(isset($_POST['audio_sub'])) {
+	$postsuccess = true;
+	
+	if (empty($_POST["audio_enter"])) {
+		$err_post += "Enter something! <br>";
+		$postsuccess = false;
+	} else {
+		$audio = test_input($_POST["audio_enter"]);
+	}
+	
+	//create new login and profile if form success
+	if ($postsuccess)
+	{
+		//echo "Link created!";
+		$err_post = "Submitted!";
+		
+		//sql login
+		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		VALUES (0, 3, '$audio')";
+		
+		check_sql($sql_addpost, $conn);
+		header("Location:index.php");
+	}
+}
+
+//video field
+if(isset($_POST['video_sub'])) {
+	$postsuccess = true;
+	
+	if (empty($_POST["video_enter"])) {
+		$err_post += "Enter something! <br>";
+		$postsuccess = false;
+	} else {
+		$video = test_input($_POST["video_enter"]);
+	}
+	
+	//create new login and profile if form success
+	if ($postsuccess)
+	{
+		//echo "Link created!";
+		$err_post = "Submitted!";
+		
+		//sql login
+		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		VALUES (0, 3, '$video')";
+		
+		check_sql($sql_addpost, $conn);
+		header("Location:index.php");
+	}
+}
+
 ?>
