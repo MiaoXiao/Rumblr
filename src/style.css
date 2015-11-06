@@ -113,7 +113,7 @@ a:active {
    background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
-   position: relative;
+   position: absolute;
    left: 30%;
    text-align:left;
    visibility:hidden;
@@ -154,10 +154,8 @@ a:active {
    background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
-   position: absolute;
+   position: relative;
    left: 30%;
-   margin-left: -(50)px;
-   margin-top: -(50)px;
    text-align:left;
    visibility:hidden;
 }
@@ -188,7 +186,7 @@ a:active {
 	background-color:CadetBlue;
 	padding: 10px;
 	position:relative;
-    width:30%;
+    width:40%;
     height:auto;
     min-height:200px;
     float:left;
