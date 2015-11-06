@@ -118,7 +118,7 @@
 			<div id = "quote">
 				<form>
 					Create QUOTE post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;">
+					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter">
 					<br><br>
 					<input type="submit" value = "POST!" name =  "quote_sub">
 
@@ -128,7 +128,7 @@
 			<div id = "text">
 				<form>
 					Create TEXT post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;">
+					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "text_enter">
 					<br><br>
 					<input type="Submit" value = "POST!" name = "text_sub">
 				</form>
@@ -137,7 +137,7 @@
 			<div id = "link">
 				<form>
 					Create LINK post:<br>
-					<input type = "text" name="type here" size = "50">
+					<input type = "text" name="type here" size = "50" name = "link_enter">
 					<br><br>
 					<input type="Submit" value = "POST!" name = "link_sub">
 
@@ -147,7 +147,7 @@
 			<div id = "chat">
 				<form>
 					Create CHAT post:<br>
-					<input type="text" style="font-size:12pt;height:220px;width:200px;">
+					<input type="text" style="font-size:12pt;height:220px;width:200px;" name ="chat_enter">
 					<br><br>
 					<input type="Submit" value = "POST!" name = "chat_sub">
 
