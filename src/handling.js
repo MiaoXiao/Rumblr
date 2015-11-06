@@ -120,6 +120,12 @@ function createQuote(){
     document.getElementById("posts").appendChild(post);
 }
 
+function check(key)
+{
+	if(key > 0)
+		hide(2);
+}
+
 function createLink(){
 	var post = document.createElement("div");
     var desc = document.createElement("P");

@@ -15,7 +15,7 @@
 	}
 ?>
 <html>
-<body style="background-color:DarkCyan">
+<body style="background-color:DarkCyan" onclick = "check()">
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>
