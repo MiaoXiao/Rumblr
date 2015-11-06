@@ -120,9 +120,8 @@ function createQuote(){
     document.getElementById("posts").appendChild(post);
 }
 
-function check(key)
+function check()
 {
-	if(key > 0)
 		hide(2);
 }
 
