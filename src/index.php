@@ -6,8 +6,7 @@
 	if(	isset($_SESSION['SESS_USERNAME']))
 	{
 		echo "I'm In";
-		echo "<script src='handling.'>hide(2);</script>";
-		session_destroy();
+		echo "The current session is: " . session_id();
 	}
 	else
 	{
@@ -21,6 +20,8 @@
 		<script src="handling.js"></script>
 		<?php //include 'connect.php';?>
 		<?php include 'createacc.php';?>
+		<?php include 'updateprofile.php';?>
+		<?php //include 'posts.php';?>
 		<?php //include 'login.php';?>
 	</head>
 	<div id = "header">
@@ -60,21 +61,35 @@
 
 			<a>Audio </a><br>
 			<a>Video </a><br>
-			<a onclick = "hide(3)"> Welcome, User. </a><br>
-			<a onclick = "logout()" >Sign out?</a>
+			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
+			<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>
 		</div>
 		
 		<div id = "login">
-			<form method="post" action="login.php">
-				Username:<br>
-				<input type="text" id = "userIn" name = "login"/>
-				<br>
-				Password: <br>
-				<input type="password" id = "passIn" name = "password"/>
-				<br> <br>
-				<input type ="submit" onclick = "hide(2)" Value = "Login" name = "verifiedLogin"/>
-				<input type ="button" onclick = "hide(1)" Value = "Create Account"/>
-			</form>
+			<?php if (!isset($_SESSION['SESS_USERNAME'])) 
+			{ 
+				?> 
+					<form method="post" action="login.php">
+						Username:<br>
+						<input type="text" id = "userIn" name = "login"/>
+						<br>
+						Password: <br>
+						<input type="password" id = "passIn" name = "password"/>
+						<br> <br>
+						<input type ="submit" Value = "Login" name = "verifiedLogin"/>
+						<input type ="button" onclick = "hide(1)" Value = "Create Account"/>
+					</form>
+				<?php 
+			} 
+			else
+			{
+			?>
+					You have successfully logged in!<br>
+					Welcome <?php echo $_SESSION["SESS_USERNAME"]; ?> ! <br>
+					<button type="button" onclick="hide(2)">Continue</button>
+				<?php
+			}
+			?>
 		</div>
 	
 		<div id = "createAcc">
@@ -127,58 +142,95 @@
 			</form>
 		</div>
 		
-		<div id = "posts"></div>
+		<div id = "posts">
+
+			<?php	
+
+				require_once('connect.php');
+
+				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$result = mysql_query($query);
+
+				echo "<table>"; // start a table tag in the HTML
+
+				while($row = mysql_fetch_array($result))
+				{   //Creates a loop to loop through results
+					echo "<tr><td>" . $row['info'];  //$row['index'] the index here is a field name
+				}
+
+				echo "</table>"
+			?>
+		</div>
 		
 		<div id = "posting">
-
+			<form action="posts.php" method="post">
 			<div id = "quote">
-				<form>
 					Create QUOTE post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter">
+					<textarea rows="4" cols="50" name = "quote_enter"/></textarea> <br>
 					<br><br>
-					<input type="submit" value = "POST!" name =  "quote_sub">
+					<input type="submit" value = "POST!" name =  "quote_sub"/>
 
-				</form>
 			</div>
 
 			<div id = "text">
-				<form>
+
 					Create TEXT post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "text_enter">
+					<textarea rows="4" cols="50" name = "text_enter"/></textarea> <br>
 					<br><br>
-					<input type="submit" value = "POST!" name = "text_sub">
-				</form>
+					<input type="submit" value = "POST!" name = "text_sub"/>
+
 			</div>
 
 			<div id = "link">
-				<form>
 					Create LINK post:<br>
-					<input type = "text" name="type here" size = "50" name = "link_enter">
+					<input type = "text" size = "50" name = "link_enter"/>
 					<br><br>
-					<input type="submit" value = "POST!" name = "link_sub">
+					<input type="submit" value = "POST!" name = "link_sub"/>
 
-				</form>
 			</div>
 
 			<div id = "chat">
-				<form>
 					Create CHAT post:<br>
-					<input type="text" style="font-size:12pt;height:220px;width:200px;" name ="chat_enter">
+					<textarea rows="4" cols="50" name = "chat_enter"/></textarea> <br>
 					<br><br>
-					<input type="submit" value = "POST!" name = "chat_sub">
+					<input type="submit" value = "POST!" name = "chat_sub"/>
 
 				</form>
 			</div>
 		</div>
 		
 		<div id="profile">
-			<img id="profPic" src ="http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg"/>
-			<p>Username:<b>FirstUser</b></p>
-			<p>Gender: Questionable</p>
-			<p>Created: As of 2 minutes from now</p>
-			<p>Date of Birth: before the big Bang</p>
-			<P>Interests: Elder gods, the secrets of time, getting an A on this project</P>
-			<P>Description: A look into madness itself, with nights not filled with sleep, but code lines of poor syntax</P>
+			<img id="profPic" src ="<?php get_ProfileInfo('photo')?>"/>
+			<p><b>Username:</b>
+			<?php get_ProfileInfo('username');?></p>
+			<p><b>Nickname:</b>
+			<?php get_ProfileInfo('nickname');?></p>
+			<p><b>Gender: </b>
+			<?php get_ProfileInfo('gender');?></p>
+			<p><b>Created: </b>
+			<?php get_ProfileInfo('profilecreation')?></p>
+			<p><b>Date of Birth: </b>
+			<?php get_ProfileInfo('birthday')?></p>
+			<P><b>Interests: </b> 
+			<?php get_ProfileInfo('interests')?></P>
+			<P><b>Blog: Description: </b> 
+			<?php get_ProfileInfo('blogdesc')?></P>
+			
+			<form action="updateprofile.php" method="post">
+				Update Picture: <br>
+				<input type="text" name = "picture_update"/> <br>
+					
+				Update Nickname: <br>
+				<input type="text" name = "nickname_update"/> <br>
+				
+				Update Interests: <br>
+				<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
+
+				Update Blog Description: <br>
+				<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
+				
+				<input type ="submit" name = "update_profile" Value = "Update Profile"/>
+			</form>
 		</div>
 	
 	</div>

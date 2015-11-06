@@ -1,7 +1,7 @@
 <?php
 
 // define acc creation variables and set to empty values
-$acc_lname = $acc_fname = $acc_gender = $acc_birthday = $acc_username = $acc_login = $acc_password = $acc_vpassword = "";
+$acc_lname = $acc_fname = $acc_gender = $acc_birthday = $acc_nickname = $acc_username = $acc_login = $acc_password = $acc_vpassword = "";
 //error messages
 $err_username = $err_login = $err_password = $err_vpassword = "";
 //main error message
@@ -22,6 +22,7 @@ if(isset($_POST['createacc'])) {
 	if($checkusername) $numrows = mysql_num_rows($checkusername);
 	else die("error with finding username: " . mysql_error());*/
 	
+
 	if (empty($_POST["username_enter"])) {
 		//echo "login1";
 		$err_main += "A username is required! <br>";
@@ -98,9 +99,12 @@ if(isset($_POST['createacc'])) {
 		
 		check_sql($sql_newacc, $conn);
 		
+		//default photo
+		$defphoto = "http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg";
+		
 		//sql profile
-		$sql_newprofile = "INSERT INTO profile (lname, fname, gender, birthday, username)
-		VALUES ('$acc_lname', '$acc_fname', '$acc_gender', '$acc_birthday', '$acc_username')";
+		$sql_newprofile = "INSERT INTO profile (lname, fname, gender, birthday, photo, username)
+		VALUES ('$acc_lname', '$acc_fname', '$acc_gender', '$acc_birthday', '$defphoto', '$acc_username')";
 		
 		check_sql($sql_newprofile, $conn);
 		
