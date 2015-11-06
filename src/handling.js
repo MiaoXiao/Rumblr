@@ -186,6 +186,11 @@ function post(input) {
 	else
 		document.getElementById("text").style.visibility = "hidden";
 		
+	if(input == 1)
+		document.getElementById("photo").style.visibility = "visible";
+	else
+		document.getElementById("photo").style.visibility = "hidden";	
+	
 	if(input == 2)
 		document.getElementById("quote").style.visibility = "visible";
 	else
@@ -200,4 +205,14 @@ function post(input) {
 		document.getElementById("chat").style.visibility = "visible";
 	else
 		document.getElementById("chat").style.visibility = "hidden";
+		
+	if(input == 5)
+		document.getElementById("audio").style.visibility = "visible";
+	else
+		document.getElementById("audio").style.visibility = "hidden";
+		
+	if(input == 6)
+		document.getElementById("video").style.visibility = "visible";
+	else
+		document.getElementById("video").style.visibility = "hidden";
 }

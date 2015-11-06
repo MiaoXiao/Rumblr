@@ -152,6 +152,39 @@ a:active {
    visibility:hidden;
 }
 
+#video{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
+}
+
+#audio{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
+}
+
+#photo{
+   color:black;
+   background-color:DarkCyan;
+   padding: 1% 1% 1% 1%;
+   width: 18%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
+}
+
 #profile {
 	background-color:CadetBlue;
 	padding: 1%;

@@ -51,7 +51,7 @@
 		<div id = "postBar">
 			<a onclick = "post(0)">Text</a><br>
 
-			<a>Photo </a><br>
+			<a onclick = "post(1)">Photo </a><br>
 
 			<a onclick = "post(2)">Quote </a><br>
 			
@@ -59,8 +59,9 @@
 
 			<a onclick = "post(4)">Chat </a><br>
 
-			<a>Audio </a><br>
-			<a>Video </a><br>
+			<a onclick = "post(5)">Audio </a><br>
+			<a onclick = "post(6)">Video </a><br>
+			
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
 			<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>
 		</div>
@@ -197,6 +198,32 @@
 
 				</form>
 			</div>
+			
+			<div id = "photo">
+					Create PHOTO post:<br>
+					<textarea rows="4" cols="50" name = "pic_enter"/></textarea> <br>
+					<br><br>
+					<input type="submit" value = "POST!" name = "pic_sub"/>
+
+				</form>
+			</div>
+			<div id = "video">
+					Create VIDEO post:<br>
+					<textarea rows="4" cols="50" name = "vid_enter"/></textarea> <br>
+					<br><br>
+					<input type="submit" value = "POST!" name = "vid_sub"/>
+
+				</form>
+			</div>
+			<div id = "audio">
+					Create AUDIO post:<br>
+					<textarea rows="4" cols="50" name = "aud_enter"/></textarea> <br>
+					<br><br>
+					<input type="submit" value = "POST!" name = "chat_sub"/>
+
+				</form>
+			</div>
+			
 		</div>
 		
 		<div id="profile">
