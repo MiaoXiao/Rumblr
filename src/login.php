@@ -55,7 +55,7 @@ if(isset($_POST['verifiedLogin']))
 			//Login Successful
 			//session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
-			$_SESSION['SESS_LOGIN_ID'] = $member['loginid'];
+			$_SESSION['SESS_LOGIN_ID'] = $member['loginID'];
 			$_SESSION['SESS_USERNAME'] = $member['login'];
 			$_SESSION['SESS_PASSWORD'] = $member['password'];
 			//session_write_close();
