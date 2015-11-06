@@ -94,7 +94,7 @@ function createPic(){
     document.getElementById("posts").appendChild(post);
 }
 
-function createText(){
+function createQuote(){
 	var post = document.createElement("div");
     var desc = document.createElement("P");
     var user = document.createElement("P");
@@ -103,9 +103,9 @@ function createText(){
     user.appendChild(tu);
     desc.appendChild(td);
 
-    var Text = document.createElement("div");
-    var tt = document.createTextNode("HUEHUEHUEHUEHUEHUEUHUEHUHEUHEHU EHUEHUEHUEHUEHUEHUEHUEHUEHUEUHEU HEHUEHUEHUEHUEHUEUHEHUEHU EHUHUEHUEHUEHUEHUE.");
-	Text.appendChild(tt);
+    var Quote = document.createElement("div");
+    var tq = document.createTextNode("\"A great man once said ow.\" \n ---some guy");
+	Text.appendChild(tq);
 	post.appendChild(Text);
     post.appendChild(user);
     post.appendChild(desc);
@@ -120,7 +120,34 @@ function createText(){
     document.getElementById("posts").appendChild(post);
 }
 
-function createVid(){
+function createLink(){
+	var post = document.createElement("div");
+    var desc = document.createElement("P");
+    var user = document.createElement("P");
+    var td = document.createTextNode("Sample post of text goes here. Strangely enough, sample text isnt that hard. You kinda just write things.");
+    var tu = document.createTextNode("FirstUser: 11/11/11");
+    user.appendChild(tu);
+    desc.appendChild(td);
+
+    var Link = document.createElement("a");
+    Link.href="reddit.com";
+    Link.innerHtml="reddit.com";
+    
+	post.appendChild(Link);
+    post.appendChild(user);
+    post.appendChild(desc);
+    post.style.backgroundColor = 'darkCyan';
+	post.style.padding = '10px';
+	post.position = 'relative';
+    post.width = '40%';
+    post.style.cssfloat = 'left';
+    post.textalign = 'left';
+	post.style.margin = '1%'; 
+	post.visibility = 'hidden'; 	
+    document.getElementById("posts").appendChild(post);
+}
+
+function createVid(){	
 	var post = document.createElement("div");
     var desc = document.createElement("P");
     var user = document.createElement("P");

@@ -130,7 +130,7 @@
 					Create TEXT post:<br>
 					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "text_enter">
 					<br><br>
-					<input type="Submit" value = "POST!" name = "text_sub">
+					<input type="submit" value = "POST!" name = "text_sub">
 				</form>
 			</div>
 
@@ -139,7 +139,7 @@
 					Create LINK post:<br>
 					<input type = "text" name="type here" size = "50" name = "link_enter">
 					<br><br>
-					<input type="Submit" value = "POST!" name = "link_sub">
+					<input type="submit" value = "POST!" name = "link_sub">
 
 				</form>
 			</div>
@@ -149,7 +149,7 @@
 					Create CHAT post:<br>
 					<input type="text" style="font-size:12pt;height:220px;width:200px;" name ="chat_enter">
 					<br><br>
-					<input type="Submit" value = "POST!" name = "chat_sub">
+					<input type="submit" value = "POST!" name = "chat_sub">
 
 				</form>
 			</div>
