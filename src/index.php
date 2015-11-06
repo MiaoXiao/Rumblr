@@ -6,7 +6,7 @@
 	if(	isset($_SESSION['SESS_USERNAME']))
 	{
 		echo "I'm In";
-		session_destroy();
+		echo "The current session is: " . session_id();
 	}
 	else
 	{
@@ -62,7 +62,7 @@
 			<a>Audio </a><br>
 			<a>Video </a><br>
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
-			<a onclick = "logout()" >Sign out?</a>
+			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
 		</div>
 		
 		<div id = "login">
@@ -147,7 +147,25 @@
 			</form>
 		</div>
 		
-		<div id = "posts"></div>
+		<div id = "posts">
+
+			<?php	
+
+				require_once('connect.php');
+
+				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$result = mysql_query($query);
+
+				echo "<table>"; // start a table tag in the HTML
+
+				while($row = mysql_fetch_array($result))
+				{   //Creates a loop to loop through results
+					echo "<tr><td>" . $row['info'];  //$row['index'] the index here is a field name
+				}
+
+				echo "</table>"
+			?>
+		</div>
 		
 		<div id = "posting">
 			<form action="posts.php" method="post">
