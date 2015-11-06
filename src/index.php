@@ -118,7 +118,7 @@
 			<div id = "quote">
 				<form>
 					Create QUOTE post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter">
+					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter" border: 1px solid black">
 					<br><br>
 					<input type="submit" value = "POST!" name =  "quote_sub">
 

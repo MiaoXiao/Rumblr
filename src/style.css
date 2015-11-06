@@ -113,11 +113,8 @@ a:active {
    background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
-   position: absolute;
-   top: 30%;
+   position: relative;
    left: 30%;
-   margin-left: -(50)px;
-   margin-top: -(50)px;
    text-align:left;
    visibility:hidden;
 
@@ -129,7 +126,6 @@ a:active {
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
-   top: 30%;
    left: 30%;
    margin-left: -(50)px;
    margin-top: -(50)px;
@@ -145,10 +141,8 @@ a:active {
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
-   top: 30%;
    left: 30%;
    margin-left: -(50)px;
-   margin-top: -(50)px;
    text-align:left;
    visibility:hidden;
 
@@ -161,14 +155,11 @@ a:active {
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
-   top: 30%;
    left: 30%;
    margin-left: -(50)px;
    margin-top: -(50)px;
    text-align:left;
    visibility:hidden;
-
-
 }
 
 #profile {
@@ -195,9 +186,11 @@ a:active {
 
 #posting {
 	background-color:CadetBlue;
-	padding: 1%;
+	padding: 10px;
 	position:relative;
     width:30%;
+    height:auto;
+    min-height:200px;
     float:left;
     text-align:left;
 	margin-top: 1%; 
