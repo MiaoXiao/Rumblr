@@ -15,7 +15,7 @@
 	}
 ?>
 <html>
-<body style="background-color:DarkCyan" onload = "check()">
+<body style="background-color:DarkCyan">
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>
@@ -79,7 +79,7 @@
 	
 		<div id = "createAcc">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				
+				 
 				First Name: <br>
 				<span class="error"> <?php ?></span>
 				<input type="text" id = "fnameAcc" name = "fname_enter"/>
