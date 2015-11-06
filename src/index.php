@@ -6,7 +6,6 @@
 	if(	isset($_SESSION['SESS_USERNAME']))
 	{
 		echo "I'm In";
-		echo "<script src='handling.'>hide(2);</script>";
 		session_destroy();
 	}
 	else
@@ -15,7 +14,7 @@
 	}
 ?>
 <html>
-<body style="background-color:DarkCyan" onload = "check()">
+<body style="background-color:DarkCyan">
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>
@@ -61,21 +60,35 @@
 
 			<a>Audio </a><br>
 			<a>Video </a><br>
-			<a onclick = "hide(3)"> Welcome, User. </a><br>
+			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
 		
 		<div id = "login">
-			<form method="post" action="login.php">
-				Username:<br>
-				<input type="text" id = "userIn" name = "login"/>
-				<br>
-				Password: <br>
-				<input type="password" id = "passIn" name = "password"/>
-				<br> <br>
-				<input type ="submit" onclick = "hide(2)" Value = "Login" name = "verifiedLogin"/>
-				<input type ="button" onclick = "hide(1)" Value = "Create Account"/>
-			</form>
+			<?php if (!isset($_SESSION['SESS_USERNAME'])) 
+			{ 
+				?> 
+					<form method="post" action="login.php">
+						Username:<br>
+						<input type="text" id = "userIn" name = "login"/>
+						<br>
+						Password: <br>
+						<input type="password" id = "passIn" name = "password"/>
+						<br> <br>
+						<input type ="submit" Value = "Login" name = "verifiedLogin"/>
+						<input type ="button" onclick = "hide(1)" Value = "Create Account"/>
+					</form>
+				<?php 
+			} 
+			else
+			{
+			?>
+					You have successfully logged in!<br>
+					Welcome <?php echo $_SESSION["SESS_USERNAME"]; ?> ! <br>
+					<button type="button" onclick="hide(2)">Continue</button>
+				<?php
+			}
+			?>
 		</div>
 	
 		<div id = "createAcc">
