@@ -4,7 +4,14 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 //what database to search through
-$dbname = "testrumblr";
+$dbname = "rumblr";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+} 
 
 //added for log in to connect to the mySQL database (John)
 $bd = mysql_connect($servername, $username, $password) 

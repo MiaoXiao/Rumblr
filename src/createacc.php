@@ -11,13 +11,6 @@ if(isset($_POST['createacc'])) {
 	//set to false if there is an error in input
 	$formsuccess = true;
 	
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	} 
-	
 	/*
 	//check username input
 	$temp_username = $_POST["username_enter"];
@@ -113,7 +106,6 @@ if(isset($_POST['createacc'])) {
 		
 		header("Location:index.php");
 	}
-	$conn->close();
 }
 
 ?>
