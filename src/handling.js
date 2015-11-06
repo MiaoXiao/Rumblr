@@ -10,20 +10,23 @@ function hide(enter){
 	}else{
 		document.getElementById("createAcc").style.visibility = "hidden";
 	}
-	if(enter == 2)
+	if(enter == 2){
 		document.getElementById("posts").style.visibility = "visible";
-	else
+		post(0);
+	}else{
 		document.getElementById("posts").style.visibility = "hidden";
-	
+	}
 	if(enter == 2 || enter == 3)
 	{
 		document.getElementById("navi").style.visibility = "visible";
 		document.getElementById("postBar").style.visibility = "visible";
+		document.getElementById("posting").style.visibility = "visible";
 	}
 	else
 	{
 		document.getElementById("navi").style.visibility = "hidden";
 		document.getElementById("postBar").style.visibility = "hidden";
+		document.getElementById("posting").style.visibility = "hidden";
 	}
 	if(enter == 3) {
 		document.getElementById("profile").style.visibility = "visible";
@@ -145,45 +148,24 @@ function createVid(){
 }
 
 
-function posts() {
-	document.getElementById("navi").style.visibility = "visible";
-	document.getElementById("posts").style.visibility = "visible";
-	document.getElementById("createAcc").style.visibility = "hidden";
-	document.getElementById("login").style.visibility = "hidden";
-	document.getElementById("quote").style.visibility = "hidden";
-	document.getElementById("link").style.visibility = "hidden";
-	document.getElementById("chat").style.visibility = "hidden";
+function post(input) {
+	if(input == 0)
+		document.getElementById("text").style.visibility = "visible";
+	else
+		document.getElementById("text").style.visibility = "hidden";
+		
+	if(input == 2)
+		document.getElementById("quote").style.visibility = "visible";
+	else
+		document.getElementById("quote").style.visibility = "hidden";
+		
+	if(input == 3)
+		document.getElementById("link").style.visibility = "visible";
+	else
+		document.getElementById("link").style.visibility = "hidden";
+		
+	if(input == 4)
+		document.getElementById("chat").style.visibility = "visible";
+	else
+		document.getElementById("chat").style.visibility = "hidden";
 }
-
-function postQuote() {
-	document.getElementById("navi").style.visibility = "visible";
-	document.getElementById("posts").style.visibility = "hidden";
-	document.getElementById("createAcc").style.visibility = "hidden";
-	document.getElementById("login").style.visibility = "hidden";
-	document.getElementById("quote").style.visibility = "visible";
-	document.getElementById("link").style.visibility = "hidden";
-	document.getElementById("chat").style.visibility = "hidden";
-
-}
-
-function postLink() {
-	document.getElementById("navi").style.visibility = "visible";
-	document.getElementById("posts").style.visibility = "hidden";
-	document.getElementById("createAcc").style.visibility = "hidden";
-	document.getElementById("login").style.visibility = "hidden";
-	document.getElementById("quote").style.visibility = "hidden";
-	document.getElementById("chat").style.visibility = "hidden";
-	document.getElementById("link").style.visibility = "visible";
-}
-
-function postChat() {
-	document.getElementById("navi").style.visibility = "visible";
-	document.getElementById("posts").style.visibility = "hidden";
-	document.getElementById("createAcc").style.visibility = "hidden";
-	document.getElementById("login").style.visibility = "hidden";
-	document.getElementById("quote").style.visibility = "hidden";
-	document.getElementById("link").style.visibility = "hidden";
-	document.getElementById("chat").style.visibility = "visible";
-
-}
-

@@ -32,15 +32,15 @@
 	
 	<div id = "Body">
 		<div id = "postBar">
-			<a onclick = "posts()">Text</a><br>
+			<a onclick = "post(0)">Text</a><br>
 
 			<a>Photo </a><br>
 
-			<a onclick = "postQuote()">Quote </a><br>
+			<a onclick = "post(2)">Quote </a><br>
 			
-			<a onclick = "postLink()">Link</a><br>
+			<a onclick = "post(3)">Link</a><br>
 
-			<a onclick = "postChat()">Chat </a><br>
+			<a onclick = "post(4)">Chat </a><br>
 
 			<a>Audio </a><br>
 			<a>Video </a><br>
@@ -48,51 +48,6 @@
 			<a onclick = "logout()" >Sign out?</a>
 		</div>
 
-
-
-
-		<div id = "quote">
-			<form>
-				Create QUOTE post:<br>
-				<input type="text" style="font-size:12pt;height:120px;width:200px;">
-				<br><br>
-				<input type="submit" value = "POST!">
-
-			</form>
-		</div>
-
-		<div id = "posts">
-			<form>
-				Create TEXT post:<br>
-				<input type="text" style="font-size:12pt;height:120px;width:200px;">
-				<br><br>
-				<input type="Submit" value = "POST!">
-
-			</form>
-		</div>
-
-		<div id = "link">
-			<form>
-				Create LINK post:<br>
-				<input type = "text" name="type here" size = "50">
-				<br><br>
-				<input type="Submit" value = "POST!">
-
-			</form>
-		</div>
-
-		<div id = "chat">
-			<form>
-				Create CHAT post:<br>
-				<input type="text" style="font-size:12pt;height:220px;width:200px;">
-				<br><br>
-				<input type="Submit" value = "POST!">
-
-			</form>
-		</div>
-
-
-		
 		<div id = "login">
 			<form>
 				Username:<br>
@@ -157,6 +112,48 @@
 		</div>
 		
 		<div id = "posts"></div>
+		
+		<div id = "posting">
+
+			<div id = "quote">
+				<form>
+					Create QUOTE post:<br>
+					<input type="text" style="font-size:12pt;height:120px;width:200px;">
+					<br><br>
+					<input type="submit" value = "POST!" name =  "quote_sub">
+
+				</form>
+			</div>
+
+			<div id = "text">
+				<form>
+					Create TEXT post:<br>
+					<input type="text" style="font-size:12pt;height:120px;width:200px;">
+					<br><br>
+					<input type="Submit" value = "POST!" name = "text_sub">
+				</form>
+			</div>
+
+			<div id = "link">
+				<form>
+					Create LINK post:<br>
+					<input type = "text" name="type here" size = "50">
+					<br><br>
+					<input type="Submit" value = "POST!" name = "link_sub">
+
+				</form>
+			</div>
+
+			<div id = "chat">
+				<form>
+					Create CHAT post:<br>
+					<input type="text" style="font-size:12pt;height:220px;width:200px;">
+					<br><br>
+					<input type="Submit" value = "POST!" name = "chat_sub">
+
+				</form>
+			</div>
+		</div>
 		
 		<div id="profile">
 			<img id="profPic" src ="http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg"/>

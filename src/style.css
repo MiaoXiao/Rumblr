@@ -193,6 +193,19 @@ a:active {
 	float:left;
 }
 
+#posting {
+	background-color:CadetBlue;
+	padding: 1%;
+	position:relative;
+    width:30%;
+    overflow:auto;
+    float:left;
+    text-align:left;
+	margin-top: 1%; 
+	margin-left: 2%;
+	visibility:hidden;
+}
+
 footer {
    background-color:CadetBlue;
    color:white;
