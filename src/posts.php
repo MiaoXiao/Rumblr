@@ -162,7 +162,7 @@ if(isset($_POST['chat_sub'])) {
 		
 		//sql login
 		$sql_addpost = "INSERT INTO posts (postID, type, info)
-		VALUES (0, 3, '$chat')";
+		VALUES (0, 'chat', '$chat')";
 		
 		check_sql($sql_addpost, $conn);
 		header("Location:index.php");
@@ -188,7 +188,7 @@ if(isset($_POST['audio_sub'])) {
 		
 		//sql login
 		$sql_addpost = "INSERT INTO posts (postID, type, info)
-		VALUES (0, 3, '$audio')";
+		VALUES (0, 'audio', '$audio')";
 		
 		check_sql($sql_addpost, $conn);
 		header("Location:index.php");
@@ -214,7 +214,7 @@ if(isset($_POST['video_sub'])) {
 		
 		//sql login
 		$sql_addpost = "INSERT INTO posts (postID, type, info)
-		VALUES (0, 3, '$video')";
+		VALUES (0, 'video', '$video')";
 		
 		check_sql($sql_addpost, $conn);
 		header("Location:index.php");
