@@ -62,7 +62,7 @@
 			<a>Audio </a><br>
 			<a>Video </a><br>
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
-			<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>
+			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
 		</div>
 		
 		<div id = "login">
@@ -151,14 +151,96 @@
 				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 
-				echo "<table>"; // start a table tag in the HTML
+				//echo "<table>"; // start a table tag in the HTML
 
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					echo "<tr><td>" . $row['info'];  //$row['index'] the index here is a field name
+					$printThis = $row['info'];
+					$typee = $row['type'];
+				?>
+					<?php
+						if($typee == 'link')
+						{
+							?>
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<tr>
+							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+
+							<tr>
+							<td bgcolor="#F8F7F1"><strong>LINK:</strong></td>
+							<td bgcolor="#F8F7F1">:</td>
+							<td bgcolor='#F8F7F1'><a href="<?php echo $printThis;?>"> Link </a></td> 
+							</tr>
+							 
+							</table></td>
+							</tr>
+							</table><br>
+						<?php
+						}
+						else if($typee == 'quote')
+						{
+							?>
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<tr>
+							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+
+							<tr>
+							<td bgcolor="#F8F7F1"><strong>QUOTE:</strong></td>
+							<td bgcolor="#F8F7F1">:</td>
+							<td bgcolor='#F8F7F1'><?php echo " \"" . $printThis . "\" "; ?></td>
+							</tr>
+
+							 
+							</table></td>
+							</tr>
+							</table><br>
+
+						<?php
+						}
+						else if($typee == 'chat')
+						{
+							?>
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<tr>
+							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+
+							<tr>
+							<td bgcolor="#F8F7F1"><strong>CHAT:</strong></td>
+							<td bgcolor="#F8F7F1">:</td>
+							<td bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
+							</tr>
+
+							 
+							</table></td>
+							</tr>
+							</table><br>
+
+							<?php
+						}
+						else
+						{
+							?>
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<tr>
+							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+
+							<tr>
+							<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
+							<td bgcolor="#F8F7F1">:</td>
+							<td bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
+							</tr>
+
+							 
+							</table></td>
+							</tr>
+							</table><br>
+				
+				
+						<?php
+						}
 				}
 
-				echo "</table>"
+				//echo "</table>";
 			?>
 		</div>
 		
