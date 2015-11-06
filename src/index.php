@@ -62,7 +62,7 @@
 			<a>Audio </a><br>
 			<a>Video </a><br>
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
-			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
+			<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>
 		</div>
 		
 		<div id = "login">
@@ -103,11 +103,6 @@
 				Last Name: <br>
 				<span class="error"> <?php ?></span>
 				<input type="text" id = "lnameAcc" name = "lname_enter"/>
-				<br>
-				
-				Nickname: <br>
-				<span class="error"> <?php ?></span>
-				<input type="text" id = "nicknameAcc" name = "nickname_enter"/>
 				<br>
 				
 				Gender: <br>
@@ -171,7 +166,7 @@
 			<form action="posts.php" method="post">
 			<div id = "quote">
 					Create QUOTE post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter"/>
+					<textarea rows="4" cols="50" name = "quote_enter"/></textarea> <br>
 					<br><br>
 					<input type="submit" value = "POST!" name =  "quote_sub"/>
 
@@ -180,7 +175,7 @@
 			<div id = "text">
 
 					Create TEXT post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "text_enter"/>
+					<textarea rows="4" cols="50" name = "text_enter"/></textarea> <br>
 					<br><br>
 					<input type="submit" value = "POST!" name = "text_sub"/>
 
@@ -196,7 +191,7 @@
 
 			<div id = "chat">
 					Create CHAT post:<br>
-					<input type="text" style="font-size:12pt;height:220px;width:200px;" name ="chat_enter"/>
+					<textarea rows="4" cols="50" name = "chat_enter"/></textarea> <br>
 					<br><br>
 					<input type="submit" value = "POST!" name = "chat_sub"/>
 
@@ -205,7 +200,7 @@
 		</div>
 		
 		<div id="profile">
-			<img id="profPic" src ="http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg"/>
+			<img id="profPic" src ="<?php get_ProfileInfo('photo')?>"/>
 			<p><b>Username:</b>
 			<?php get_ProfileInfo('username');?></p>
 			<p><b>Nickname:</b>
@@ -229,10 +224,10 @@
 				<input type="text" name = "nickname_update"/> <br>
 				
 				Update Interests: <br>
-				<input type="text" name = "interests_update"/> <br>
-				
+				<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
+
 				Update Blog Description: <br>
-				<input type="text" name = "blogdes_update"/> <br>
+				<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
 				
 				<input type ="submit" name = "update_profile" Value = "Update Profile"/>
 			</form>

@@ -125,7 +125,7 @@ if(isset($_POST['link_sub'])) {
 		$err_post += "Enter something! <br>";
 		$postsuccess = false;
 	} else {
-		$text = test_input($_POST["link_enter"]);
+		$link = test_input($_POST["link_enter"]);
 	}
 	
 	//create new login and profile if form success
