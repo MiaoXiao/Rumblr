@@ -105,6 +105,11 @@
 				<input type="text" id = "lnameAcc" name = "lname_enter"/>
 				<br>
 				
+				Nickname: <br>
+				<span class="error"> <?php ?></span>
+				<input type="text" id = "nicknameAcc" name = "nickname_enter"/>
+				<br>
+				
 				Gender: <br>
 				<span class="error"> <?php ?></span>
 				<input type="radio" id = "genderAcc" name = "sex"  value="Male"> Male
@@ -185,6 +190,8 @@
 			<img id="profPic" src ="http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg"/>
 			<p><b>Username:</b>
 			<?php get_ProfileInfo('username');?></p>
+			<p><b>Nickname:</b>
+			<?php get_ProfileInfo('nickname');?></p>
 			<p><b>Gender: </b>
 			<?php get_ProfileInfo('gender');?></p>
 			<p><b>Created: </b>
@@ -193,8 +200,24 @@
 			<?php get_ProfileInfo('birthday')?></p>
 			<P><b>Interests: </b> 
 			<?php get_ProfileInfo('interests')?></P>
-			<P><b>Description: </b> 
+			<P><b>Blog: Description: </b> 
 			<?php get_ProfileInfo('blogdesc')?></P>
+			
+			<form action="updateprofile.php" method="post">
+				Update Picture: <br>
+				<input type="text" name = "picture_update"/> <br>
+					
+				Update Nickname: <br>
+				<input type="text" name = "nickname_update"/> <br>
+				
+				Update Interests: <br>
+				<input type="text" name = "interests_update"/> <br>
+				
+				Update Blog Description: <br>
+				<input type="text" name = "blogdes_update"/> <br>
+				
+				<input type ="submit" name = "update_profile" Value = "Update Profile"/>
+			</form>
 		</div>
 	
 	</div>
