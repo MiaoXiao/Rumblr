@@ -59,7 +59,7 @@ if(isset($_POST['verifiedLogin']))
 			$_SESSION['SESS_USERNAME'] = $member['login'];
 			$_SESSION['SESS_PASSWORD'] = $member['password'];
 			//session_write_close();
-
+			echo '<script>check();</script>';
 			header("location: index.php");
 
 			exit();

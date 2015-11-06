@@ -21,6 +21,7 @@
 		<script src="handling.js"></script>
 		<?php //include 'connect.php';?>
 		<?php include 'createacc.php';?>
+		<?php //include 'posts.php';?>
 		<?php //include 'login.php';?>
 	</head>
 	<div id = "header">
@@ -130,42 +131,37 @@
 		<div id = "posts"></div>
 		
 		<div id = "posting">
-
+			<form action="posts.php" method="post">
 			<div id = "quote">
-				<form>
 					Create QUOTE post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter">
+					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "quote_enter"/>
 					<br><br>
-					<input type="submit" value = "POST!" name =  "quote_sub">
+					<input type="submit" value = "POST!" name =  "quote_sub"/>
 
-				</form>
 			</div>
 
 			<div id = "text">
-				<form>
+
 					Create TEXT post:<br>
-					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "text_enter">
+					<input type="text" style="font-size:12pt;height:120px;width:200px;" name = "text_enter"/>
 					<br><br>
-					<input type="submit" value = "POST!" name = "text_sub">
-				</form>
+					<input type="submit" value = "POST!" name = "text_sub"/>
+
 			</div>
 
 			<div id = "link">
-				<form>
 					Create LINK post:<br>
-					<input type = "text" name="type here" size = "50" name = "link_enter">
+					<input type = "text" size = "50" name = "link_enter"/>
 					<br><br>
-					<input type="submit" value = "POST!" name = "link_sub">
+					<input type="submit" value = "POST!" name = "link_sub"/>
 
-				</form>
 			</div>
 
 			<div id = "chat">
-				<form>
 					Create CHAT post:<br>
-					<input type="text" style="font-size:12pt;height:220px;width:200px;" name ="chat_enter">
+					<input type="text" style="font-size:12pt;height:220px;width:200px;" name ="chat_enter"/>
 					<br><br>
-					<input type="submit" value = "POST!" name = "chat_sub">
+					<input type="submit" value = "POST!" name = "chat_sub"/>
 
 				</form>
 			</div>
