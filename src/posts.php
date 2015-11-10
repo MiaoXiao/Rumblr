@@ -69,12 +69,13 @@ if(isset($_POST['text_sub'])) {
 }
 
 //photo field
-if(isset($_POST['photo_sub'])) {
-	if (empty($_POST["photo_enter"])) {
+if(isset($_POST['pic_sub'])) {
+	$postsuccess = true;
+	if (empty($_POST["pic_enter"])) {
 		$err_post += "Enter something! <br>";
 		$postsuccess = false;
 	} else {
-		$photo = test_input($_POST["photo_enter"]);
+		$photo = test_input($_POST["pic_enter"]);
 	}
 	//create new login and profile if form success
 	if ($postsuccess)
@@ -86,7 +87,7 @@ if(isset($_POST['photo_sub'])) {
 		$sql_addpost = "INSERT INTO posts (postID, type, info)
 		VALUES (0, 'photo', '$photo')";
 		
-		check_sql($sql_addpos, $conn);
+		check_sql($sql_addpost, $conn);
 		header("Location:index.php");
 	}
 }

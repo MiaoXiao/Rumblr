@@ -5,8 +5,8 @@
 
 	if(	isset($_SESSION['SESS_USERNAME']))
 	{
-		echo "I'm In";
-		echo "The current session is: " . session_id();
+		//echo "I'm In";
+		//echo "The current session is: " . session_id();
 	}
 	else
 	{
@@ -63,7 +63,7 @@
 			<a onclick = "post(6)">Video </a><br>
 			
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
-			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
+			<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>
 		</div>
 		
 		<div id = "login">
@@ -163,13 +163,12 @@
 						if($typee == 'link')
 						{
 							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
 							<tr>
-							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
 
 							<tr>
 							<td bgcolor="#F8F7F1"><strong>LINK:</strong></td>
-							<td bgcolor="#F8F7F1">:</td>
 							<td bgcolor='#F8F7F1'><a href="<?php echo $printThis;?>"> Link </a></td> 
 							</tr>
 							 
@@ -181,13 +180,12 @@
 						else if($typee == 'quote')
 						{
 							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
 							<tr>
-							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
 
 							<tr>
 							<td bgcolor="#F8F7F1"><strong>QUOTE:</strong></td>
-							<td bgcolor="#F8F7F1">:</td>
 							<td bgcolor='#F8F7F1'><?php echo " \"" . $printThis . "\" "; ?></td>
 							</tr>
 
@@ -201,14 +199,32 @@
 						else if($typee == 'chat')
 						{
 							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
 							<tr>
-							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
 
 							<tr>
 							<td bgcolor="#F8F7F1"><strong>CHAT:</strong></td>
-							<td bgcolor="#F8F7F1">:</td>
 							<td bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
+							</tr>
+
+							 
+							</table></td>
+							</tr>
+							</table><br>
+
+							<?php
+						}
+						else if($typee == 'photo')
+						{
+							?>
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
+							<tr>
+							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
+
+							<tr>
+							<td bgcolor="#F8F7F1"><strong>PHOTO:</strong></td>
+							<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $printThis; ?>"/></td>
 							</tr>
 
 							 
@@ -221,14 +237,13 @@
 						else
 						{
 							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
 							<tr>
-							<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
 
 							<tr>
 							<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
-							<td bgcolor="#F8F7F1">:</td>
-							<td bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
+							<td width="70%" bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
 							</tr>
 
 							 
@@ -278,7 +293,6 @@
 					<br><br>
 					<input type="submit" value = "POST!" name = "chat_sub"/>
 
-				</form>
 			</div>
 			
 			<div id = "photo">
@@ -287,7 +301,6 @@
 					<br><br>
 					<input type="submit" value = "POST!" name = "pic_sub"/>
 
-				</form>
 			</div>
 			<div id = "video">
 					Create VIDEO post:<br>
@@ -295,7 +308,6 @@
 					<br><br>
 					<input type="submit" value = "POST!" name = "vid_sub"/>
 
-				</form>
 			</div>
 			<div id = "audio">
 					Create AUDIO post:<br>
@@ -303,9 +315,9 @@
 					<br><br>
 					<input type="submit" value = "POST!" name = "chat_sub"/>
 
-				</form>
-			</div>
-			
+				
+				</div>
+			</form>
 		</div>
 		
 		<div id="profile">
@@ -322,7 +334,7 @@
 			<?php get_ProfileInfo('birthday')?></p>
 			<P><b>Interests: </b> 
 			<?php get_ProfileInfo('interests')?></P>
-			<P><b>Blog: Description: </b> 
+			<P><b>Blog Description: </b> 
 			<?php get_ProfileInfo('blogdesc')?></P>
 			
 			<form action="updateprofile.php" method="post">

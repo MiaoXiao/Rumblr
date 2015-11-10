@@ -100,7 +100,7 @@ if(isset($_POST['createacc'])) {
 		check_sql($sql_newacc, $conn);
 		
 		//default photo
-		$defphoto = "http://freethoughtblogs.com/lousycanuck/files/2014/05/hqdefault.jpg";
+		$defphoto = "http://s7d4.scene7.com/is/image/TrekBicycleProducts/default-no-image?wid=1490&hei=1080&fit=fit,1&fmt=png&qlt=80,1&op_usm=0,0,0,0&iccEmbed=0&bgc=240,240,240";
 		
 		//sql profile
 		$sql_newprofile = "INSERT INTO profile (lname, fname, gender, birthday, photo, username)
