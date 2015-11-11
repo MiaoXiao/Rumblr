@@ -7,67 +7,11 @@
 	{
 		//echo "I'm In";
 		//echo "The current session is: " . session_id();
+		//echo $_SESSION['SESS_AUDIO_FILE_PATH'];
 	}
 	else
 	{
 		echo session_status();
-	}
-
-	//----------------------------------------------------------------------------------------------------//
-	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
-	//----------------------------------------------------------------------------------------------------//
-	function posting($type_of_post, $toPrint) 
-	{
-
-			?>
-			<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-			<tr>
-			<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
-
-			<tr>
-
-			<?php if($type_of_post == 'photo')
-			{ ?>
-				<td bgcolor="#F8F7F1"><strong>PHOTO:</strong></td>
-				<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
-						<?php
-			}
-			else if ($type_of_post == 'link')
-			{
-			?>
-				<td bgcolor="#F8F7F1"><strong>LINK:</strong></td>
-				<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
-			<?php
-			}
-			else if ($type_of_post == 'quote')
-			{
-			?>
-				<td bgcolor="#F8F7F1"><strong>QUOTE:</strong></td>
-				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
-			<?php	
-			}
-			else if ($type_of_post == 'chat')
-			{
-			?>
-				<td bgcolor="#F8F7F1"><strong>CHAT:</strong></td>
-				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
-			<?php	
-			}
-			else
-			{
-			?>
-				<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
-				<td bgcolor='#F8F7F1'><?php echo $toPrint; ?></td>
-			<?php
-			}
-			?>
-
-			</tr>
-			</table></td>
-			</tr>
-			</table><br>
-
-			<?php
 	}
 
 ?>
@@ -79,7 +23,7 @@
 		<?php //include 'connect.php';?>
 		<?php include 'createacc.php';?>
 		<?php include 'updateprofile.php';?>
-		<?php //include 'posts.php';?>
+		<?php include 'posts.php';?>
 		<?php //include 'login.php';?>
 	</head>
 	<div id = "header">
@@ -275,13 +219,14 @@
 			</div>
 			<div id = "audio">
 					Create AUDIO post:<br>
-					<textarea rows="4" cols="50" name = "aud_enter"/></textarea> <br>
+					<textarea rows="4" cols="50" name = "audio_enter"/></textarea> <br>
 					<br><br>
-					<input type="submit" value = "POST!" name = "chat_sub"/>
+					<input type="submit" value = "POST!" name = "audio_sub"/>
 
 				
 				</div>
 			</form>
+
 		</div>
 		
 		<div id="profile">
