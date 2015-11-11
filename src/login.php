@@ -35,38 +35,39 @@ if(isset($_POST['verifiedLogin']))
 		$password1 = test_input($_POST["password"]);
 	}
 
-	$qry="SELECT * FROM login WHERE login='$login1' AND password='$password1'";
+	$qry="SELECT * FROM login WHERE login='$login1'";
 	$result = mysql_query($qry);
 
 	if($result) 
 	{
-		if(mysql_num_rows($result) > 0) 
+		if(mysql_num_rows($result) > 0)
 		{
-			//Login Successful
-			//session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
-			$_SESSION['SESS_LOGIN_ID'] = $member['loginID'];
-			$_SESSION['SESS_USERNAME'] = $member['login'];
-			$_SESSION['SESS_PASSWORD'] = $member['password'];
-			//session_write_close();
-			echo '<script>check();</script>';
-			header("location: index.php");
-
-			exit();
-		}
-		else 
-		{
-			//Login failed
-			echo "user name and info";
-			//$errmsg_arr[] = 'user name and password not found';
-			$errflag = true;
-			if($errflag) 
-			{
-				$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-				session_write_close();
+			// Hashing the password with its hash as the salt returns the same hash
+			if ( hash_equals($member['password'], crypt($password1, $member['password'])) ) {
+				//Login Successful
+				//session_regenerate_id();
+				$_SESSION['SESS_LOGIN_ID'] = $member['loginID'];
+				$_SESSION['SESS_USERNAME'] = $member['login'];
+				$_SESSION['SESS_PASSWORD'] = $member['password'];
+				//session_write_close();
+				echo '<script>check();</script>';
 				header("location: index.php");
+
 				exit();
 			}
+		}
+		
+		//Login failed
+		echo "user name and info";
+		//$errmsg_arr[] = 'user name and password not found';
+		$errflag = true;
+		if($errflag) 
+		{
+			$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+			session_write_close();
+			header("location: index.php");
+			exit();
 		}
 	}
 	else 

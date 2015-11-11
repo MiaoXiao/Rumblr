@@ -1,11 +1,13 @@
 <?php
-
 // define acc creation variables and set to empty values
 $acc_lname = $acc_fname = $acc_gender = $acc_birthday = $acc_nickname = $acc_username = $acc_login = $acc_password = $acc_vpassword = "";
 //error messages
 $err_username = $err_login = $err_password = $err_vpassword = "";
 //main error message
 $err_main = "";
+
+//default photo
+$defphoto = "http://s7d4.scene7.com/is/image/TrekBicycleProducts/default-no-image?wid=1490&hei=1080&fit=fit,1&fmt=png&qlt=80,1&op_usm=0,0,0,0&iccEmbed=0&bgc=240,240,240";
 
 if(isset($_POST['createacc'])) {
 	//set to false if there is an error in input
@@ -93,19 +95,25 @@ if(isset($_POST['createacc'])) {
 	{
 		$err_main = "Account created!";
 		
+		//PASSWORD ENCRYPTION
+		// A higher "cost" is more secure but consumes more processing power
+		$cost = 10;
+		// Create a random salt
+		$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+		// Prefix information about the hash so PHP knows how to verify it later.
+		// "$2a$" Means we're using the Blowfish algorithm. The following two digits are the cost parameter.
+		$salt = sprintf("$2a$%02d$", $cost) . $salt;
+		// Hash the password with the salt
+		$acc_password = crypt($acc_password, $salt);
+		
 		//sql login
 		$sql_newacc = "INSERT INTO login (login, password)
 		VALUES ('$acc_login', '$acc_password')";
-		
-		check_sql($sql_newacc, $conn);
-		
-		//default photo
-		$defphoto = "http://s7d4.scene7.com/is/image/TrekBicycleProducts/default-no-image?wid=1490&hei=1080&fit=fit,1&fmt=png&qlt=80,1&op_usm=0,0,0,0&iccEmbed=0&bgc=240,240,240";
+		check_sql($sql_newacc, $conn);	
 		
 		//sql profile
 		$sql_newprofile = "INSERT INTO profile (lname, fname, gender, birthday, photo, username)
 		VALUES ('$acc_lname', '$acc_fname', '$acc_gender', '$acc_birthday', '$defphoto', '$acc_username')";
-		
 		check_sql($sql_newprofile, $conn);
 		
 		header("Location:index.php");
