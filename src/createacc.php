@@ -13,17 +13,27 @@ if(isset($_POST['createacc'])) {
 	//set to false if there is an error in input
 	$formsuccess = true;
 	
-	/*
-	//check username input
-	$temp_username = $_POST["username_enter"];
-	$checkusername = "SELECT username FROM profile WHERE username = '$temp_username'";
+	//if username already exists, do not create account
+	$query = "SELECT * from profile";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
+	{
+		if ($row['username'] == $_POST["username_enter"])
+		{
+			$formsuccess = false;
+		}
+	}
 	
-	check_sql($checkusername, $conn);*/
-	
-	/*
-	if($checkusername) $numrows = mysql_num_rows($checkusername);
-	else die("error with finding username: " . mysql_error());*/
-	
+	//if login already exists, do not create account
+	$query = "SELECT * from login";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
+	{
+		if ($row['login'] == $_POST["login_enter"])
+		{
+			$formsuccess = false;
+		}
+	}
 
 	if (empty($_POST["username_enter"])) {
 		//echo "login1";
@@ -35,7 +45,6 @@ if(isset($_POST['createacc'])) {
 	
 	//check login input
 	$temp_login = $_POST["login_enter"];
-	//$checklogin = mysql_query("SELECT * FROM login WHERE login = '$temp_un'");
 	if (empty($temp_login)) {
 		//echo "login2";
 		$err_main += "A login is required! <br>";

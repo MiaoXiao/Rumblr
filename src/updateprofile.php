@@ -1,8 +1,6 @@
 <?php
 require_once('connect.php');
 
-
-
 function get_ProfileInfo($info)
 {
 	//echo $_SESSION['SESS_USERNAME'];
@@ -17,7 +15,6 @@ function get_ProfileInfo($info)
 		}
 	}
 }
-
 
 function return_ProfileInfo($info)
 {
@@ -40,13 +37,7 @@ $newpicture = $newnickname = $newinterests = $newblogdesc = "";
 if(isset($_POST['update_profile'])) {
 	
 	session_start();
-	//session_start();
-	//session_id();
-	//echo $_SESSION['SESS_USERNAME'];
 	$sessionid = $_SESSION['SESS_LOGIN_ID'];
-	//$_SESSION['SESS_LOGIN_ID'] = 2;
-	//$sessionid = 2;
-	//set vaars to preexisting data from table
 	
 	if (empty($_POST["picture_update"])) $newpicture = return_ProfileInfo('photo');
 	else $newpicture = test_input($_POST["picture_update"]);
