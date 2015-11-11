@@ -8,6 +8,7 @@ $err_main = "";
 
 //default photo
 $defphoto = "http://s7d4.scene7.com/is/image/TrekBicycleProducts/default-no-image?wid=1490&hei=1080&fit=fit,1&fmt=png&qlt=80,1&op_usm=0,0,0,0&iccEmbed=0&bgc=240,240,240";
+$defprivacy = "Open";
 
 if(isset($_POST['createacc'])) {
 	//set to false if there is an error in input
@@ -121,8 +122,8 @@ if(isset($_POST['createacc'])) {
 		check_sql($sql_newacc, $conn);	
 		
 		//sql profile
-		$sql_newprofile = "INSERT INTO profile (lname, fname, gender, birthday, photo, username)
-		VALUES ('$acc_lname', '$acc_fname', '$acc_gender', '$acc_birthday', '$defphoto', '$acc_username')";
+		$sql_newprofile = "INSERT INTO profile (lname, fname, gender, birthday, photo, privacy, username)
+		VALUES ('$acc_lname', '$acc_fname', '$acc_gender', '$acc_birthday', '$defphoto', '$defprivacy', '$acc_username')";
 		check_sql($sql_newprofile, $conn);
 		
 		header("Location:index.php");

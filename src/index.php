@@ -66,6 +66,7 @@
 			
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
 			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
+			<!--<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>-->
 		</div>
 		
 		<div id = "login">
@@ -146,16 +147,10 @@
 		</div>
 		
 		<div id = "posts">
-
 			<?php	
-
 				require_once('connect.php');
-
 				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
-
-				//echo "<table>"; // start a table tag in the HTML
-
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
 					$printThis = $row['info'];
@@ -163,7 +158,6 @@
 
 					//created the function for it
 					posting($typee, $printThis);
-
 				}
 				?>
 		</div>
@@ -245,6 +239,8 @@
 			<?php get_ProfileInfo('interests')?></P>
 			<P><b>Blog Description: </b> 
 			<?php get_ProfileInfo('blogdesc')?></P>
+			<P><b>Blog Privacy: </b> 
+			<?php get_ProfileInfo('privacy')?></P>
 			
 			<form action="updateprofile.php" method="post">
 				Update Picture: <br>
@@ -258,6 +254,14 @@
 
 				Update Blog Description: <br>
 				<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
+				
+				Update Blog Privacy: <br>
+				<select name="privacy_update">
+					<option value="Select">Select...</option>
+					<option value="Open">Open</option>
+					<option value="Friends Only">Friends Only</option>
+					<option value="Private">Private</option>
+				</select><br>
 				
 				<input type ="submit" name = "update_profile" Value = "Update Profile"/>
 			</form>

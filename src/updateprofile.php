@@ -31,7 +31,7 @@ function return_ProfileInfo($info)
 	}
 }
 
-$newpicture = $newnickname = $newinterests = $newblogdesc = "";
+$newpicture = $newnickname = $newinterests = $newblogdesc = $newprivacy = "";
 
 //text field
 if(isset($_POST['update_profile'])) {
@@ -47,10 +47,11 @@ if(isset($_POST['update_profile'])) {
 	else $newinterests = test_input($_POST["interests_update"]);
 	if (empty($_POST["blogdes_update"])) $newblogdesc = return_ProfileInfo('blogdesc');
 	else $newblogdesc = test_input($_POST["blogdes_update"]);
-
+	if ($_POST["privacy_update"] == "Select") $newprivacy = return_ProfileInfo('privacy');
+	else $newprivacy = test_input($_POST["privacy_update"]);
 	//$sessionid = $_SESSION['SESS_LOGIN_ID'];
 	//sql update profile
-	$sql_addpost = "UPDATE profile SET nickname = '$newnickname', photo = '$newpicture', interests = '$newinterests', blogdesc = '$newblogdesc' WHERE profileID =  '$sessionid' ";
+	$sql_addpost = "UPDATE profile SET nickname = '$newnickname', photo = '$newpicture', interests = '$newinterests', privacy = '$newprivacy', blogdesc = '$newblogdesc' WHERE profileID =  '$sessionid' ";
 	
 	echo $sql_addpost;
 	
