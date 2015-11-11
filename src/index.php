@@ -12,6 +12,64 @@
 	{
 		echo session_status();
 	}
+
+	//----------------------------------------------------------------------------------------------------//
+	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
+	//----------------------------------------------------------------------------------------------------//
+	function posting($type_of_post, $toPrint) 
+	{
+
+			?>
+			<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
+			<tr>
+			<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
+
+			<tr>
+
+			<?php if($type_of_post == 'photo')
+			{ ?>
+				<td bgcolor="#F8F7F1"><strong>PHOTO:</strong></td>
+				<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
+						<?php
+			}
+			else if ($type_of_post == 'link')
+			{
+			?>
+				<td bgcolor="#F8F7F1"><strong>LINK:</strong></td>
+				<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
+			<?php
+			}
+			else if ($type_of_post == 'quote')
+			{
+			?>
+				<td bgcolor="#F8F7F1"><strong>QUOTE:</strong></td>
+				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
+			<?php	
+			}
+			else if ($type_of_post == 'chat')
+			{
+			?>
+				<td bgcolor="#F8F7F1"><strong>CHAT:</strong></td>
+				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
+			<?php	
+			}
+			else
+			{
+			?>
+				<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
+				<td bgcolor='#F8F7F1'><?php echo $toPrint; ?></td>
+			<?php
+			}
+			?>
+
+			</tr>
+			</table></td>
+			</tr>
+			</table><br>
+
+			<?php
+	}
+
 ?>
 <html>
 <body style="background-color:DarkCyan">
@@ -63,7 +121,7 @@
 			<a onclick = "post(6)">Video </a><br>
 			
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
-			<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>
+			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
 		</div>
 		
 		<div id = "login">
@@ -158,106 +216,12 @@
 				{   //Creates a loop to loop through results
 					$printThis = $row['info'];
 					$typee = $row['type'];
-				?>
-					<?php
-						if($typee == 'link')
-						{
-							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-							<tr>
-							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
 
-							<tr>
-							<td bgcolor="#F8F7F1"><strong>LINK:</strong></td>
-							<td bgcolor='#F8F7F1'><a href="<?php echo $printThis;?>"> Link </a></td> 
-							</tr>
-							 
-							</table></td>
-							</tr>
-							</table><br>
-						<?php
-						}
-						else if($typee == 'quote')
-						{
-							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-							<tr>
-							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
+					//created the function for it
+					posting($typee, $printThis);
 
-							<tr>
-							<td bgcolor="#F8F7F1"><strong>QUOTE:</strong></td>
-							<td bgcolor='#F8F7F1'><?php echo " \"" . $printThis . "\" "; ?></td>
-							</tr>
-
-							 
-							</table></td>
-							</tr>
-							</table><br>
-
-						<?php
-						}
-						else if($typee == 'chat')
-						{
-							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-							<tr>
-							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
-
-							<tr>
-							<td bgcolor="#F8F7F1"><strong>CHAT:</strong></td>
-							<td bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
-							</tr>
-
-							 
-							</table></td>
-							</tr>
-							</table><br>
-
-							<?php
-						}
-						else if($typee == 'photo')
-						{
-							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-							<tr>
-							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
-
-							<tr>
-							<td bgcolor="#F8F7F1"><strong>PHOTO:</strong></td>
-							<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $printThis; ?>"/></td>
-							</tr>
-
-							 
-							</table></td>
-							</tr>
-							</table><br>
-
-							<?php
-						}
-						else
-						{
-							?>
-							<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-							<tr>
-							<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
-
-							<tr>
-							<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
-							<td width="70%" bgcolor='#F8F7F1'><?php echo $printThis; ?></td>
-							</tr>
-
-							 
-							</table></td>
-							</tr>
-							</table><br>
-				
-				
-						<?php
-						}
 				}
-
-				//echo "</table>";
-			?>
+				?>
 		</div>
 		
 		<div id = "posting">

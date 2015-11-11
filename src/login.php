@@ -7,16 +7,6 @@ session_start();
 //connect to the database
 require_once('connect.php');
 
-//WHY?!
-function test_input1($data) 
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-
-  return $data;
-}
-
 //if logged in then do stuff
 if(isset($_POST['verifiedLogin'])) 
 {
@@ -29,7 +19,7 @@ if(isset($_POST['verifiedLogin']))
 	} 
 	else 
 	{
-		$login1 = test_input1($_POST["login"]);
+		$login1 = test_input($_POST["login"]);
 		echo "I' passed login";
 	}
 
@@ -42,7 +32,7 @@ if(isset($_POST['verifiedLogin']))
 	} 
 	else 
 	{
-		$password1 = test_input1($_POST["password"]);
+		$password1 = test_input($_POST["password"]);
 	}
 
 	$qry="SELECT * FROM login WHERE login='$login1' AND password='$password1'";
