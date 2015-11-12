@@ -153,11 +153,30 @@
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$printThis = $row['info'];
-					$typee = $row['type'];
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileQ = mysql_query($profileInfo);
 
-					//created the function for it
-					posting($typee, $printThis);
+					//check if this is valid
+					if($profileQ)
+					{
+						if(mysql_num_rows($profileQ) > 0)
+						{
+								$getProfile = mysql_fetch_assoc($profileQ);
+								$printThis = $row['info'];
+								$typee = $row['type'];
+								$username = $getProfile['username'];
+								$privacy = $getProfile['privacy'];
+								$postTime = $row['timestamp'];
+
+								//created the function for it
+								posting($typee, $printThis, $username, $privacy, $postTime);
+						}
+					}
+					else
+					{
+						echo "ERROR IN POSTING";
+					}
+
 				}
 				?>
 		</div>

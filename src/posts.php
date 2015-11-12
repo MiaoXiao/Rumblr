@@ -50,7 +50,7 @@ require_once('connect.php');
 	//----------------------------------------------------------------------------------------------------//
 	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
 	//----------------------------------------------------------------------------------------------------//
-	function posting($type_of_post, $toPrint) 
+	function posting($type_of_post, $toPrint, $username, $privacy, $timePosted) 
 	{
 
 			?>
@@ -113,6 +113,8 @@ require_once('connect.php');
 			{
 			?>
 				<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
+				<td bgcolor="#F8F7F1"><strong><?php echo $username;?>:</strong></td>
+				<td bgcolor="#F8F7F1"><strong><?php echo $timePosted;?>:</strong></td>
 				<td bgcolor='#F8F7F1'><?php echo $toPrint; ?></td>
 			<?php
 			}
