@@ -98,6 +98,17 @@ require_once('connect.php');
 				</audio>
 			<?php	
 			}
+			else if ($type_of_post == 'video')
+			{
+			?>
+				<td bgcolor="#F8F7F1"><strong>Video:</strong></td>
+				<video width="320" height="240" controls>
+				  <source src="<?php echo $toPrint;?>" type="video/mp4">
+				  <source src="<?php echo $toPrint;?>" type="video/ogg">
+				Your browser does not support the video tag.
+				</video>
+			<?php	
+			}
 			else
 			{
 			?>
@@ -271,14 +282,27 @@ if(isset($_POST['audio_sub'])) {
 }
 
 //video field
-if(isset($_POST['video_sub'])) {
+if(isset($_POST['vid_sub'])) {
 	$postsuccess = true;
 	
-	if (empty($_POST["video_enter"])) {
+	if (empty($_POST["vid_enter"])) {
 		$err_post += "Enter something! <br>";
 		$postsuccess = false;
 	} else {
-		$video = test_input($_POST["video_enter"]);
+		$video = test_input($_POST["vid_enter"]);
+		//$equal = "=";
+		
+		//$position = stripos($video,$equal);
+		
+		//if($position){
+		//	$offset = $position + 1;
+		//	$Parse = substr($video,$offset,$offset);
+		//}
+		//else{
+		//	$err_post = "Incorrect video link!<br>";
+		//	//$postsuccess = false;
+		//}
+		//$total="http://www.youtube.com/embed/".$Parse;
 	}
 	
 	//create new login and profile if form success
