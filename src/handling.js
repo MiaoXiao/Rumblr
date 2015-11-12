@@ -1,5 +1,6 @@
 
 function hide(enter){
+	document.getElementById("upProf").style.visibility = "hidden";
 	if(enter == 0){
 		document.getElementById("login").style.visibility = "visible";
 	}else{
@@ -29,13 +30,29 @@ function hide(enter){
 		document.getElementById("posting").style.visibility = "hidden";
 	}
 	if(enter == 3) {
+		document.getElementById("profHolder").style.visibility = "visible";
 		document.getElementById("profile").style.visibility = "visible";
+		document.getElementById("upProf").style.visibility = "hidden";
 	}else{
+		document.getElementById("profHolder").style.visibility = "hidden";
 		document.getElementById("profile").style.visibility = "hidden";
-}}
+	}
+}
 
 function logout(){
 	location.reload();
+}
+
+function showUpdate(enter)
+{
+	if(enter == 0) {
+		document.getElementById("upProf").style.visibility = "visible";
+		document.getElementById("profile").style.visibility = "hidden";
+	}else{
+		document.getElementById("upProf").style.visibility = "hidden";
+		document.getElementById("profile").style.visibility = "visible";
+	}
+	
 }
 
 
