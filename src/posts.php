@@ -102,11 +102,9 @@ require_once('connect.php');
 			{
 			?>
 				<td bgcolor="#F8F7F1"><strong>Video:</strong></td>
-				<video width="320" height="240" controls>
-				  <source src="<?php echo $toPrint;?>" type="video/mp4">
-				  <source src="<?php echo $toPrint;?>" type="video/ogg">
-				Your browser does not support the video tag.
-				</video>
+				<iframe width="420" height="315"
+				src="<?php echo $toPrint; ?>">
+				</iframe>
 			<?php	
 			}
 			else
@@ -292,19 +290,19 @@ if(isset($_POST['vid_sub'])) {
 		$postsuccess = false;
 	} else {
 		$video = test_input($_POST["vid_enter"]);
-		//$equal = "=";
+		$equal = "=";
 		
-		//$position = stripos($video,$equal);
+		$position = stripos($video,$equal);
 		
-		//if($position){
-		//	$offset = $position + 1;
-		//	$Parse = substr($video,$offset,$offset);
-		//}
-		//else{
-		//	$err_post = "Incorrect video link!<br>";
-		//	//$postsuccess = false;
-		//}
-		//$total="http://www.youtube.com/embed/".$Parse;
+		if($position){
+			$offset = $position + 1;
+			$Parse = substr($video,$offset,$offset);
+		}
+		else{
+			$err_post = "Incorrect video link!<br>";
+			//$postsuccess = false;
+		}
+		$total="http://www.youtube.com/embed/".$Parse;
 	}
 	
 	//create new login and profile if form success
@@ -315,7 +313,7 @@ if(isset($_POST['vid_sub'])) {
 		
 		//sql login
 		$sql_addpost = "INSERT INTO posts (postID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'video', '$video')";
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'video', '$total')";
 		
 		check_sql($sql_addpost, $conn);
 		header("Location:index.php");
