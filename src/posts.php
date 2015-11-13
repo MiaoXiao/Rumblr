@@ -16,7 +16,7 @@ require_once('connect.php');
 	{
 
 			?>
-			<table width="600" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1F9CA1">
+			<table width="75%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1F9CA1">
 			<tr>
 			<td><table width="50%" border="0" cellpadding="1" cellspacing="1" bgcolor="#1F9CA1">
 

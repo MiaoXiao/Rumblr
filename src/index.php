@@ -169,9 +169,21 @@
 								$postTime = strtotime($row['timestamp']);
 								$date = date('m-d-Y', $postTime);
 								$time = date('h:i:s:a', $postTime);
+								$privacy = $getProfile['privacy'];
 
 								//created the function for it
-								posting($typee, $printThis, $username, $privacy, $date, $time);
+								if($privacy == 'Open')
+								{
+									posting($typee, $printThis, $username, $privacy, $date, $time);
+								}
+								else if($privacy == 'Private')
+								{
+									//do nothing
+								}
+								else if($privacy == 'Friends Only')
+								{
+									//do nothing
+								}
 						}
 					}
 					else
