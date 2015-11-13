@@ -17,7 +17,7 @@ function hide(enter){
 	}else{
 		document.getElementById("posts").style.visibility = "hidden";
 	}
-	if(enter == 2 || enter == 3)
+	if(enter == 2 || enter == 3 || enter == 4)
 	{
 		document.getElementById("navi").style.visibility = "visible";
 		document.getElementById("postBar").style.visibility = "visible";
@@ -37,6 +37,14 @@ function hide(enter){
 		document.getElementById("profHolder").style.visibility = "hidden";
 		document.getElementById("profile").style.visibility = "hidden";
 	}
+	if (enter == 4) {
+		document.getElementById("messageHolder").style.visibility = "visible";
+		document.getElementById("displayMsg").style.visibility = "visible";
+		document.getElementById("createMsg").style.visibility = "hidden";
+	}else
+		document.getElementById("messageHolder").style.visibility = "hidden";
+		document.getElementById("displayMsg").style.visibility = "hidden";
+	}	
 }
 
 function logout(){
@@ -54,6 +62,19 @@ function showUpdate(enter)
 	}
 	
 }
+
+function showCreateMsg(enter)
+{
+	if(enter == 0) {
+		document.getElementById("createMsg").style.visibility = "visible";
+		document.getElementById("displayMsg").style.visibility = "hidden";
+	}else{
+		document.getElementById("createMsg").style.visibility = "hidden";
+		document.getElementById("displayMsg").style.visibility = "visible";
+	}
+
+}
+
 
 function createText(){
 	var post = document.createElement("div");

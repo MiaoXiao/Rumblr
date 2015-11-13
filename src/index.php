@@ -39,7 +39,7 @@
 				<a onclick = "hide(3)"> Profile </a>
 			</div>
 			<div class = "topSelect">
-				<a href="http://www.w3schools.com"> Inbox </a>
+				<a onclick = "hide(4)"> Inbox </a>
 			</div>
 			<div class = "topSelect">
 				<a href="http://www.w3schools.com"> Settings </a>
@@ -254,6 +254,28 @@
 				</div>
 			</form>
 
+		</div>
+		<div id = "messageHolder">
+			<div id = "displayMes">	
+				<p> Here are your messages </p> <br><br>
+				<button type="button" onclick = "showCreateMsg(0)">New Message</button>
+			</div>
+			
+			<div id = "createMsg">
+			Select a friend: <br>
+				<select>
+  				<option value="friend1">friend1</option>
+  				<option value="friend2">friend2</option>
+  				<option value="friend3">friend3</option>
+  				<option value="friend4">friend4</option>
+			</select> <br>
+			Create new message: <br>
+					<textarea rows="4" cols="50" name = "text_enter"/></textarea> <br>
+					<br><br>
+					<input type="submit" value = "SEND" name = "text_sub"/>
+
+			
+			</div>
 		</div>
 		
 		<div id = "profHolder">

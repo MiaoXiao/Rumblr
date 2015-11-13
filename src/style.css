@@ -160,6 +160,34 @@ a:active {
   visibility:hidden; 
 }
 
+
+#messageHolder{
+	background-color:CadetBlue;
+	padding: 1%;
+	position:absolute;
+	margin-top:1%;
+	margin-left:13.5%;
+    width:40%;
+    float:left;
+    text-align:left;
+	visibility:hidden;
+}
+
+#displayMsg {
+	padding: 1%;
+	position:relative;
+    float:left;
+    text-align:left;
+	visibility:hidden;
+}
+
+#createMsg {
+	position:absolute;
+    float:left;
+    text-align:left;
+	visibility:hidden;
+}
+
 #chat{
    color:black;
    background-color:DarkCyan;
