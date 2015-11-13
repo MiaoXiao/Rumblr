@@ -8,6 +8,7 @@
 		//echo "I'm In";
 		//echo "The current session is: " . session_id();
 		//echo $_SESSION['SESS_AUDIO_FILE_PATH'];
+		//echo $_SESSION['SESS_ACTUAL_USER'];
 	}
 	else
 	{
@@ -64,7 +65,7 @@
 			<a onclick = "post(5)">Audio </a><br>
 			<a onclick = "post(6)">Video </a><br>
 			
-			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a><br>
+			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a><br>
 			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
 			<!--<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>-->
 		</div>
@@ -89,7 +90,7 @@
 			{
 			?>
 					You have successfully logged in!<br>
-					Welcome <?php echo $_SESSION["SESS_USERNAME"]; ?> ! <br>
+					Welcome <?php echo $_SESSION['SESS_ACTUAL_USER']; ?> ! <br>
 					<button type="button" onclick="hide(2)">Continue</button>
 				<?php
 			}
@@ -155,7 +156,6 @@
 				{   //Creates a loop to loop through results
 					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
 					$profileQ = mysql_query($profileInfo);
-
 					//check if this is valid
 					if($profileQ)
 					{
@@ -176,7 +176,7 @@
 								{
 									posting($typee, $printThis, $username, $privacy, $date, $time);
 								}
-								else if($privacy == 'Private')
+								else if($privacy == 'Private' && $username != $_SESSION['SESS_ACTUAL_USER'])
 								{
 									//do nothing
 								}

@@ -47,13 +47,19 @@ if(isset($_POST['verifiedLogin']))
 			if ( hash_equals($member['password'], crypt($password1, $member['password'])) ) {
 				//Login Successful
 				//session_regenerate_id();
-				$_SESSION['SESS_LOGIN_ID'] = $member['loginID'];
-				$_SESSION['SESS_USERNAME'] = $member['login'];
-				$_SESSION['SESS_PASSWORD'] = $member['password'];
-				//session_write_close();
-				echo '<script>check();</script>';
-				header("location: index.php");
-
+				$profileInfo= "SELECT * FROM profile WHERE profileID='$member[loginID]'";
+				$profileQ = mysql_query($profileInfo);
+				if($profileQ)
+				{
+					$getProfile = mysql_fetch_assoc($profileQ);
+					$_SESSION['SESS_LOGIN_ID'] = $member['loginID'];
+					$_SESSION['SESS_USERNAME'] = $member['login'];
+					$_SESSION['SESS_PASSWORD'] = $member['password'];
+					$_SESSION['SESS_ACTUAL_USER'] = $getProfile['username'];
+					//session_write_close();
+					//echo '<script>check();</script>';
+					header("location: index.php");
+				}
 				exit();
 			}
 		}

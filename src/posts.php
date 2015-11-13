@@ -1,3 +1,5 @@
+
+
 <?php
 
 session_write_close();
@@ -24,35 +26,35 @@ require_once('connect.php');
 
 			<?php if($type_of_post == 'photo')
 			{ ?>
-				<td bgcolor="#1F9CA1"><strong>PHOTO: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>PHOTO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
 						<?php
 			}
 			else if ($type_of_post == 'link')
 			{
 			?>
-				<td bgcolor="#1F9CA1"><strong>LINK: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>LINK: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
 			<?php
 			}
 			else if ($type_of_post == 'quote')
 			{
 			?>
-				<td bgcolor="#1F9CA1"><strong>QUOTE: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>QUOTE: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
 			<?php	
 			}
 			else if ($type_of_post == 'chat')
 			{
 			?>
-				<td bgcolor="#1F9CA1"><strong>CHAT: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>CHAT: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
 			<?php	
 			}
 			else if ($type_of_post == 'audio')
 			{
 			?>
-				<td bgcolor="#1F9CA1"><strong>AUDIO: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>AUDIO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<audio controls>
 				  <source src="<?php echo $toPrint;?>" type="audio/ogg">
 				  <source src="<?php echo $toPrint;?>" type="audio/mpeg">
@@ -63,7 +65,7 @@ require_once('connect.php');
 			else if ($type_of_post == 'video')
 			{
 			?>
-				<td bgcolor="#1F9CA1"><strong>VIDEO: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>VIDEO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<iframe width="420" height="315"
 				src="<?php echo $toPrint; ?>">
 				</iframe>
@@ -72,7 +74,7 @@ require_once('connect.php');
 			else
 			{
 			?>
-				<td bgcolor="#1F9CA1"><strong>TEXT: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor="#1F9CA1"><strong>TEXT: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#1F9CA1'><?php echo $toPrint; ?></td>
 			<?php
 			}
@@ -224,7 +226,6 @@ if(isset($_POST['audio_sub'])) {
 		$audio = test_input($_POST["audio_enter"]);
 	}
 	
-	echo "I'm here";
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
