@@ -160,6 +160,11 @@ a:active {
   visibility:hidden; 
 }
 
+#searchBar{
+	visibility:hidden;
+	margin-left:1%;
+}
+
 
 #messageHolder{
 	background-color:CadetBlue;

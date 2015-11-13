@@ -20,11 +20,13 @@ function hide(enter){
 	if(enter == 2 || enter == 3 || enter == 4)
 	{
 		document.getElementById("navi").style.visibility = "visible";
+		document.getElementById("searchBar").style.visibility = "visible";
 		document.getElementById("postBar").style.visibility = "visible";
 		document.getElementById("posting").style.visibility = "visible";
 	}
 	else
 	{
+		document.getElementById("searchBar").style.visibility = "hidden";
 		document.getElementById("navi").style.visibility = "hidden";
 		document.getElementById("postBar").style.visibility = "hidden";
 		document.getElementById("posting").style.visibility = "hidden";

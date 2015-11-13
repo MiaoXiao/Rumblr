@@ -48,6 +48,18 @@
 	<br>
 	
 	<div id = "Body">
+		
+	<div class="row" id = "searchBar">
+	  <div class="col-lg-6">
+		<div class="input-group">
+		  <input type="text" class="form-control" placeholder="Search for...">
+		  <span class="input-group-btn">
+			<button class="btn btn-default" type="button">Go!</button>
+		  </span>
+		</div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	</div><!-- /.row -->
+		
 		<div id = "postBar">
 			<a onclick = "post(0)">Text</a><br>
 
@@ -270,6 +282,7 @@
 					<textarea rows="4" cols="50" name = "text_enter"/></textarea> <br>
 					<br><br>
 					<input type="submit" value = "SEND" name = "text_sub"/>
+					<button type="button" onclick = "showCreateMsg(1)">Cancel</button>
 
 			
 			</div>
