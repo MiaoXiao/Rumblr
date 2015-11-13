@@ -18,6 +18,20 @@ $bd = mysql_connect($servername, $username, $password)
 	or die("Could not connect database");
 	mysql_select_db($dbname, $bd) or die("Could not select database");
 
+//return user name based off id
+function returnUser($id)
+{
+	$query = "SELECT * from profile";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
+	{
+		if ($row['profileID'] == $id)
+		{
+			return $row['username'];
+		}
+	}
+}
+
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
