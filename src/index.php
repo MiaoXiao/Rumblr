@@ -41,9 +41,6 @@
 			<div class = "topSelect">
 				<a onclick = "hide(4)"> Inbox </a>
 			</div>
-			<div class = "topSelect">
-				<a href="http://www.w3schools.com"> Settings </a>
-			</div>	
 		</div>
 	</div>
 	<br>
@@ -256,7 +253,7 @@
 
 		</div>
 		<div id = "messageHolder">
-			<div id = "displayMes">	
+			<div id = "displayMsg">	
 				<p> Here are your messages </p> <br><br>
 				<button type="button" onclick = "showCreateMsg(0)">New Message</button>
 			</div>

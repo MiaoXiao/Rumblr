@@ -41,7 +41,7 @@ function hide(enter){
 		document.getElementById("messageHolder").style.visibility = "visible";
 		document.getElementById("displayMsg").style.visibility = "visible";
 		document.getElementById("createMsg").style.visibility = "hidden";
-	}else
+	}else{
 		document.getElementById("messageHolder").style.visibility = "hidden";
 		document.getElementById("displayMsg").style.visibility = "hidden";
 	}	
