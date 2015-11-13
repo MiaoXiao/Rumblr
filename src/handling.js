@@ -55,7 +55,6 @@ function showUpdate(enter)
 	
 }
 
-
 function createText(){
 	var post = document.createElement("div");
     var desc = document.createElement("P");
