@@ -166,10 +166,12 @@
 								$typee = $row['type'];
 								$username = $getProfile['username'];
 								$privacy = $getProfile['privacy'];
-								$postTime = $row['timestamp'];
+								$postTime = strtotime($row['timestamp']);
+								$date = date('m-d-Y', $postTime);
+								$time = date('h:i:s:a', $postTime);
 
 								//created the function for it
-								posting($typee, $printThis, $username, $privacy, $postTime);
+								posting($typee, $printThis, $username, $privacy, $date, $time);
 						}
 					}
 					else
@@ -241,54 +243,50 @@
 			</form>
 
 		</div>
-		<div id = "profHolder">
-			<div id="profile">
-				<img id="profPic" src ="<?php get_ProfileInfo('photo')?>"/>
-				<p><b>Username:</b>
-				<?php get_ProfileInfo('username');?></p>
-				<p><b>Nickname:</b>
-				<?php get_ProfileInfo('nickname');?></p>
-				<p><b>Gender: </b>
-				<?php get_ProfileInfo('gender');?></p>
-				<p><b>Created: </b>
-				<?php get_ProfileInfo('profilecreation')?></p>
-				<p><b>Date of Birth: </b>
-				<?php get_ProfileInfo('birthday')?></p>
-				<P><b>Interests: </b> 
-				<?php get_ProfileInfo('interests')?></P>
-				<P><b>Blog Description: </b> 
-				<?php get_ProfileInfo('blogdesc')?></P>
-				<P><b>Blog Privacy: </b> 
-				<?php get_ProfileInfo('privacy')?></P>
-				<button type="button" onclick = "showUpdate(0)">Update Profile</button>
-			</div>
 		
-			<div id = "upProf">
-				<form action="updateprofile.php" method="post">
-					Update Picture: <br>
-					<input type="text" name = "picture_update"/> <br>
-						
-					Update Nickname: <br>
-					<input type="text" name = "nickname_update"/> <br>
+		<div id="profile">
+			<img id="profPic" src ="<?php get_ProfileInfo('photo')?>"/>
+			<p><b>Username:</b>
+			<?php get_ProfileInfo('username');?></p>
+			<p><b>Nickname:</b>
+			<?php get_ProfileInfo('nickname');?></p>
+			<p><b>Gender: </b>
+			<?php get_ProfileInfo('gender');?></p>
+			<p><b>Created: </b>
+			<?php get_ProfileInfo('profilecreation')?></p>
+			<p><b>Date of Birth: </b>
+			<?php get_ProfileInfo('birthday')?></p>
+			<P><b>Interests: </b> 
+			<?php get_ProfileInfo('interests')?></P>
+			<P><b>Blog Description: </b> 
+			<?php get_ProfileInfo('blogdesc')?></P>
+			<P><b>Blog Privacy: </b> 
+			<?php get_ProfileInfo('privacy')?></P>
+			
+			<form action="updateprofile.php" method="post">
+				Update Picture: <br>
+				<input type="text" name = "picture_update"/> <br>
 					
-					Update Interests: <br>
-					<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
+				Update Nickname: <br>
+				<input type="text" name = "nickname_update"/> <br>
+				
+				Update Interests: <br>
+				<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
 
-					Update Blog Description: <br>
-					<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
-					
-					Update Blog Privacy: <br>
-					<select name="privacy_update">
-						<option value="Select">Select...</option>
-						<option value="Open">Open</option>
-						<option value="Friends Only">Friends Only</option>
-						<option value="Private">Private</option>
-					</select><br>
-					
-					<input type ="submit" name = "update_profile" Value = "Update Profile"/>
-					<button type="button" onclick = "showUpdate(1)">Cancel</button>
-				</form>
-			</div>
+				Update Blog Description: <br>
+				<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
+				
+				Update Blog Privacy: <br>
+				<select name="privacy_update">
+					<option value="Select">Select...</option>
+					<option value="Open">Open</option>
+					<option value="Friends Only">Friends Only</option>
+					<option value="Private">Private</option>
+				</select><br>
+				
+				<input type ="submit" name = "update_profile" Value = "Update Profile"/>
+			</form>
+		</div>
 	
 	</div>
 	<div id = "Footer"> 

@@ -9,88 +9,50 @@ $err_post = "";
 
 require_once('connect.php');
 
-// //information for connecting to mysql server
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// //what database to search through
-// $dbname = "rumblr";
-
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-// die("Connection failed: " . $conn->connect_error);
-// } 
-
-// //added for log in to connect to the mySQL database (John)
-// $bd = mysql_connect($servername, $username, $password) 
-// 	or die("Could not connect database");
-// 	mysql_select_db($dbname, $bd) or die("Could not select database");
-
-// function test_input($data) {
-//   $data = trim($data);
-//   $data = stripslashes($data);
-//   $data = htmlspecialchars($data);
-
-//   return $data;
-// }
-
-// //run/check query
-// function check_sql($queryname, $conn) {
-// 	//check sql statement
-// 	if ($conn->query($queryname) === TRUE) {
-// 		$last_id = $conn->insert_id;
-// 		echo "New record created successfully. Last inserted ID is: " . $last_id;
-// 	} else {
-// 		echo "Error: " . $queryname . "<br>" . $conn->error;
-// 	}
-// }
-
 	//----------------------------------------------------------------------------------------------------//
 	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
 	//----------------------------------------------------------------------------------------------------//
-	function posting($type_of_post, $toPrint, $username, $privacy, $timePosted) 
+	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted) 
 	{
 
 			?>
-			<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
+			<table width="600" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1F9CA1">
 			<tr>
-			<td><table width="30%" border="0" cellpadding="1" cellspacing="1" bgcolor="#BDBDBD">
+			<td><table width="50%" border="0" cellpadding="1" cellspacing="1" bgcolor="#1F9CA1">
 
 			<tr>
 
 			<?php if($type_of_post == 'photo')
 			{ ?>
-				<td bgcolor="#F8F7F1"><strong>PHOTO:</strong></td>
+				<td bgcolor="#1F9CA1"><strong>PHOTO: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
 						<?php
 			}
 			else if ($type_of_post == 'link')
 			{
 			?>
-				<td bgcolor="#F8F7F1"><strong>LINK:</strong></td>
+				<td bgcolor="#1F9CA1"><strong>LINK: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
 			<?php
 			}
 			else if ($type_of_post == 'quote')
 			{
 			?>
-				<td bgcolor="#F8F7F1"><strong>QUOTE:</strong></td>
+				<td bgcolor="#1F9CA1"><strong>QUOTE: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
 			<?php	
 			}
 			else if ($type_of_post == 'chat')
 			{
 			?>
-				<td bgcolor="#F8F7F1"><strong>CHAT:</strong></td>
+				<td bgcolor="#1F9CA1"><strong>CHAT: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
 			<?php	
 			}
 			else if ($type_of_post == 'audio')
 			{
 			?>
-				<td bgcolor="#F8F7F1"><strong>AUDIO:</strong></td>
+				<td bgcolor="#1F9CA1"><strong>AUDIO: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<audio controls>
 				  <source src="<?php echo $toPrint;?>" type="audio/ogg">
 				  <source src="<?php echo $toPrint;?>" type="audio/mpeg">
@@ -101,7 +63,7 @@ require_once('connect.php');
 			else if ($type_of_post == 'video')
 			{
 			?>
-				<td bgcolor="#F8F7F1"><strong>Video:</strong></td>
+				<td bgcolor="#1F9CA1"><strong>VIDEO: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
 				<iframe width="420" height="315"
 				src="<?php echo $toPrint; ?>">
 				</iframe>
@@ -110,10 +72,8 @@ require_once('connect.php');
 			else
 			{
 			?>
-				<td bgcolor="#F8F7F1"><strong>TEXT:</strong></td>
-				<td bgcolor="#F8F7F1"><strong><?php echo $username;?>:</strong></td>
-				<td bgcolor="#F8F7F1"><strong><?php echo $timePosted;?>:</strong></td>
-				<td bgcolor='#F8F7F1'><?php echo $toPrint; ?></td>
+				<td bgcolor="#1F9CA1"><strong>TEXT: <br><a onclick = "hide(3)"> <?php echo $_SESSION["SESS_USERNAME"]; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
+				<td bgcolor='#1F9CA1'><?php echo $toPrint; ?></td>
 			<?php
 			}
 			?>
