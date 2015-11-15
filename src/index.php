@@ -2,7 +2,6 @@
 <script src="handling.js"></script>
 <?php
 	include('login.php');
-
 	if(	isset($_SESSION['SESS_USERNAME']))
 	{
 		//echo "I'm In";
@@ -25,6 +24,7 @@
 		<?php include 'createacc.php';?>
 		<?php include 'updateprofile.php';?>
 		<?php include 'posts.php';?>
+		<?php include 'inbox.php';?>
 		<?php //include 'login.php';?>
 	</head>
 	<div id = "header">
@@ -266,24 +266,25 @@
 		</div>
 		<div id = "messageHolder">
 			<div id = "displayMsg">	
-				<p> Here are your messages </p> <br><br>
+				<p> Messages: </p> <br>
+					<?php displayMessages();?>
+				<br>
 				<button type="button" onclick = "showCreateMsg(0)">New Message</button>
 			</div>
 			
 			<div id = "createMsg">
-			Select a friend: <br>
-				<select>
-  				<option value="friend1">friend1</option>
-  				<option value="friend2">friend2</option>
-  				<option value="friend3">friend3</option>
-  				<option value="friend4">friend4</option>
-			</select> <br>
-			Create new message: <br>
-					<textarea rows="4" cols="50" name = "text_enter"/></textarea> <br>
-					<br><br>
-					<input type="submit" value = "SEND" name = "text_sub"/>
-					<button type="button" onclick = "showCreateMsg(1)">Cancel</button>
-
+				<form action="inbox.php" method="post">
+					Select a friend: <br>
+					<select name = 'tofield'>
+					<?php displayFriendSelection();?>
+					</select>
+					<br>
+					Create new message: <br>
+						<textarea rows="4" cols="50" name = "messagefield"/></textarea> <br>
+						<br><br>
+						<input type="submit" value = "SEND" name = "send_message"/>
+						<button type="button" onclick = "showCreateMsg(1)">Cancel</button>
+				</form>
 			
 			</div>
 		</div>

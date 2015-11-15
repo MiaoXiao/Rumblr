@@ -128,6 +128,7 @@ if(isset($_POST['createacc'])) {
 		
 		header("Location:index.php");
 	}
+
 }
 
 ?>
