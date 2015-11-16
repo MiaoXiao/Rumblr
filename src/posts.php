@@ -6,6 +6,7 @@ session_write_close();
 session_start();
 
 $text = $photo = $quote = $link = $chat = $audio = $video = "";
+$temp_username = "";
 //main error message
 $err_post = "";
 
@@ -16,13 +17,21 @@ require_once('connect.php');
 	//----------------------------------------------------------------------------------------------------//
 	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted) 
 	{
-
 			?>
 			<table width="75%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1F9CA1">
 			<tr>
 			<td><table width="50%" border="0" cellpadding="1" cellspacing="1" bgcolor="#1F9CA1">
 
 			<tr>
+			
+			<form action="follow.php" method="post">
+				<div id = "following">
+					<?php $temp_username = $username; ?>
+					<input type = "hidden" value = "<?php echo $username ?>" name = "follow_enter"/>
+					<input type="submit" value = "Follow" name =  "follow_sub"/>
+					<?php echo $username ?>
+				</div>
+			</form>
 
 			<?php if($type_of_post == 'photo')
 			{ ?>
