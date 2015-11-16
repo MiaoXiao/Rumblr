@@ -6,6 +6,7 @@ session_write_close();
 session_start();
 
 $text = $photo = $quote = $link = $chat = $audio = $video = "";
+$temp_username = "";
 //main error message
 $err_post = "";
 
@@ -14,16 +15,44 @@ require_once('connect.php');
 	//----------------------------------------------------------------------------------------------------//
 	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
 	//----------------------------------------------------------------------------------------------------//
-	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted) 
+	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted, $User_ID) 
 	{
-
 			?>
 			<table width="75%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1F9CA1">
 			<tr>
 			<td><table width="50%" border="0" cellpadding="1" cellspacing="1" bgcolor="#1F9CA1">
 
 			<tr>
+			
+			<?php
+			$follow_success = true;
+			
+			//check to see if the individual is already being followed
+			$query = "SELECT * from following";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_array($result))
+			{
+				if ($row['User_ID'] == $_SESSION['SESS_LOGIN_ID'] && $row['Followed_ID'] == $User_ID)
+				{
+					$follow_success = false;
+				}
+			}
+			
+			//Display the Follow button on post if valid
+			if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $follow_success == true)
+			{
+			?>
+			<form action="follow.php" method="post">
+				<div id = "following">
+					<input type = "hidden" value = "<?php echo $username ?>" name = "follow_enter"/>
+					<input type="submit" value = "Follow" name =  "follow_sub"/>
+				</div>
+			</form>
+			<?php
+			}
+			?>
 
+			
 			<?php if($type_of_post == 'photo')
 			{ ?>
 				<td bgcolor="#1F9CA1"><strong>PHOTO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
