@@ -76,7 +76,7 @@
 			
 			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a><br>
 			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
-			<!--<a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a>-->
+			<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
 		</div>
 		
 		<div id = "login">
@@ -309,6 +309,46 @@
 				<P><b>Blog Privacy: </b> 
 				<?php get_ProfileInfo('privacy')?></P>
 				<button type="button" onclick = "showUpdate(0)">Update Profile</button>
+				</br></br>
+				
+				<?php	
+				require_once('connect.php');
+				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$result = mysql_query($query);
+				while($row = mysql_fetch_array($result))
+				{   //Creates a loop to loop through results
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileQ = mysql_query($profileInfo);
+					//check if this is valid
+					if($profileQ)
+					{
+						if(mysql_num_rows($profileQ) > 0)
+						{
+							$getProfile = mysql_fetch_assoc($profileQ);
+							$printThis = $row['info'];
+							$typee = $row['type'];
+							$username = $getProfile['username'];
+							$privacy = $getProfile['privacy'];
+							$postTime = strtotime($row['timestamp']);
+							$date = date('m-d-Y', $postTime);
+							$time = date('h:i:s:a', $postTime);
+							$privacy = $getProfile['privacy'];
+							$profile_ID = $row['postID'];
+
+							//makes sure only your own posts are displayed
+							if($profile_ID == $_SESSION['SESS_LOGIN_ID'])
+							{
+								posting($typee, $printThis, $username, $privacy, $date, $time);
+							}
+						}
+					}
+					else
+					{
+						echo "ERROR IN POSTING";
+					}
+				}
+				?>
+				
 			</div>
 
 			<div id = "upProf">
