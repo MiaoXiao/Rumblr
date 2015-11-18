@@ -181,14 +181,17 @@
 								$privacy = $getProfile['privacy'];
 								$profile_ID = $row['postID'];
 
+								echo $_SESSION['SESS_ACTUAL_USER'];
+								echo $username;
 								//created the function for it
 								if($privacy == 'Open')
 								{
+									echo"IM OPEN!";
 									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
 								}
-								else if($privacy == 'Private' && $username != $_SESSION['SESS_ACTUAL_USER'])
+								else if($privacy == 'Private' && $username == $_SESSION['SESS_ACTUAL_USER'])
 								{
-									//do nothing
+									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
 								}
 								else if($privacy == 'Friends Only')
 								{
