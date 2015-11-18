@@ -1,4 +1,48 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+	#singlepost {
+	background-color:#00c9cc;
+    margin: center;
+    width: 80%;
+    border: 3px solid #003333;
+    padding: 10px;
+	}
+
+	#profPic2 {
+	position:relative;
+	height: 48px;
+    width: 48px;
+	max-width: 100%;
+   	max-height: 100%;
+	padding:0.5%;
+	text-align:left;
+	float:left;
+	}
+
+	#userinfo {
+	position:relative;
+	text-align:left;
+	}
+
+	#following {
+		position:relative;
+		text-align:right;
+	}
+
+	#postInfo{
+		margin-left: 1cm;
+		word-wrap: break-word;
+		margin-right: 1cm;
+		margin-bottom: 0.3cm;
+	}
+
+</style>
+</head>
+<body>
 
 <?php
 
@@ -17,13 +61,8 @@ require_once('connect.php');
 	//----------------------------------------------------------------------------------------------------//
 	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted, $User_ID) 
 	{
-			?>
-			<table width="75%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1F9CA1">
-			<tr>
-			<td><table width="50%" border="0" cellpadding="1" cellspacing="1" bgcolor="#1F9CA1">
-
-			<tr>
-			
+	?>
+		<div id="singlepost">
 			<?php
 			$follow_success = true;
 			
@@ -53,67 +92,76 @@ require_once('connect.php');
 			?>
 
 			
-			<?php if($type_of_post == 'photo')
-			{ ?>
-				<td bgcolor="#1F9CA1"><strong>PHOTO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
-						<?php
-			}
-			else if ($type_of_post == 'link')
-			{
-			?>
-				<td bgcolor="#1F9CA1"><strong>LINK: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
-			<?php
-			}
-			else if ($type_of_post == 'quote')
-			{
-			?>
-				<td bgcolor="#1F9CA1"><strong>QUOTE: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
-			<?php	
-			}
-			else if ($type_of_post == 'chat')
-			{
-			?>
-				<td bgcolor="#1F9CA1"><strong>CHAT: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
-			<?php	
-			}
-			else if ($type_of_post == 'audio')
-			{
-			?>
-				<td bgcolor="#1F9CA1"><strong>AUDIO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<audio controls>
-				  <source src="<?php echo $toPrint;?>" type="audio/ogg">
-				  <source src="<?php echo $toPrint;?>" type="audio/mpeg">
-					Your browser does not support the audio element.
-				</audio>
-			<?php	
-			}
-			else if ($type_of_post == 'video')
-			{
-			?>
-				<td bgcolor="#1F9CA1"><strong>VIDEO: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<iframe width="420" height="315"
-				src="<?php echo $toPrint; ?>">
-				</iframe>
-			<?php	
-			}
-			else
-			{
-			?>
-				<td bgcolor="#1F9CA1"><strong>TEXT: <br><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong></td>
-				<td bgcolor='#1F9CA1'><?php echo $toPrint; ?></td>
-			<?php
-			}
-			?>
+			<div id="userinfo">
+				<img id="profPic2" src ="<?php get_ProfileInfo('photo', $_SESSION['SESS_LOGIN_ID'])?>"/>
+				<strong><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
+			</div>
 
-			</tr>
-			</table></td>
-			</tr>
-			</table><br>
-			<?php
+			<div id = "postInfo">
+				<?php if($type_of_post == 'photo')
+				{ ?>
+					<br><strong>PHOTO: </strong><br>
+					<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
+							<?php
+				}
+				else if ($type_of_post == 'link')
+				{
+				?>
+					<br><strong>LINK: <strong><br>
+					<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
+				<?php
+				}
+				else if ($type_of_post == 'quote')
+				{
+				?>
+					<br><strong>QUOTE: </strong><br>
+					<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
+				<?php	
+				}
+				else if ($type_of_post == 'chat')
+				{
+				?>
+					<strong>CHAT: <br></strong><br>
+					<?php echo " \"" . $toPrint . "\" "; ?>
+				<?php	
+				}
+				else if ($type_of_post == 'audio')
+				{
+				?>
+					<br><strong>AUDIO: </strong><br>
+					<audio controls>
+					  <source src="<?php echo $toPrint;?>" type="audio/ogg">
+					  <source src="<?php echo $toPrint;?>" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				<?php	
+				}
+				else if ($type_of_post == 'video')
+				{
+				?>
+					<br><strong>VIDEO: </strong><br>
+					<iframe width="420" height="315"
+					src="<?php echo $toPrint; ?>">
+					</iframe>
+				<?php	
+				}
+				else
+				{
+				?>
+
+					<br><strong>TEXT: </strong><br>
+					<?php echo $toPrint; ?> 
+				<?php
+				}
+				?>
+			</div>
+		</div>
+		</tr>
+		</table></td>
+		</tr>
+		</table><br>
+		
+				<?php
 	}
 
 //text field
@@ -311,3 +359,6 @@ if(isset($_POST['vid_sub'])) {
 }
 
 ?>
+
+</body>
+</html>
