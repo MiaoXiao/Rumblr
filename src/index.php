@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <script src="handling.js"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
+integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" 
+crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+
+
 <?php
 	include('login.php');
 	if(	isset($_SESSION['SESS_USERNAME']))
@@ -26,58 +37,62 @@
 		<?php include 'inbox.php';?>
 		<?php //include 'login.php';?>
 	</head>
-	<div id = "header">
+	<div id = "header" role = "navigation">
 		<header id = "title">
 			<h1 >UCRumbler</h1>
 		</header>
-		<div id = "navi">
-			<div class = "topSelect">
-				<a onclick = "hide(2)"> Front Page </a>
-			</div>
-			<div class = "topSelect">
-				<?php $temp_ID = $_SESSION['SESS_LOGIN_ID'] ?>
-				<a onclick = "hide(3)"> Profile </a>
-			</div>
-			<div class = "topSelect">
-				<a onclick = "hide(4)"> Inbox </a>
-			</div>
-		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-	
 	<div id = "Body">
-		
-	<div class="row" id = "searchBar">
-	  <div class="col-lg-6">
-		<div class="input-group">
-		  <input type="text" class="form-control" placeholder="Search for...">
-		  <span class="input-group-btn">
-			<button class="btn btn-default" type="button">Go!</button>
-		  </span>
-		</div><!-- /input-group -->
-	  </div><!-- /.col-lg-6 -->
-	</div><!-- /.row -->
-		
-		<div id = "postBar">
-			<a onclick = "post(0)">Text</a><br>
+				
+				
+		<div id = "navi">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
 
-			<a onclick = "post(1)">Photo </a><br>
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
 
-			<a onclick = "post(2)">Quote </a><br>
-			
-			<a onclick = "post(3)">Link</a><br>
-
-			<a onclick = "post(4)">Chat </a><br>
-
-			<a onclick = "post(5)">Audio </a><br>
-			<a onclick = "post(6)">Video </a><br>
-			
-			<a onclick = "hide(3)"> Welcome, <?php echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a><br>
-			<a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a>
-			<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a onclick = "hide(2)">Front Page</a></li>
+							<li><a onclick = "hide(3)"> Welcome, <?php echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a></li>
+							<li><a onclick = "hide(4)">Inbox</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a onclick = "post(0)">Text</a></li>
+									<li><a onclick = "post(1)">Photo</a></li>
+									<li><a onclick = "post(2)">Quote</a></li>
+									<li><a onclick = "post(3)">Link</a></li>
+									<li><a onclick = "post(4)">Chat</a></li>
+									<li><a onclick = "post(5)">Audio</a></li>
+									<li><a onclick = "post(6)">Video</a></li>
+								</ul>
+							</li>
+						</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav">
+						<li><a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a></li>
+						<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
+					</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
 		</div>
+		
 		
 		<div id = "login">
 			<?php if (!isset($_SESSION['SESS_USERNAME'])) 
