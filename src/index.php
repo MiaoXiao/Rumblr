@@ -227,8 +227,7 @@ crossorigin="anonymous">
 			<form action="posts.php" method="post">
 			<div id = "quote">
 					Create QUOTE post:<br>
-					<textarea rows="4" cols="50" name = "quote_enter"/></textarea> <br>
-					<br><br>
+					<textarea class = "form-group" rows="4" cols="114" name = "quote_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name =  "quote_sub"/>
 
 			</div>
@@ -236,46 +235,40 @@ crossorigin="anonymous">
 			<div id = "text">
 
 					Create TEXT post:<br>
-					<textarea rows="4" cols="50" name = "text_enter"/></textarea> <br>
-					<br><br>
+					<textarea class = "form-group" rows="4" cols="114" name = "text_enter" /></textarea> <br>
 					<input type="submit" value = "POST!" name = "text_sub"/>
 
 			</div>
 
 			<div id = "link">
 					Create LINK post:<br>
-					<input type = "text" size = "50" name = "link_enter"/>
-					<br><br>
+					<input type = "text" size = "50" name = "link_enter"> <br><br>
 					<input type="submit" value = "POST!" name = "link_sub"/>
 
 			</div>
 
 			<div id = "chat">
 					Create CHAT post:<br>
-					<textarea rows="4" cols="50" name = "chat_enter"/></textarea> <br>
-					<br><br>
+					<textarea class = "form-group" rows="4" cols="114" name = "chat_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "chat_sub"/>
 
 			</div>
 			
 			<div id = "photo">
 					Create PHOTO post:<br>
-					<textarea rows="4" cols="50" name = "pic_enter"/></textarea> <br>
-					<br><br>
+					<textarea class = "form-group" rows="4" cols="114" name = "pic_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "pic_sub"/>
 
 			</div>
 			<div id = "video">
 					Create VIDEO post:<br>
-					<textarea rows="4" cols="50" name = "vid_enter"/></textarea> <br>
-					<br><br>
+					<textarea class = "form-group" rows="4" cols="114" name = "vid_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "vid_sub"/>
 
 			</div>
 			<div id = "audio">
 					Create AUDIO post:<br>
-					<textarea rows="4" cols="50" name = "audio_enter"/></textarea> <br>
-					<br><br>
+					<textarea class = "form-group" rows="4" cols="114" name = "audio_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "audio_sub"/>
 
 				

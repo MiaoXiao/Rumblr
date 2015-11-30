@@ -48,11 +48,15 @@ a:active {
 	float:left;
 }
 
+.form-group {
+	resize:none;
+}
+
 #login{
    color:black;
    background-color:CadetBlue;
    padding: 1% 1% 1% 1%;
-   width: 18%;
+   width: 13%;
    position: absolute;
    top: 40%;
    left: 40%;
@@ -64,9 +68,9 @@ a:active {
 
 #createAcc{
    color:black;
-   background-color:DarkCyan;
+   background-color:CadetBlue;
    padding: 1% 1% 1% 1%;
-   width: 18%;
+   width: 13%;
    position: absolute;
    top: 40%;
    left: 40%;
@@ -99,7 +103,6 @@ a:active {
 
 #text{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -110,7 +113,6 @@ a:active {
 
 #link{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -121,7 +123,6 @@ a:active {
 
 #quote{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -185,7 +186,6 @@ a:active {
 
 #chat{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: relative;
@@ -196,7 +196,6 @@ a:active {
 
 #video{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -207,7 +206,6 @@ a:active {
 
 #audio{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
@@ -218,7 +216,6 @@ a:active {
 
 #photo{
    color:black;
-   background-color:DarkCyan;
    padding: 1% 1% 1% 1%;
    width: 18%;
    position: absolute;
