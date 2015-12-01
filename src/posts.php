@@ -92,7 +92,14 @@ require_once('connect.php');
 			
 			<div id="userinfo">
 				<img id="profPic2" src ="<?php get_ProfileInfo('photo', $_SESSION['SESS_LOGIN_ID'])?>"/>
-				<strong><a onclick = "hide(3)"> <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
+				<strong><a onclick = <?php
+				if ($_SESSION['SESS_LOGIN_ID']  == $User_ID) echo "hide(3)";
+				else
+				{
+					$_SESSION['PID'] = $User_ID;
+					echo "hide(5)";
+				}
+				?> > <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
 			</div>
 
 			<div id = "postInfo">

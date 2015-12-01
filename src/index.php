@@ -84,7 +84,7 @@ crossorigin="anonymous">
 						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 					<ul class="nav navbar-nav">
-						<li><a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a></li>
+						<li><a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a></li>
 						<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
 					</ul>
 					</div><!-- /.navbar-collapse -->
@@ -326,23 +326,23 @@ crossorigin="anonymous">
 			</div>
 			
 			<div id="OtherProfile">
-				<img id="profPic" src ="<?php get_ProfileInfo('photo', $temp_ID)?>"/>
+				<img id="profPic" src ="<?php get_ProfileInfo('photo', $_SESSION['PID'])?>"/>
 				<p><b>Username:</b>
-				<?php get_ProfileInfo('username', $temp_ID);?></p>
+				<?php get_ProfileInfo('username', $_SESSION['PID']);?></p>
 				<p><b>Nickname:</b>
-				<?php get_ProfileInfo('nickname', $temp_ID);?></p>
+				<?php get_ProfileInfo('nickname', $_SESSION['PID']);?></p>
 				<p><b>Gender: </b>
-				<?php get_ProfileInfo('gender', $temp_ID);?></p>
+				<?php get_ProfileInfo('gender', $_SESSION['PID']);?></p>
 				<p><b>Created: </b>
-				<?php niceDate(return_ProfileInfo('profilecreation', $temp_ID))?></p>
+				<?php niceDate(return_ProfileInfo('profilecreation', $_SESSION['PID']))?></p>
 				<p><b>Date of Birth: </b>
-				<?php niceDate(return_ProfileInfo('birthday', $temp_ID))?></p>
+				<?php niceDate(return_ProfileInfo('birthday', $_SESSION['PID']))?></p>
 				<P><b>Interests: </b> 
-				<?php get_ProfileInfo('interests', $temp_ID)?></P>
+				<?php get_ProfileInfo('interests', $_SESSION['PID'])?></P>
 				<P><b>Blog Description: </b> 
-				<?php get_ProfileInfo('blogdesc', $temp_ID)?></P>
+				<?php get_ProfileInfo('blogdesc', $_SESSION['PID'])?></P>
 				<P><b>Blog Privacy: </b> 
-				<?php get_ProfileInfo('privacy', $temp_ID)?></P>
+				<?php get_ProfileInfo('privacy', $_SESSION['PID'])?></P>
 				
 				<?php	
 				require_once('connect.php');
@@ -369,7 +369,7 @@ crossorigin="anonymous">
 							$profile_ID = $row['postID'];
 
 							//makes sure only specified posts are displayed
-							if($profile_ID == $temp_ID)
+							if($profile_ID == $_SESSION['PID'])
 							{
 								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
 							}
