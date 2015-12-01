@@ -32,6 +32,12 @@ function returnUser($id)
 	}
 }
 
+//formats dates nicer
+function niceDate($string)
+{
+	echo date("M d, Y" , strtotime($string));
+}
+
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);

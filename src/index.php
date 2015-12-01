@@ -66,7 +66,7 @@ crossorigin="anonymous">
 							<li><a onclick = "hide(3)"> Welcome, <?php $temp_ID = $_SESSION['SESS_LOGIN_ID']; echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a></li>
 							<li><a onclick = "hide(4)">Inbox</a></li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Submit Post <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a onclick = "post(0)">Text</a></li>
 									<li><a onclick = "post(1)">Photo</a></li>
@@ -190,8 +190,8 @@ crossorigin="anonymous">
 								$username = $getProfile['username'];
 								$privacy = $getProfile['privacy'];
 								$postTime = strtotime($row['timestamp']);
-								$date = date('m-d-Y', $postTime);
-								$time = date('h:i:s:a', $postTime);
+								$date = date('M d, Y', $postTime);
+								$time = date("g:i A", $postTime);
 								$privacy = $getProfile['privacy'];
 								$profile_ID = $row['postID'];
 
@@ -332,9 +332,9 @@ crossorigin="anonymous">
 				<p><b>Gender: </b>
 				<?php get_ProfileInfo('gender', $temp_ID);?></p>
 				<p><b>Created: </b>
-				<?php get_ProfileInfo('profilecreation', $temp_ID)?></p>
+				<?php niceDate(return_ProfileInfo('profilecreation', $temp_ID))?></p>
 				<p><b>Date of Birth: </b>
-				<?php get_ProfileInfo('birthday', $temp_ID)?></p>
+				<?php niceDate(return_ProfileInfo('birthday', $temp_ID))?></p>
 				<P><b>Interests: </b> 
 				<?php get_ProfileInfo('interests', $temp_ID)?></P>
 				<P><b>Blog Description: </b> 
@@ -363,8 +363,8 @@ crossorigin="anonymous">
 							$username = $getProfile['username'];
 							$privacy = $getProfile['privacy'];
 							$postTime = strtotime($row['timestamp']);
-							$date = date('m-d-Y', $postTime);
-							$time = date('h:i:s:a', $postTime);
+							$date = date('M d, Y', $postTime);
+							$time = date("g:i A", $postTime);
 							$privacy = $getProfile['privacy'];
 							$profile_ID = $row['postID'];
 
