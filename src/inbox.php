@@ -27,7 +27,9 @@ function displayMessages()
 			echo '<br>';
 			echo returnUser($row['From_User_ID']);
 			echo '<br>';
-			echo $row['Time_Stamp'];
+			echo date("M d, Y", strtotime($row['Time_Stamp']));
+			echo '<br>';
+			echo date("g:i A", strtotime($row['Time_Stamp']));
 			echo '<br>';
 			echo $row['message'];
 			echo '<br>';
@@ -56,11 +58,6 @@ function displayFriendSelection()
 	$sessionid = $_SESSION['SESS_LOGIN_ID'];
 	//addFriend(14);
 	echo '<option>Select Friend...</option>';
-	echo '<option value=" ';
-	echo $sessionid;
-	echo '">';
-	echo returnUser($sessionid);
-	echo '</option>';
 	//find all friends
 	$query = "SELECT * from friends";
 	$result = mysql_query($query);

@@ -71,6 +71,18 @@ function showUpdate(enter)
 	
 }
 
+function showCreateMsg(enter)
+{
+	if(enter == 0) {
+		document.getElementById("createMsg").style.visibility = "visible";
+		document.getElementById("displayMsg").style.visibility = "hidden";
+	}else{
+		document.getElementById("createMsg").style.visibility = "hidden";
+		document.getElementById("displayMsg").style.visibility = "visible";
+	}
+
+}
+
 function check()
 {
 		hide(2);
