@@ -17,7 +17,7 @@ function hide(enter){
 	}else{
 		document.getElementById("posts").style.visibility = "hidden";
 	}
-	if(enter == 2 || enter == 3 || enter == 4)
+	if(enter == 2 || enter == 3 || enter == 4 || enter == 5)
 	{
 		document.getElementById("navi").style.visibility = "visible";
 		document.getElementById("posting").style.visibility = "visible";
