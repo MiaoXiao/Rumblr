@@ -138,14 +138,12 @@ a:active {
   margin-top:1%;
   margin-left:3%;
     width:45%;
-    float:left;
     text-align:left;
   visibility:hidden; 
 }
 
 #upProf{
   position:absolute;
-    float:left;
     text-align:left;
   visibility:hidden; 
 }
@@ -264,4 +262,3 @@ footer {
    position: fixed;
 }
 </style>
-

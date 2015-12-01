@@ -302,6 +302,35 @@ crossorigin="anonymous">
 		</div>
 		
 		<div id = "profHolder">
+			
+			<div id = "upProf">
+				<form action="updateprofile.php" method="post">
+					Update Picture: <br>
+					<input type="text" name = "picture_update"/> <br>
+						
+					Update Nickname: <br>
+					<input type="text" name = "nickname_update"/> <br>
+				
+					Update Interests: <br>
+					<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
+
+					Update Blog Description: <br>
+					<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
+					
+					Update Blog Privacy: <br>
+					<select name="privacy_update">
+						<option value="Select">Select...</option>
+						<option value="Open">Open</option>
+						<option value="Friends Only">Friends Only</option>
+						<option value="Private">Private</option>
+					</select><br>
+				
+					<input type ="submit" name = "update_profile" Value = "Update Profile"/>
+					<button type="button" onclick = "showUpdate(1)">Cancel</button>
+				</form>
+			</div>
+			
+			
 			<div id="profile">
 				<img id="profPic" src ="<?php get_ProfileInfo('photo', $temp_ID)?>"/>
 				<p><b>Username:</b>
@@ -363,35 +392,6 @@ crossorigin="anonymous">
 				
 			</div>
 
-			<div id = "upProf">
-				<form action="updateprofile.php" method="post">
-					Update Picture: <br>
-					<input type="text" name = "picture_update"/> <br>
-						
-					Update Nickname: <br>
-					<input type="text" name = "nickname_update"/> <br>
-				
-				Update Interests: <br>
-					<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
-
-				Update Blog Description: <br>
-				<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
-					
-				Update Blog Privacy: <br>
-				<select name="privacy_update">
-					<option value="Select">Select...</option>
-					<option value="Open">Open</option>
-					<option value="Friends Only">Friends Only</option>
-					<option value="Private">Private</option>
-				</select><br>
-				
-				<input type ="submit" name = "update_profile" Value = "Update Profile"/>
-				<button type="button" onclick = "showUpdate(1)">Cancel</button>
-			</form>
 		</div>
-	
-	</div>
-	<div id = "Footer"> 
-	</div>
-</body>
+	</body>
 </html>
