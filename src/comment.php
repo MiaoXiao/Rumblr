@@ -122,7 +122,15 @@ function postingComments($user_name, $comment_to_print, $commentTime, $posterID,
 	<div id="commentPosted">
 		<div id="userinfo">
 			<img id="commentPic" src ="<?php get_ProfileInfo('photo', $usererID);?>"/>
-			<strong><a href="hide(3)" > <?php echo $user_name; ?> </a>  <?php echo " " . humanTiming($commentTime). ' ago'; ?></strong>
+			<!-- <strong><a href="hide(3)" > <?php //echo $user_name; ?> </a>  <?php// echo " " . humanTiming($commentTime). ' ago'; ?></strong> -->
+			<strong><a onclick = <?php
+					if ($_SESSION['SESS_LOGIN_ID']  == $usererID) echo "hide(3)";
+					else
+					{
+						$_SESSION['PID'] = $usererID;
+						echo "hide(5)";
+					}
+					?> > <?php echo $user_name; ?> </a><?php echo " " . humanTiming($commentTime). ' ago'; ?></strong>
 		</div>
 
 		<div id="commentContent">
