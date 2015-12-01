@@ -343,6 +343,35 @@ crossorigin="anonymous">
 				<P><b>Blog Privacy: </b> 
 				<?php get_ProfileInfo('privacy', $_SESSION['PID'])?></P>
 				
+			<?php
+			
+			$friend_success = true;
+			$query = "SELECT * from friends";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_array($result))
+			{
+				if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $_SESSION['PID'])
+				{
+					$friend_success = false;
+				}
+			}
+			
+			if($_SESSION['PID'] != $_SESSION['SESS_LOGIN_ID'] && $friend_success == true)
+			{
+				?>
+				<form action="follow.php" method="post">
+					<div id = "friends">
+						<input type = "hidden" value = "<?php echo $username ?>" name = "friend_enter"/>
+						<input type="submit" value = "Friend" name =  "friend_sub"/>
+					</div>
+				</form>
+				<?php
+			}
+			else{
+				echo "You are friends with this user already";
+			}
+			?>
+				
 				<?php	
 				require_once('connect.php');
 				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL

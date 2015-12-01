@@ -37,4 +37,37 @@ if(isset($_POST['follow_sub'])) {
 	header("Location:index.php");
 }
 
+//friend field
+if(isset($_POST['friend_sub'])) {
+	$followsuccess = true;
+	
+	$query = "SELECT * from profile";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
+	{
+		if ($row['username'] == $_POST['friend_enter'])
+		{
+			$Temp_ID = $row['profileID'];
+		}
+	}
+	
+	//create new friend link
+	if ($followsuccess)
+	{
+		$err_post = "Friended!";
+		
+		//sql following
+		$sql_addfollower = "INSERT INTO friends (User_ID_1, User_ID_2)
+		VALUES ($_SESSION[SESS_LOGIN_ID], $Temp_ID)";
+		
+		check_sql($sql_addfollower, $conn);
+		
+		$sql_addfollower = "INSERT INTO friends (User_ID_1, User_ID_2)
+		VALUES ($Temp_ID, $_SESSION[SESS_LOGIN_ID])";
+		
+		check_sql($sql_addfollower, $conn);
+	}
+	header("Location:index.php");
+}
+
 ?>
