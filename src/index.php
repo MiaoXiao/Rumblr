@@ -226,22 +226,22 @@ crossorigin="anonymous">
 		<div id = "posting">
 			<form action="posts.php" method="post">
 			<div id = "quote">
-					Create QUOTE post:<br>
-					<textarea class = "form-group" rows="4" cols="114" name = "quote_enter"/></textarea> <br>
+					Submit a Quote:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name =  "quote_sub"/>
 
 			</div>
 
 			<div id = "text">
 
-					Create TEXT post:<br>
-					<textarea class = "form-group" rows="4" cols="114" name = "text_enter" /></textarea> <br>
+					Submit Text:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
 					<input type="submit" value = "POST!" name = "text_sub"/>
 
 			</div>
 
 			<div id = "link">
-					Create LINK post:<br>
+					Submit any URL:<br>
 					<input type = "text" size = "50" name = "link_enter"> <br><br>
 					<input type="submit" value = "POST!" name = "link_sub"/>
 
@@ -249,26 +249,26 @@ crossorigin="anonymous">
 
 			<div id = "chat">
 					Create CHAT post:<br>
-					<textarea class = "form-group" rows="4" cols="114" name = "chat_enter"/></textarea> <br>
+					<textarea class = "form-group" rows="4" cols="80" name = "chat_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "chat_sub"/>
 
 			</div>
 			
 			<div id = "photo">
-					Create PHOTO post:<br>
-					<textarea class = "form-group" rows="4" cols="114" name = "pic_enter"/></textarea> <br>
+					Submit a photo URL:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "pic_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "pic_sub"/>
 
 			</div>
 			<div id = "video">
-					Create VIDEO post:<br>
-					<textarea class = "form-group" rows="4" cols="114" name = "vid_enter"/></textarea> <br>
+					Submit a Youtube link:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "vid_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "vid_sub"/>
 
 			</div>
 			<div id = "audio">
-					Create AUDIO post:<br>
-					<textarea class = "form-group" rows="4" cols="114" name = "audio_enter"/></textarea> <br>
+					Submit an MP4 link:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "audio_enter"/></textarea> <br>
 					<input type="submit" value = "POST!" name = "audio_sub"/>
 
 				
@@ -392,9 +392,6 @@ crossorigin="anonymous">
 	
 	</div>
 	<div id = "Footer"> 
-		<footer>
-			HUEHUEHUEHUHEHUEHUE
-		</footer>
 	</div>
 </body>
 </html>
