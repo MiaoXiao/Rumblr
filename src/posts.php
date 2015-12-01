@@ -176,15 +176,26 @@ require_once('connect.php');
 					while(($row2 = mysql_fetch_array($result2)) &&  $comments_counter < 3)
 					{   //Creates a loop to loop through results
 
-						if($row2['Post_ID'] == $postID)
+						$profileInfo2= "SELECT * FROM profile WHERE profileID='$row2[User_ID]'";
+						$profileQ2 = mysql_query($profileInfo2);
+						//check if this is valid
+						if($profileQ2)
 						{
-							$printComment = $row2['Comment'];
-							$usererID = $row2['User_ID'];
-							$postTime2 = strtotime($row2['Timestamp']);
-							//$date2 = date('m-d-Y', $postTime2);
-							//$time2 = date('h:i:s:a', $postTime2);
-							postingComments($username, $printComment, $postTime2, $postID, $usererID);
-							$comments_counter = $comments_counter + 1;
+							if(mysql_num_rows($profileQ2) > 0)
+							{
+								if($row2['Post_ID'] == $postID)
+								{
+									$getProfile2 = mysql_fetch_assoc($profileQ2);
+									$printComment = $row2['Comment'];
+									$usererID = $row2['User_ID'];
+									$postTime2 = strtotime($row2['Timestamp']);
+									$username2 = $getProfile2['username'];
+									//$date2 = date('m-d-Y', $postTime2);
+									//$time2 = date('h:i:s:a', $postTime2);
+									postingComments($username2, $printComment, $postTime2, $postID, $usererID);
+									$comments_counter = $comments_counter + 1;
+								}
+							}
 						}
 					}				
 

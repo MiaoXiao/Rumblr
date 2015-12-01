@@ -197,7 +197,6 @@ crossorigin="anonymous">
 								$profile_ID = $row['User_ID'];
 								$post_ID = $row['postID'];
 
-								//echo $profile_ID . ' ';
 								//created the function for it
 								if($privacy == 'Open')
 								{
@@ -222,7 +221,7 @@ crossorigin="anonymous">
 				?>
 		</div>
 		
-		<		<div id = "posting">
+		<div id = "posting">
 			<form action="posts.php" method="post">
 			<div id = "quote">
 					Submit a Quote:<br>
