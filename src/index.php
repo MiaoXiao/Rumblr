@@ -228,7 +228,7 @@ crossorigin="anonymous">
 			<div id = "quote">
 					Submit a Quote:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
-					<input type="submit" value = "POST!" name =  "quote_sub"/>
+					<input type="submit" value = "Submit" name =  "quote_sub"/>
 
 			</div>
 
@@ -236,40 +236,40 @@ crossorigin="anonymous">
 
 					Submit Text:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
-					<input type="submit" value = "POST!" name = "text_sub"/>
+					<input type="submit" value = "Submit" name = "text_sub"/>
 
 			</div>
 
 			<div id = "link">
 					Submit any URL:<br>
 					<input type = "text" size = "50" name = "link_enter"> <br><br>
-					<input type="submit" value = "POST!" name = "link_sub"/>
+					<input type="submit" value = "Submit" name = "link_sub"/>
 
 			</div>
 
 			<div id = "chat">
 					Create CHAT post:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "chat_enter"/></textarea> <br>
-					<input type="submit" value = "POST!" name = "chat_sub"/>
+					<input type="submit" value = "Submit" name = "chat_sub"/>
 
 			</div>
 			
 			<div id = "photo">
 					Submit a photo URL:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "pic_enter"/></textarea> <br>
-					<input type="submit" value = "POST!" name = "pic_sub"/>
+					<input type="submit" value = "Submit" name = "pic_sub"/>
 
 			</div>
 			<div id = "video">
 					Submit a Youtube link:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "vid_enter"/></textarea> <br>
-					<input type="submit" value = "POST!" name = "vid_sub"/>
+					<input type="submit" value = "Submit" name = "vid_sub"/>
 
 			</div>
 			<div id = "audio">
 					Submit an MP4 link:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "audio_enter"/></textarea> <br>
-					<input type="submit" value = "POST!" name = "audio_sub"/>
+					<input type="submit" value = "Submit" name = "audio_sub"/>
 
 				
 				</div>
