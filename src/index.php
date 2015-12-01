@@ -72,7 +72,6 @@ crossorigin="anonymous">
 									<li><a onclick = "post(1)">Photo</a></li>
 									<li><a onclick = "post(2)">Quote</a></li>
 									<li><a onclick = "post(3)">Link</a></li>
-									<li><a onclick = "post(4)">Chat</a></li>
 									<li><a onclick = "post(5)">Audio</a></li>
 									<li><a onclick = "post(6)">Video</a></li>
 								</ul>
@@ -244,13 +243,6 @@ crossorigin="anonymous">
 					Submit any URL:<br>
 					<input type = "text" size = "50" name = "link_enter"> <br><br>
 					<input type="submit" value = "Submit" name = "link_sub"/>
-
-			</div>
-
-			<div id = "chat">
-					Create CHAT post:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "chat_enter"/></textarea> <br>
-					<input type="submit" value = "Submit" name = "chat_sub"/>
 
 			</div>
 			

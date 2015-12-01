@@ -236,11 +236,6 @@ function post(input) {
 	else
 		document.getElementById("link").style.visibility = "hidden";
 		
-	if(input == 4)
-		document.getElementById("chat").style.visibility = "visible";
-	else
-		document.getElementById("chat").style.visibility = "hidden";
-		
 	if(input == 5)
 		document.getElementById("audio").style.visibility = "visible";
 	else
