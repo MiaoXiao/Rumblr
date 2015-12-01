@@ -289,7 +289,6 @@ crossorigin="anonymous">
 						<input type="submit" value = "SEND" name = "send_message"/>
 						<button type="button" onclick = "showCreateMsg(1)">Cancel</button>
 				</form>
-			
 			</div>
 		</div>
 		
