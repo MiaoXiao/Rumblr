@@ -85,7 +85,7 @@ crossorigin="anonymous">
 						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 					<ul class="nav navbar-nav">
-						<li><a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a></li>
+						<li><a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a></li>
 						<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
 					</ul>
 					</div><!-- /.navbar-collapse -->
@@ -191,12 +191,13 @@ crossorigin="anonymous">
 								$username = $getProfile['username'];
 								$privacy = $getProfile['privacy'];
 								$postTime = strtotime($row['timestamp']);
-								$date = date('m-d-Y', $postTime);
-								$time = date('h:i:s:a', $postTime);
+								$date = date('M d, Y', $postTime);
+								$time = date("g:i A", $postTime);
 								$privacy = $getProfile['privacy'];
 								$profile_ID = $row['User_ID'];
 								$post_ID = $row['postID'];
 
+								//echo $profile_ID . ' ';
 								//created the function for it
 								if($privacy == 'Open')
 								{
@@ -342,36 +343,34 @@ crossorigin="anonymous">
 				<?php get_ProfileInfo('blogdesc', $_SESSION['PID'])?></P>
 				<P><b>Blog Privacy: </b> 
 				<?php get_ProfileInfo('privacy', $_SESSION['PID'])?></P>
-				
-			<?php
-			
-			$friend_success = true;
-			$query = "SELECT * from friends";
-			$result = mysql_query($query);
-			while ($row = mysql_fetch_array($result))
-			{
-				if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $_SESSION['PID'])
-				{
-					$friend_success = false;
-				}
-			}
-			
-			if($_SESSION['PID'] != $_SESSION['SESS_LOGIN_ID'] && $friend_success == true)
-			{
-				?>
-				<form action="follow.php" method="post">
-					<div id = "friends">
-						<input type = "hidden" value = "<?php echo $username ?>" name = "friend_enter"/>
-						<input type="submit" value = "Friend" name =  "friend_sub"/>
-					</div>
-				</form>
 				<?php
-			}
-			else{
-				echo "You are friends with this user already";
-			}
-			?>
+			
+				$friend_success = true;
+				$query = "SELECT * from friends";
+				$result = mysql_query($query);
+				while ($row = mysql_fetch_array($result))
+				{
+					if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $_SESSION['PID'])
+					{
+						$friend_success = false;
+					}
+				}
 				
+				if($_SESSION['PID'] != $_SESSION['SESS_LOGIN_ID'] && $friend_success == true)
+				{
+					?>
+					<form action="follow.php" method="post">
+						<div id = "friends">
+							<input type = "hidden" value = "<?php echo $username ?>" name = "friend_enter"/>
+							<input type="submit" value = "Friend" name =  "friend_sub"/>
+						</div>
+					</form>
+					<?php
+				}
+				else{
+					echo "You are friends with this user already";
+				}
+				?>
 				<?php	
 				require_once('connect.php');
 				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
@@ -394,12 +393,13 @@ crossorigin="anonymous">
 							$date = date('M d, Y', $postTime);
 							$time = date("g:i A", $postTime);
 							$privacy = $getProfile['privacy'];
-							$profile_ID = $row['postID'];
+							$profile_ID = $row['User_ID'];
+							$post_ID = $row['postID'];
 
 							//makes sure only specified posts are displayed
 							if($profile_ID == $_SESSION['PID'])
 							{
-								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 							}
 						}
 					}
@@ -455,7 +455,8 @@ crossorigin="anonymous">
 							$date = date('M d, Y', $postTime);
 							$time = date("g:i A", $postTime);
 							$privacy = $getProfile['privacy'];
-							$profile_ID = $row['postID'];
+							$profile_ID = $row['User_ID'];
+							$post_ID = $row['postID'];
 
 							//makes sure only specified posts are displayed
 							if($profile_ID == $temp_ID)
