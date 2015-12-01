@@ -27,14 +27,14 @@ function hide(enter){
 		document.getElementById("navi").style.visibility = "hidden";
 		document.getElementById("posting").style.visibility = "hidden";
 	}
-	if(enter == 3) {
+	if(enter == 3 || enter == 5) {
 		document.getElementById("profHolder").style.visibility = "visible";
 		document.getElementById("profile").style.visibility = "visible";
 		document.getElementById("upProf").style.visibility = "hidden"
-		document.getElementById("OtherProfile").style.visibility = "hidden";
 	}else{
 		document.getElementById("profile").style.visibility = "hidden";
 	}
+	
 	if (enter == 4) {
 		document.getElementById("messageHolder").style.visibility = "visible";
 		document.getElementById("displayMsg").style.visibility = "visible";
@@ -44,14 +44,13 @@ function hide(enter){
 		document.getElementById("displayMsg").style.visibility = "hidden";
 		document.getElementById("createMsg").style.visibility = "hidden";
 	}	
+	
 	if(enter == 5) {
-		document.getElementById("profHolder").style.visibility = "visible";
-		document.getElementById("profile").style.visibility = "hidden";
-		document.getElementById("upProf").style.visibility = "hidden"
-		document.getElementById("OtherProfile").style.visibility = "visible";
+		document.getElementById("showUpdateButton").style.visibility = "hidden";
 	}else{
-		document.getElementById("OtherProfile").style.visibility = "hidden";
+		document.getElementById("showUpdateButton").style.visibility = "visible";
 	}
+	
 	if(enter != 3 && enter != 5)
 			document.getElementById("profHolder").style.visibility = "hidden";
 }

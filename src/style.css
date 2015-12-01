@@ -219,13 +219,6 @@ a:active {
 	visibility:hidden; 
 }
 
-#OtherProfile {
-	padding: 1%;
-    position:absolute;
-    text-align:left;
-	visibility:hidden; 
-}
-
 #profPic {
 	position:relative;
 	width:20%;
