@@ -4,10 +4,9 @@
 <style>
 
 	#singlepost {
-	background-color:#00c9cc;
+	background-color:LightBlue;
     margin: center;
     width: 80%;
-    border: 3px solid #003333;
     padding: 10px;
 	}
 
