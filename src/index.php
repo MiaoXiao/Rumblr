@@ -63,7 +63,7 @@ crossorigin="anonymous">
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li><a onclick = "hide(2)">Front Page</a></li>
-							<li><a onclick = "hide(3)"> Welcome, <?php echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a></li>
+							<li><a onclick = "hide(3)"> Welcome, <?php $temp_ID = $_SESSION['SESS_LOGIN_ID']; echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a></li>
 							<li><a onclick = "hide(4)">Inbox</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
