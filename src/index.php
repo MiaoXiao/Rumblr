@@ -35,6 +35,7 @@ crossorigin="anonymous">
 		<?php include 'updateprofile.php';?>
 		<?php include 'posts.php';?>
 		<?php include 'inbox.php';?>
+		<?php include 'comment.php';?>
 		<?php //include 'login.php';?>
 	</head>
 	<div id = "header" role = "navigation">
@@ -173,11 +174,11 @@ crossorigin="anonymous">
 		<div id = "posts">
 			<?php	
 				require_once('connect.php');
-				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM posts ORDER BY timestamp DESC"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[User_ID]'";
 					$profileQ = mysql_query($profileInfo);
 					//check if this is valid
 					if($profileQ)
@@ -190,22 +191,20 @@ crossorigin="anonymous">
 								$username = $getProfile['username'];
 								$privacy = $getProfile['privacy'];
 								$postTime = strtotime($row['timestamp']);
-								$date = date('M d, Y', $postTime);
-								$time = date("g:i A", $postTime);
+								$date = date('m-d-Y', $postTime);
+								$time = date('h:i:s:a', $postTime);
 								$privacy = $getProfile['privacy'];
-								$profile_ID = $row['postID'];
+								$profile_ID = $row['User_ID'];
+								$post_ID = $row['postID'];
 
-								echo $_SESSION['SESS_ACTUAL_USER'];
-								echo $username;
 								//created the function for it
 								if($privacy == 'Open')
 								{
-									echo"IM OPEN!";
-									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 								}
 								else if($privacy == 'Private' && $username == $_SESSION['SESS_ACTUAL_USER'])
 								{
-									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 								}
 								else if($privacy == 'Friends Only')
 								{

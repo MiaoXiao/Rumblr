@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +13,8 @@
 
 	#profPic2 {
 	position:relative;
-	height: 48px;
-    width: 48px;
+	height: 64px;
+    width: 64px;
 	max-width: 100%;
    	max-height: 100%;
 	padding:0.5%;
@@ -38,10 +39,14 @@
 		margin-bottom: 0.3cm;
 	}
 
+	#commenting{
+		word-wrap: break-word;
+		margin-bottom: 0.3cm;
+	}
+
 </style>
 </head>
 <body>
-
 <?php
 
 session_write_close();
@@ -57,7 +62,7 @@ require_once('connect.php');
 	//----------------------------------------------------------------------------------------------------//
 	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
 	//----------------------------------------------------------------------------------------------------//
-	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted, $User_ID) 
+	function posting($type_of_post, $toPrint, $username, $privacy, $datePosted, $timePosted, $User_ID, $postID) 
 	{
 	?>
 		<div id="singlepost">
@@ -90,17 +95,17 @@ require_once('connect.php');
 			?>
 
 			
-			<div id="userinfo">
-				<img id="profPic2" src ="<?php get_ProfileInfo('photo', $_SESSION['SESS_LOGIN_ID'])?>"/>
-				<strong><a onclick = <?php
-				if ($_SESSION['SESS_LOGIN_ID']  == $User_ID) echo "hide(3)";
-				else
-				{
-					$_SESSION['PID'] = $User_ID;
-					echo "hide(5)";
-				}
-				?> > <?php echo $username; ?>. </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
-			</div>
+				<div id="userinfo">
+					<img id="profPic2" src ="<?php get_ProfileInfo('photo', $User_ID)?>"/>
+					<strong><a onclick = <?php
+					if ($_SESSION['SESS_LOGIN_ID']  == $User_ID) echo "hide(3)";
+					else
+					{
+						$_SESSION['PID'] = $User_ID;
+						echo "hide(5)";
+					}
+					?> > <?php echo $username; ?> </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
+				</div>
 
 			<div id = "postInfo">
 				<?php if($type_of_post == 'photo')
@@ -158,7 +163,41 @@ require_once('connect.php');
 					<?php echo $toPrint; ?> 
 				<?php
 				}
+
+				//SHOW TOP 3 MOST RECENT COMMENTS
 				?>
+				<br><br>
+				<?php
+
+					$query2 = "SELECT * FROM comments ORDER BY Timestamp DESC"; //You don't need a ; like you do in SQL
+					$result2 = mysql_query($query2);
+					$comments_counter = 0;
+
+					while(($row2 = mysql_fetch_array($result2)) &&  $comments_counter < 3)
+					{   //Creates a loop to loop through results
+
+						if($row2['Post_ID'] == $postID)
+						{
+							$printComment = $row2['Comment'];
+							$usererID = $row2['User_ID'];
+							$postTime2 = strtotime($row2['Timestamp']);
+							//$date2 = date('m-d-Y', $postTime2);
+							//$time2 = date('h:i:s:a', $postTime2);
+							postingComments($username, $printComment, $postTime2, $postID, $usererID);
+							$comments_counter = $comments_counter + 1;
+						}
+					}				
+
+				?>
+				<br>
+				<form action="comment.php" method="post">
+					<div id = "commenting">
+						<textarea rows="2" cols="50" name = "comment_enter"/></textarea> <br>
+						<input type = "hidden" value = "<?php echo $postID ?>" name = "id_enter"/>
+						<input type="submit" value = "Comment" name =  "comment_sub"/>
+					</div>
+				</form>
+
 			</div>
 		</div>
 		</tr>
@@ -187,7 +226,7 @@ if(isset($_POST['text_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'text', '$text')";
 		
 		check_sql($sql_addpost, $conn);
@@ -211,7 +250,7 @@ if(isset($_POST['pic_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'photo', '$photo')";
 		
 		check_sql($sql_addpost, $conn);
@@ -237,7 +276,7 @@ if(isset($_POST['quote_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'quote', '$quote')";
 		
 		check_sql($sql_addpost, $conn);
@@ -263,7 +302,7 @@ if(isset($_POST['link_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'link', '$link')";
 		
 		check_sql($sql_addpost, $conn);
@@ -289,7 +328,7 @@ if(isset($_POST['chat_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'chat', '$chat')";
 		
 		check_sql($sql_addpost, $conn);
@@ -316,7 +355,7 @@ if(isset($_POST['audio_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'audio', '$audio')";
 		
 		check_sql($sql_addpost, $conn);
@@ -355,7 +394,7 @@ if(isset($_POST['vid_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (postID, type, info)
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'video', '$total')";
 		
 		check_sql($sql_addpost, $conn);
