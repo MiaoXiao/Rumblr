@@ -372,11 +372,11 @@ crossorigin="anonymous">
 				?>
 				<?php	
 				require_once('connect.php');
-				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM posts ORDER BY timestamp DESC"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[User_ID]'";
 					$profileQ = mysql_query($profileInfo);
 					//check if this is valid
 					if($profileQ)
@@ -434,11 +434,11 @@ crossorigin="anonymous">
 				
 				<?php	
 				require_once('connect.php');
-				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM posts ORDER BY timestamp DESC"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[User_ID]'";
 					$profileQ = mysql_query($profileInfo);
 					//check if this is valid
 					if($profileQ)
@@ -460,7 +460,7 @@ crossorigin="anonymous">
 							//makes sure only specified posts are displayed
 							if($profile_ID == $temp_ID)
 							{
-								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 							}
 						}
 					}
