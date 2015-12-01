@@ -1,7 +1,7 @@
 <?php
 require_once('connect.php');
 
-function get_ProfileInfo($info)
+function get_ProfileInfo($info, $ID)
 {
 	//echo $_SESSION['SESS_USERNAME'];
 	$query = "SELECT * from profile";
@@ -9,7 +9,7 @@ function get_ProfileInfo($info)
 	while ($row = mysql_fetch_array($result))
 	{
 		//echo $_SESSION['SESS_LOGIN_ID'];
-		if ($row['profileID'] == $_SESSION['SESS_LOGIN_ID'])
+		if ($row['profileID'] == $ID)
 		{
 			echo $row[$info];
 		}
