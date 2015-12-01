@@ -222,7 +222,7 @@ crossorigin="anonymous">
 				?>
 		</div>
 		
-		<div id = "posting">
+		<		<div id = "posting">
 			<form action="posts.php" method="post">
 			<div id = "quote">
 					Submit a Quote:<br>
@@ -248,26 +248,30 @@ crossorigin="anonymous">
 			
 			<div id = "photo">
 					Submit a photo URL:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "pic_enter"/></textarea> <br>
+
+					<input type = "text" size = "50" name = "pic_enter"> <br><br>
 					<input type="submit" value = "Submit" name = "pic_sub"/>
 
 			</div>
 			<div id = "video">
 					Submit a Youtube link:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "vid_enter"/></textarea> <br>
+					<input type = "text" size = "50" name = "vid_enter"> <br><br>
 					<input type="submit" value = "Submit" name = "vid_sub"/>
+
 
 			</div>
 			<div id = "audio">
 					Submit an MP4 link:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "audio_enter"/></textarea> <br>
+					<input type = "text" size = "50" name = "audio_enter"> <br><br>
 					<input type="submit" value = "Submit" name = "audio_sub"/>
+
 
 				
 				</div>
 			</form>
 
 		</div>
+
 		<div id = "messageHolder">
 			<div id = "displayMsg">	
 				<p> Messages: </p> <br>
