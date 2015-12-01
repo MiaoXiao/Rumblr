@@ -191,8 +191,8 @@ crossorigin="anonymous">
 								$username = $getProfile['username'];
 								$privacy = $getProfile['privacy'];
 								$postTime = strtotime($row['timestamp']);
-								$date = date('m-d-Y', $postTime);
-								$time = date('h:i:s:a', $postTime);
+								$date = date('M d, Y', $postTime);
+								$time = date("g:i A", $postTime);
 								$privacy = $getProfile['privacy'];
 								$profile_ID = $row['postID'];
 
@@ -340,9 +340,9 @@ crossorigin="anonymous">
 				<p><b>Gender: </b>
 				<?php get_ProfileInfo('gender', $temp_ID);?></p>
 				<p><b>Created: </b>
-				<?php get_ProfileInfo('profilecreation', $temp_ID)?></p>
+				<?php niceDate(return_ProfileInfo('profilecreation', $temp_ID))?></p>
 				<p><b>Date of Birth: </b>
-				<?php get_ProfileInfo('birthday', $temp_ID)?></p>
+				<?php niceDate(return_ProfileInfo('birthday', $temp_ID))?></p>
 				<P><b>Interests: </b> 
 				<?php get_ProfileInfo('interests', $temp_ID)?></P>
 				<P><b>Blog Description: </b> 
@@ -371,8 +371,8 @@ crossorigin="anonymous">
 							$username = $getProfile['username'];
 							$privacy = $getProfile['privacy'];
 							$postTime = strtotime($row['timestamp']);
-							$date = date('m-d-Y', $postTime);
-							$time = date('h:i:s:a', $postTime);
+							$date = date('M d, Y', $postTime);
+							$time = date("g:i A", $postTime);
 							$privacy = $getProfile['privacy'];
 							$profile_ID = $row['postID'];
 
