@@ -93,7 +93,7 @@ crossorigin="anonymous">
 		</div>
 		
 		
-		<div id = "login">
+		<div id = "login" class = "container">
 			<?php if (!isset($_SESSION['SESS_USERNAME'])) 
 			{ 
 				?> 

@@ -47,9 +47,9 @@ function hide(enter){
 	
 	if(enter == 5) {
 		document.getElementById("showUpdateButton").style.visibility = "hidden";
-	}else{
-		document.getElementById("showUpdateButton").style.visibility = "visible";
 	}
+	else if (enter == 3)
+		document.getElementById("showUpdateButton").style.visibility = "visible";
 	
 	if(enter != 3 && enter != 5)
 			document.getElementById("profHolder").style.visibility = "hidden";
