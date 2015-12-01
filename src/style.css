@@ -212,6 +212,13 @@ a:active {
    visibility:hidden;
 }
 
+#OtherProfile {
+	padding: 1%;
+    position:absolute;
+    text-align:left;
+	visibility:hidden; 
+}
+
 #profile {
 	padding: 1%;
     position:relative;

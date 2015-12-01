@@ -27,7 +27,7 @@ function hide(enter){
 		document.getElementById("navi").style.visibility = "hidden";
 		document.getElementById("posting").style.visibility = "hidden";
 	}
-	if(enter == 3 || enter == 5) {
+	if(enter == 3) {
 		document.getElementById("profHolder").style.visibility = "visible";
 		document.getElementById("profile").style.visibility = "visible";
 		document.getElementById("upProf").style.visibility = "hidden"
@@ -46,10 +46,13 @@ function hide(enter){
 	}	
 	
 	if(enter == 5) {
-		document.getElementById("showUpdateButton").style.visibility = "hidden";
+		document.getElementById("profHolder").style.visibility = "visible";
+		document.getElementById("OtherProfile").style.visibility = "visible";
+		
+		document.getElementById("upProf").style.visibility = "hidden"
+	}else{
+		document.getElementById("OtherProfile").style.visibility = "hidden";
 	}
-	else if (enter == 3)
-		document.getElementById("showUpdateButton").style.visibility = "visible";
 	
 	if(enter != 3 && enter != 5)
 			document.getElementById("profHolder").style.visibility = "hidden";
@@ -69,6 +72,13 @@ function showUpdate(enter)
 		document.getElementById("profile").style.visibility = "visible";
 	}
 	
+}
+
+function check(num)
+{
+	window.alert(num);
+	if(num != 0 )
+		hide(2);
 }
 
 function showCreateMsg(enter)

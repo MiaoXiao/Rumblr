@@ -26,7 +26,7 @@ crossorigin="anonymous">
 	}
 ?>
 <html>
-<body style="background-color:DarkCyan">
+<body style="background-color:DarkCyan"  >
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>
@@ -321,6 +321,65 @@ crossorigin="anonymous">
 				</form>
 			</div>
 			
+			<div id="OtherProfile">
+				<img id="profPic" src ="<?php get_ProfileInfo('photo', $temp_ID)?>"/>
+				<p><b>Username:</b>
+				<?php get_ProfileInfo('username', $temp_ID);?></p>
+				<p><b>Nickname:</b>
+				<?php get_ProfileInfo('nickname', $temp_ID);?></p>
+				<p><b>Gender: </b>
+				<?php get_ProfileInfo('gender', $temp_ID);?></p>
+				<p><b>Created: </b>
+				<?php niceDate(return_ProfileInfo('profilecreation', $temp_ID))?></p>
+				<p><b>Date of Birth: </b>
+				<?php niceDate(return_ProfileInfo('birthday', $temp_ID))?></p>
+				<P><b>Interests: </b> 
+				<?php get_ProfileInfo('interests', $temp_ID)?></P>
+				<P><b>Blog Description: </b> 
+				<?php get_ProfileInfo('blogdesc', $temp_ID)?></P>
+				<P><b>Blog Privacy: </b> 
+				<?php get_ProfileInfo('privacy', $temp_ID)?></P>
+				
+				<?php	
+				require_once('connect.php');
+				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$result = mysql_query($query);
+				while($row = mysql_fetch_array($result))
+				{   //Creates a loop to loop through results
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileQ = mysql_query($profileInfo);
+					//check if this is valid
+					if($profileQ)
+					{
+						if(mysql_num_rows($profileQ) > 0)
+						{
+							$getProfile = mysql_fetch_assoc($profileQ);
+							$printThis = $row['info'];
+							$typee = $row['type'];
+							$username = $getProfile['username'];
+							$privacy = $getProfile['privacy'];
+							$postTime = strtotime($row['timestamp']);
+							$date = date('M d, Y', $postTime);
+							$time = date("g:i A", $postTime);
+							$privacy = $getProfile['privacy'];
+							$profile_ID = $row['postID'];
+
+							//makes sure only specified posts are displayed
+							if($profile_ID == $temp_ID)
+							{
+								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+							}
+						}
+					}
+					else
+					{
+						echo "ERROR IN POSTING";
+					}
+				}
+				?>
+				
+			</div>
+			
 			<div id="profile">
 				<img id="profPic" src ="<?php get_ProfileInfo('photo', $temp_ID)?>"/>
 				<p><b>Username:</b>
@@ -339,7 +398,7 @@ crossorigin="anonymous">
 				<?php get_ProfileInfo('blogdesc', $temp_ID)?></P>
 				<P><b>Blog Privacy: </b> 
 				<?php get_ProfileInfo('privacy', $temp_ID)?></P>
-				<button id = "showUpdateButton" type="button" onclick = "showUpdate(0)">Update Profile</button>
+				<button type="button" onclick = "showUpdate(0)">Update Profile</button>
 				</br></br>
 				
 				<?php	
