@@ -66,7 +66,7 @@ crossorigin="anonymous">
 							<li><a onclick = "hide(3)"> Welcome, <?php $temp_ID = $_SESSION['SESS_LOGIN_ID']; echo $_SESSION['SESS_ACTUAL_USER']; ?>. </a></li>
 							<li><a onclick = "hide(4)">Inbox</a></li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Submit Post <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a onclick = "post(0)">Text</a></li>
 									<li><a onclick = "post(1)">Photo</a></li>
