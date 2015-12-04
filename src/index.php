@@ -222,7 +222,22 @@ crossorigin="anonymous">
 									}
 									else if($privacy == 'Friends Only')
 									{
-										posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+											//if this is your post, display it
+											if ($username == $_SESSION['SESS_ACTUAL_USER']) posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+											else
+											{
+												//now check to see if this person is your friend
+												$query2 = "SELECT * from friends";
+												$result2 = mysql_query($query2);
+												while ($row = mysql_fetch_array($result2))
+												{
+													if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $profile_ID)
+													{
+														posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+													}
+												}
+											}
+										
 									}
 								}
 						}
