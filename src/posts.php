@@ -256,7 +256,7 @@ if(isset($_POST['search']))
 				else if ($type_of_post == 'link')
 				{
 				?>
-					<br><strong>Link: <strong><br>
+					<br><strong>Link: </strong><br>
 					<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
 				<?php
 				}
