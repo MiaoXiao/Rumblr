@@ -6,18 +6,21 @@ function hide(enter){
 	}else{
 		document.getElementById("login").style.visibility = "hidden";
 	}
+	
 	if(enter == 1){
 		document.getElementById("createAcc").style.visibility = "visible";
 	}else{
 		document.getElementById("createAcc").style.visibility = "hidden";
 	}
+	
 	if(enter == 2){
 		document.getElementById("posts").style.visibility = "visible";
 		post(0);
 	}else{
 		document.getElementById("posts").style.visibility = "hidden";
 	}
-	if(enter == 2 || enter == 3 || enter == 4 || enter == 5)
+	
+	if(enter == 2 || enter == 3 || enter == 4 || enter == 5 || enter == 6)
 	{
 		document.getElementById("navi").style.visibility = "visible";
 		document.getElementById("posting").style.visibility = "visible";
@@ -27,6 +30,7 @@ function hide(enter){
 		document.getElementById("navi").style.visibility = "hidden";
 		document.getElementById("posting").style.visibility = "hidden";
 	}
+	
 	if(enter == 3) {
 		document.getElementById("profHolder").style.visibility = "visible";
 		document.getElementById("profile").style.visibility = "visible";
@@ -56,6 +60,11 @@ function hide(enter){
 	
 	if(enter != 3 && enter != 5)
 			document.getElementById("profHolder").style.visibility = "hidden";
+			
+	if(enter == 6)
+			document.getElementById("searchHolder").style.visibility = "visible";
+	else
+	        document.getElementById("searchHolder").style.visibility = "hidden";
 }
 
 function logout(){

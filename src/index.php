@@ -80,12 +80,12 @@ crossorigin="anonymous">
 								</ul>
 							</li>
 						</ul>
-					<form class="navbar-form navbar-left" role="search">
+					<div class="navbar-form navbar-left" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
+						<button type="submit" class="btn btn-default" onclick = "hide(6)">Submit</button>
+					</div>
 					<ul class="nav navbar-nav">
 						<li><a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a></li>
 						<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
@@ -474,6 +474,9 @@ crossorigin="anonymous">
 				?>
 				
 			</div>
+		</div>
+		<div id = "searchHolder">
+				<a> HUE </a>
 		</div>
 	</body>
 </html>

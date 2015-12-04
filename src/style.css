@@ -105,7 +105,6 @@ textarea[class=form-group] {
    visibility:hidden;
 }
 
-
 #topBar {
    background-color:CadetBlue;
    color:white;
@@ -126,19 +125,30 @@ textarea[class=form-group] {
 	visibility:hidden; 
 }
 
+#searchHolder{
+  background-color:CadetBlue;
+  padding: 1%;
+  position:relative;
+  margin-top:1%;
+  margin-left:3%;
+  width:45%;
+  text-align:left;
+  visibility:hidden; 
+}
+
 #profHolder{
   background-color:CadetBlue;
   padding: 1%;
   position:absolute;
   margin-top:1%;
   margin-left:3%;
-    width:45%;
-    text-align:left;
+  width:45%;
+  text-align:left;
   visibility:hidden; 
 }
 
 #upProf{
-  width:90%;
+  width:95%;
   position:absolute;
     text-align:left;
   visibility:hidden; 
@@ -168,12 +178,12 @@ textarea[class=form-group] {
 	position:absolute;
     float:left;
     text-align:left;
-    width:95%;
+    width:98%;
 	visibility:hidden;
 }
 
 #createMsg {
-width:95%;
+	width:98%;
 	position:relative;
     float:left;
     text-align:left;
