@@ -36,6 +36,7 @@ crossorigin="anonymous">
 		<?php include 'updateprofile.php';?>
 		<?php include 'posts.php';?>
 		<?php include 'inbox.php';?>
+		<?php include 'comment.php';?>
 		<?php //include 'login.php';?>
 	</head>
 	<div id = "header" role = "navigation">
@@ -175,11 +176,11 @@ crossorigin="anonymous">
 		<div id = "posts">
 			<?php	
 				require_once('connect.php');
-				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM posts ORDER BY timestamp DESC"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[User_ID]'";
 					$profileQ = mysql_query($profileInfo);
 					//check if this is valid
 					if($profileQ)
@@ -195,19 +196,17 @@ crossorigin="anonymous">
 								$date = date('M d, Y', $postTime);
 								$time = date("g:i A", $postTime);
 								$privacy = $getProfile['privacy'];
-								$profile_ID = $row['postID'];
+								$profile_ID = $row['User_ID'];
+								$post_ID = $row['postID'];
 
-								echo $_SESSION['SESS_ACTUAL_USER'];
-								echo $username;
 								//created the function for it
 								if($privacy == 'Open')
 								{
-									echo"IM OPEN!";
-									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 								}
 								else if($privacy == 'Private' && $username == $_SESSION['SESS_ACTUAL_USER'])
 								{
-									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 								}
 								else if($privacy == 'Friends Only')
 								{
@@ -224,6 +223,56 @@ crossorigin="anonymous">
 				?>
 		</div>
 		
+		<div id = "posting">
+			<form action="posts.php" method="post">
+			<div id = "quote">
+					Submit a Quote:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
+					<input type="submit" value = "Submit" name =  "quote_sub"/>
+
+			</div>
+
+			<div id = "text">
+
+					Submit Text:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
+					<input type="submit" value = "Submit" name = "text_sub"/>
+
+			</div>
+
+			<div id = "link">
+					Submit any URL:<br>
+					<input type = "text" size = "50" name = "link_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "link_sub"/>
+
+			</div>
+			
+			<div id = "photo">
+					Submit a photo URL:<br>
+
+					<input type = "text" size = "50" name = "pic_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "pic_sub"/>
+
+			</div>
+			<div id = "video">
+					Submit a Youtube link:<br>
+					<input type = "text" size = "50" name = "vid_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "vid_sub"/>
+
+
+			</div>
+			<div id = "audio">
+					Submit an MP4 link:<br>
+					<input type = "text" size = "50" name = "audio_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "audio_sub"/>
+
+
+				
+				</div>
+			</form>
+
+		</div>
+
 		<div id = "messageHolder">
 			<div id = "displayMsg">	
 				<p> Messages: </p> <br>
@@ -278,31 +327,58 @@ crossorigin="anonymous">
 			</div>
 			
 			<div id="OtherProfile">
-				<img id="profPic" src ="<?php get_ProfileInfo('photo', $temp_ID)?>"/>
+				<img id="profPic" src ="<?php get_ProfileInfo('photo', $_SESSION['PID'])?>"/>
 				<p><b>Username:</b>
-				<?php get_ProfileInfo('username', $temp_ID);?></p>
+				<?php get_ProfileInfo('username', $_SESSION['PID']);?></p>
 				<p><b>Nickname:</b>
-				<?php get_ProfileInfo('nickname', $temp_ID);?></p>
+				<?php get_ProfileInfo('nickname', $_SESSION['PID']);?></p>
 				<p><b>Gender: </b>
-				<?php get_ProfileInfo('gender', $temp_ID);?></p>
+				<?php get_ProfileInfo('gender', $_SESSION['PID']);?></p>
 				<p><b>Created: </b>
-				<?php niceDate(return_ProfileInfo('profilecreation', $temp_ID))?></p>
+				<?php niceDate(return_ProfileInfo('profilecreation', $_SESSION['PID']))?></p>
 				<p><b>Date of Birth: </b>
-				<?php niceDate(return_ProfileInfo('birthday', $temp_ID))?></p>
+				<?php niceDate(return_ProfileInfo('birthday', $_SESSION['PID']))?></p>
 				<P><b>Interests: </b> 
-				<?php get_ProfileInfo('interests', $temp_ID)?></P>
+				<?php get_ProfileInfo('interests', $_SESSION['PID'])?></P>
 				<P><b>Blog Description: </b> 
-				<?php get_ProfileInfo('blogdesc', $temp_ID)?></P>
+				<?php get_ProfileInfo('blogdesc', $_SESSION['PID'])?></P>
 				<P><b>Blog Privacy: </b> 
-				<?php get_ProfileInfo('privacy', $temp_ID)?></P>
+				<?php get_ProfileInfo('privacy', $_SESSION['PID'])?></P>
+				<?php
+			
+				$friend_success = true;
+				$query = "SELECT * from friends";
+				$result = mysql_query($query);
+				while ($row = mysql_fetch_array($result))
+				{
+					if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $_SESSION['PID'])
+					{
+						$friend_success = false;
+					}
+				}
 				
+				if($_SESSION['PID'] != $_SESSION['SESS_LOGIN_ID'] && $friend_success == true)
+				{
+					?>
+					<form action="follow.php" method="post">
+						<div id = "friends">
+							<input type = "hidden" value = "<?php echo $username ?>" name = "friend_enter"/>
+							<input type="submit" value = "Friend" name =  "friend_sub"/>
+						</div>
+					</form>
+					<?php
+				}
+				else{
+					echo "You are friends with this user already";
+				}
+				?>
 				<?php	
 				require_once('connect.php');
-				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM posts ORDER BY timestamp DESC"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[User_ID]'";
 					$profileQ = mysql_query($profileInfo);
 					//check if this is valid
 					if($profileQ)
@@ -318,12 +394,13 @@ crossorigin="anonymous">
 							$date = date('M d, Y', $postTime);
 							$time = date("g:i A", $postTime);
 							$privacy = $getProfile['privacy'];
-							$profile_ID = $row['postID'];
+							$profile_ID = $row['User_ID'];
+							$post_ID = $row['postID'];
 
 							//makes sure only specified posts are displayed
-							if($profile_ID == $temp_ID)
+							if($profile_ID == $_SESSION['PID'])
 							{
-								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 							}
 						}
 					}
@@ -359,11 +436,11 @@ crossorigin="anonymous">
 				
 				<?php	
 				require_once('connect.php');
-				$query = "SELECT * FROM posts"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM posts ORDER BY timestamp DESC"; //You don't need a ; like you do in SQL
 				$result = mysql_query($query);
 				while($row = mysql_fetch_array($result))
 				{   //Creates a loop to loop through results
-					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[postID]'";
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$row[User_ID]'";
 					$profileQ = mysql_query($profileInfo);
 					//check if this is valid
 					if($profileQ)
@@ -379,12 +456,13 @@ crossorigin="anonymous">
 							$date = date('M d, Y', $postTime);
 							$time = date("g:i A", $postTime);
 							$privacy = $getProfile['privacy'];
-							$profile_ID = $row['postID'];
+							$profile_ID = $row['User_ID'];
+							$post_ID = $row['postID'];
 
 							//makes sure only specified posts are displayed
 							if($profile_ID == $temp_ID)
 							{
-								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID);
+								posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
 							}
 						}
 					}
@@ -396,56 +474,6 @@ crossorigin="anonymous">
 				?>
 				
 			</div>
-		</div>
-		
-		<div id = "posting">
-			<form action="posts.php" method="post">
-			<div id = "quote" width = "100%">
-					Submit a Quote:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
-					<input type="submit" value = "Submit" name =  "quote_sub"/>
-
-			</div>
-
-			<div id = "text">
-
-					Submit Text:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
-					<input type="submit" value = "Submit" name = "text_sub"/>
-
-			</div>
-
-			<div id = "link" width = "100%">
-					Submit any URL:<br>
-					<input type = "text" size = "50" name = "link_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "link_sub"/>
-
-			</div>
-			
-			<div id = "photo">
-					Submit a photo URL:<br>
-
-					<input type = "text" size = "50" name = "pic_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "pic_sub"/>
-
-			</div>
-			<div id = "video">
-					Submit a Youtube link:<br>
-					<input type = "text" size = "50" name = "vid_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "vid_sub"/>
-
-
-			</div>
-			<div id = "audio">
-					Submit an MP4 link:<br>
-					<input type = "text" size = "50" name = "audio_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "audio_sub"/>
-
-
-				
-				</div>
-			</form>
-
 		</div>
 	</body>
 </html>

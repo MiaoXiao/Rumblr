@@ -15,8 +15,7 @@ function get_ProfileInfo($info, $ID)
 		}
 	}
 }
-
-function return_ProfileInfo($info, $ID)
+function return_ProfileInfo($info)
 {
 	//echo $_SESSION['SESS_USERNAME'];
 	$query = "SELECT * from profile";
@@ -24,14 +23,12 @@ function return_ProfileInfo($info, $ID)
 	while ($row = mysql_fetch_array($result))
 	{
 		//echo $_SESSION['SESS_LOGIN_ID'];
-		if ($row['profileID'] == $ID)
+		if ($row['profileID'] == $_SESSION['SESS_LOGIN_ID'])
 		{
 			return $row[$info];
 		}
 	}
 }
-
-
 
 $newpicture = $newnickname = $newinterests = $newblogdesc = $newprivacy = "";
 
