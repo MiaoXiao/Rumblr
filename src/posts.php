@@ -642,15 +642,12 @@ if(isset($_POST['vid_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-		if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
-		if(isset($_POST['tags_vid'])) 
+		if(isset($_POST['tags_video'])) 
 		{
-			$tag_list = test_input($_POST["tags_vid"]);
+			$tag_list = test_input($_POST["tags_video"]);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
