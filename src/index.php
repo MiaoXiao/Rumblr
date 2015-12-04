@@ -464,7 +464,7 @@ crossorigin="anonymous">
 				<?php get_ProfileInfo('blogdesc', $temp_ID)?></P>
 				<P><b>Blog Privacy: </b> 
 				<?php get_ProfileInfo('privacy', $temp_ID)?></P>
-				<button type="button" onclick = "showUpdate(0)">Update Profile</button>
+				<button type="button" style="font-face: 'Comic Sans MS'; color: black;" onclick = "showUpdate(0)">Update Profile</button>
 				</br></br>
 				
 				<?php	
