@@ -169,6 +169,13 @@ if(isset($_POST['search']))
 					}
 					?> > <?php echo $username; ?> </a> <br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
 				</div>
+				
+				<?php
+				if($rpost)
+				{
+					echo "This is a repost!";
+				}
+				?>
 
 			<div id = "postInfo">
 				<?php if($type_of_post == 'photo')
