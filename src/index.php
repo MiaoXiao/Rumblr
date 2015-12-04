@@ -318,27 +318,27 @@ crossorigin="anonymous">
 			<div id = "upProf">
 				<form action="updateprofile.php" method="post">
 					Update Picture: <br>
-					<input type="text" name = "picture_update"/> <br>
+					<input type="text" style="color:darkCyan" name = "picture_update"/> <br>
 						
 					Update Nickname: <br>
-					<input type="text" name = "nickname_update"/> <br>
+					<input type="text" style="color:darkCyan" name = "nickname_update"/> <br>
 				
 					Update Interests: <br>
-					<textarea rows="4" name = "interests_update"/></textarea> <br>
+					<textarea rows="4" style="color:darkCyan" name = "interests_update"/></textarea> <br>
 
 					Update Blog Description: <br>
-					<textarea rows="4" name = "blogdes_update"/></textarea> <br>
+					<textarea rows="4" style="color:darkCyan" name = "blogdes_update"/></textarea> <br>
 					
 					Update Blog Privacy: <br>
-					<select name="privacy_update">
+					<select name="privacy_update" style="color:darkCyan" >
 						<option value="Select">Select...</option>
 						<option value="Open">Open</option>
 						<option value="Friends Only">Friends Only</option>
 						<option value="Private">Private</option>
 					</select><br><br>
 				
-					<input type ="submit" name = "update_profile" Value = "Update Profile"/>
-					<button type="button" onclick = "showUpdate(1)">Cancel</button>
+					<input type ="submit" style="font-face: 'Comic Sans MS'; color: black;" name = "update_profile" Value = "Update Profile"/>
+					<button type="button" style="font-face: 'Comic Sans MS'; color: black;" onclick = "showUpdate(1)">Cancel</button>
 				</form>
 			</div>
 			
