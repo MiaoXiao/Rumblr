@@ -84,7 +84,7 @@ crossorigin="anonymous">
 					<div class="navbar-form navbar-left" role="search">
 						<form method="post" action="posts.php">
 							<div class="form-group">
-								<input type="text" name="search_enter"class="form-control" placeholder="Search">
+								<input type="text" style="color:darkCyan" name="search_enter"class="form-control" placeholder="Search">
 							</div>
 							<button type="submit" class="btn btn-default" name = "search">Submit</button>
 						</form>
@@ -294,21 +294,21 @@ crossorigin="anonymous">
 				<p> Messages: </p> <br>
 					<?php displayMessages();?>
 				<br>
-				<button type="button" onclick = "showCreateMsg(0)">New Message</button>
+				<button type="button" style="font-face: 'Comic Sans MS'; color: black;" onclick = "showCreateMsg(0)">New Message</button>
 			</div>
 			
 			<div id = "createMsg">
 				<form action="inbox.php" method="post">
 					Select a friend: <br>
-					<select name = 'tofield'>
+					<select name = 'tofield' style="color:darkCyan">
 					<?php displayFriendSelection();?>
 					</select>
 					<br>
 					Create new message: <br>
-						<textarea rows="4" name = "messagefield"/></textarea> <br>
+						<textarea rows="4" style="color:darkCyan" name = "messagefield"/></textarea> <br>
 						<br><br>
-						<input type="submit" value = "SEND" name = "send_message"/>
-						<button type="button" onclick = "showCreateMsg(1)">Cancel</button>
+						<input type="submit" style="font-face: 'Comic Sans MS'; color: black;" value = "SEND" name = "send_message"/>
+						<button type="button" style="font-face: 'Comic Sans MS'; color: black;" onclick = "showCreateMsg(1)">Cancel</button>
 				</form>
 			</div>
 		</div>
@@ -464,7 +464,7 @@ crossorigin="anonymous">
 				<?php get_ProfileInfo('blogdesc', $temp_ID)?></P>
 				<P><b>Blog Privacy: </b> 
 				<?php get_ProfileInfo('privacy', $temp_ID)?></P>
-				<button type="button" onclick = "showUpdate(0)">Update Profile</button>
+				<button type="button" style="font-face: 'Comic Sans MS'; color: black;" onclick = "showUpdate(0)">Update Profile</button>
 				</br></br>
 				
 				<?php	
