@@ -204,7 +204,8 @@ textarea[class=form-group] {
 }
 
 #video{
-   color:black;
+   color:white;
+   font-family: "Times New Roman", Georgia, Serif;
    padding: 1% 1% 1% 1%;
    width: 95%;
    position: absolute;
@@ -214,7 +215,8 @@ textarea[class=form-group] {
 }
 
 #audio{
-   color:black;
+   color:white;
+   font-family: "Times New Roman", Georgia, Serif;
    padding: 1% 1% 1% 1%;
    width: 95%;
    position: absolute;
@@ -224,7 +226,8 @@ textarea[class=form-group] {
 }
 
 #photo{
-   color:black;
+   color:white;
+   font-family: "Times New Roman", Georgia, Serif;
    padding: 1% 1% 1% 1%;
    width: 95%;
    position: absolute;
@@ -234,7 +237,8 @@ textarea[class=form-group] {
 }
 
 #text{
-   color:black;
+   color:white;
+   font-family: "Times New Roman", Georgia, Serif;
    padding: 1% 1% 1% 1%;
    width: 95%;
    position: absolute;
@@ -244,7 +248,8 @@ textarea[class=form-group] {
 }
 
 #link{
-   color:black;
+   color:white;
+   font-family: "Times New Roman", Georgia, Serif;
    padding: 1% 1% 1% 1%;
    width: 95%;
    position: absolute;
@@ -254,7 +259,8 @@ textarea[class=form-group] {
 }
 
 #quote{
-   color:black;
+   color:white;
+   font-family: "Times New Roman", Georgia, Serif;
    padding: 1% 1% 1% 1%;
    width: 95%;
    position: absolute;
