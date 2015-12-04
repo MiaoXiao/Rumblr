@@ -52,6 +52,7 @@
 session_write_close();
 session_start();
 
+
 $text = $photo = $quote = $link = $chat = $audio = $video = "";
 $temp_username = "";
 //main error message
@@ -227,7 +228,44 @@ function multiexplode ($delimiters,$string) {
     return  $launch;
 }
 
-
+function notifiy_friends($conn2)
+{
+	$query1 = "SELECT * from profile";
+	$result1 = mysql_query($query1);
+	while ($row = mysql_fetch_array($result1))
+	{
+		if ($row['profileID'] == $_SESSION['SESS_LOGIN_ID'])
+		{
+			$Temp_ID = $row['profileID'];
+		}
+	}
+	$query2 = "SELECT * from friends";
+	$result2 = mysql_query($query2);
+	while ($row = mysql_fetch_array($result2))
+	{
+		if ($row['User_ID_1'] == $Temp_ID)
+		{
+			$Temp_ID_2 = $row['User_ID_2'];
+			$followsuccess = true;
+			$message = "Your friend has made a post!";
+			$Friend_Request = false;
+			
+			//create new friend link
+			if ($followsuccess)
+			{
+				$err_post = "Friended!";
+				
+				$sql_newmessage = "INSERT INTO inbox (From_User_ID, To_User_ID, message, Is_FR)
+				VALUES ('$Temp_ID', '$Temp_ID_2', '$message', '$Friend_Request')";
+				check_sql($sql_newmessage, $conn2);
+				//header("location: index.php");
+			}
+			header("Location:index.php");
+		}
+	}
+	
+	
+}
 //text field
 if(isset($_POST['text_sub'])) {
 	$postsuccess = true;
@@ -242,12 +280,13 @@ if(isset($_POST['text_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		//echo "Text created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'text', '$text')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'text', '$text')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -286,12 +325,13 @@ if(isset($_POST['pic_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		//echo "Photo created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'photo', '$photo')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'photo', '$photo')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -332,12 +372,13 @@ if(isset($_POST['quote_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		//echo "Link created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'quote', '$quote')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'quote', '$quote')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -378,12 +419,13 @@ if(isset($_POST['link_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		//echo "Link created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, Is Repost, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0 , false, 'link', '$link')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'link', '$link')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -424,12 +466,13 @@ if(isset($_POST['chat_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		//echo "Link created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'chat', '$chat')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'chat', '$chat')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -470,13 +513,14 @@ if(isset($_POST['audio_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		echo"I'm being posted";
 		//echo "Link created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false 'audio', '$audio')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'audio', '$audio')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -530,12 +574,13 @@ if(isset($_POST['vid_sub'])) {
 	//create new login and profile if form success
 	if ($postsuccess)
 	{
+		notifiy_friends($conn);
 		//echo "Link created!";
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'video', '$total')";
+		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 'video', '$total')";
 		
 		check_sql($sql_addpost, $conn);
 
