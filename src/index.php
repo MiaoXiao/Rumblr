@@ -503,8 +503,7 @@ crossorigin="anonymous">
 
 <script type = "text/javascript">
 
-var sessionValue = <?php echo $SESS_LOGIN_ID; ?>;
-console.log(sessionValue);
+var sessionValue = "<?php echo $_SESSION['SESS_LOGIN_ID'] ?>";
 check(sessionValue);
 	
 </script>
