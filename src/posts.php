@@ -251,10 +251,7 @@ if(isset($_POST['text_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-		if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_text'])) 
@@ -264,7 +261,6 @@ if(isset($_POST['text_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
@@ -299,10 +295,7 @@ if(isset($_POST['pic_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-		if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_photo'])) 
@@ -312,7 +305,6 @@ if(isset($_POST['pic_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
@@ -349,10 +341,7 @@ if(isset($_POST['quote_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-				if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_quote'])) 
@@ -362,7 +351,6 @@ if(isset($_POST['quote_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
@@ -399,10 +387,7 @@ if(isset($_POST['link_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-		if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_link'])) 
@@ -412,7 +397,6 @@ if(isset($_POST['link_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
@@ -449,10 +433,7 @@ if(isset($_POST['chat_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-		if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_chat'])) 
@@ -462,7 +443,6 @@ if(isset($_POST['chat_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
@@ -500,10 +480,7 @@ if(isset($_POST['audio_sub'])) {
 		
 		check_sql($sql_addpost, $conn);
 
-		if ($conn->query($sql_addpost) === TRUE) 
-		{
-			$last_post = $conn->insert_id;
-		}
+		$last_post = $conn->insert_id;
 
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_audio'])) 
@@ -513,7 +490,6 @@ if(isset($_POST['audio_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
@@ -576,7 +552,6 @@ if(isset($_POST['vid_sub'])) {
 
 			foreach ($exploded as $tag_element)
 			{
-				echo "TAG_LINK:" . $tag_element;
 				if($tag_element != NULL)
 				{
 					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
