@@ -246,8 +246,8 @@ if(isset($_POST['text_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'text', '$text')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'text', '$text')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -290,8 +290,8 @@ if(isset($_POST['pic_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'photo', '$photo')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'photo', '$photo')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -336,8 +336,8 @@ if(isset($_POST['quote_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'quote', '$quote')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'quote', '$quote')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -382,8 +382,8 @@ if(isset($_POST['link_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'link', '$link')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, Is Repost, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0 , false, 'link', '$link')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -428,8 +428,8 @@ if(isset($_POST['chat_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'chat', '$chat')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'chat', '$chat')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -475,8 +475,8 @@ if(isset($_POST['audio_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'audio', '$audio')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false 'audio', '$audio')";
 		
 		check_sql($sql_addpost, $conn);
 
@@ -534,8 +534,8 @@ if(isset($_POST['vid_sub'])) {
 		$err_post = "Submitted!";
 		
 		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'video', '$total')";
+		$sql_addpost = "INSERT INTO posts (User_ID, Likes, IsRepost, type, info)
+		VALUES ($_SESSION[SESS_LOGIN_ID], 0, false, 'video', '$total')";
 		
 		check_sql($sql_addpost, $conn);
 
