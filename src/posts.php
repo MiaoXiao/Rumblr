@@ -131,6 +131,30 @@ if(isset($_POST['search']))
 			</form>
 			<?php
 			}
+			
+			$Repost_success = true;
+			if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $Repost_success == true)
+			{
+			?>
+			<form action="repost.php" method="post">
+				<div id = "Reposting">
+					<input type = "hidden" value = "<?php echo $postID ?>" name = "repost_enter"/>
+					<input type="submit" value = "Repost" name =  "repost_sub"/>
+				</div>
+			</form>
+			<?php
+			}
+			
+			//repost check
+			$query = "SELECT * from posts";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_array($result))
+			{
+				if($row['postID'] == $postID)
+				{
+					$rpost = $row['IsRepost'];
+				}
+			}
 			?>
 
 			
