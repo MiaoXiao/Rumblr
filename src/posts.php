@@ -219,6 +219,15 @@ require_once('connect.php');
 				<?php
 	}
 
+//tag parser
+function multiexplode ($delimiters,$string) {
+    
+    $ready = str_replace($delimiters, $delimiters[0], $string);
+    $launch = explode($delimiters[0], $ready);
+    return  $launch;
+}
+
+
 //text field
 if(isset($_POST['text_sub'])) {
 	$postsuccess = true;
@@ -241,6 +250,30 @@ if(isset($_POST['text_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'text', '$text')";
 		
 		check_sql($sql_addpost, $conn);
+
+		if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_text'])) 
+		{
+			$tag_list = test_input($_POST["tags_text"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
 }
@@ -265,6 +298,30 @@ if(isset($_POST['pic_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'photo', '$photo')";
 		
 		check_sql($sql_addpost, $conn);
+
+		if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_photo'])) 
+		{
+			$tag_list = test_input($_POST["tags_photo"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
 }
@@ -291,6 +348,30 @@ if(isset($_POST['quote_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'quote', '$quote')";
 		
 		check_sql($sql_addpost, $conn);
+
+				if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_quote'])) 
+		{
+			$tag_list = test_input($_POST["tags_quote"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
 }
@@ -317,6 +398,30 @@ if(isset($_POST['link_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'link', '$link')";
 		
 		check_sql($sql_addpost, $conn);
+
+		if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_link'])) 
+		{
+			$tag_list = test_input($_POST["tags_link"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
 }
@@ -343,6 +448,30 @@ if(isset($_POST['chat_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'chat', '$chat')";
 		
 		check_sql($sql_addpost, $conn);
+
+		if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_chat'])) 
+		{
+			$tag_list = test_input($_POST["tags_chat"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
 }
@@ -370,6 +499,30 @@ if(isset($_POST['audio_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'audio', '$audio')";
 		
 		check_sql($sql_addpost, $conn);
+
+		if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_audio'])) 
+		{
+			$tag_list = test_input($_POST["tags_audio"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
 }
@@ -409,9 +562,32 @@ if(isset($_POST['vid_sub'])) {
 		VALUES ($_SESSION[SESS_LOGIN_ID], 'video', '$total')";
 		
 		check_sql($sql_addpost, $conn);
+
+		if ($conn->query($sql_addpost) === TRUE) 
+		{
+			$last_post = $conn->insert_id;
+		}
+
+		//check for tags------------------------------------------------------
+		if(isset($_POST['tags_vid'])) 
+		{
+			$tag_list = test_input($_POST["tags_vid"]);
+			$exploded = multiexplode(Array(","," "),$tag_list);
+
+			foreach ($exploded as $tag_element)
+			{
+				echo "TAG_LINK:" . $tag_element;
+				if($tag_element != NULL)
+				{
+					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
+							VALUES ($last_post, '$tag_element')";
+
+					check_sql($sql_addpost2, $conn);
+				}
+			}		
+		}
 		header("Location:index.php");
 	}
-}
 
 ?>
 
