@@ -67,7 +67,7 @@ $err_post = "";
 
 require_once('connect.php');
 
-								//returns true if a label matches the search element
+//returns true if a label matches the search element
 function checkLabels($searchelement, $id)
 {
 	if ($searchelement == '') return true;
@@ -157,7 +157,6 @@ if(isset($_POST['search']))
 			}
 			?>
 
-			
 				<div id="userinfo">
 					<img id="profPic2" src ="<?php get_ProfileInfo('photo', $User_ID)?>"/>
 					<strong><a onclick = <?php
@@ -176,7 +175,7 @@ if(isset($_POST['search']))
 					}
 					?>
 					
-					<br> <?php echo $datePosted;?><br> <?php echo $timePosted;?></strong>
+					<br> <?php echo " " . $datePosted;?><br> <?php echo $timePosted;?></strong>
 				</div>
 
 			<div id = "postInfo">
@@ -386,7 +385,8 @@ if(isset($_POST['text_sub'])) {
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_text'])) 
 		{
-			$tag_list = test_input($_POST["tags_text"]);
+			$tlist = "text, " . $_POST['tags_text'];
+			$tag_list = test_input($tlist);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
@@ -431,7 +431,8 @@ if(isset($_POST['pic_sub'])) {
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_photo'])) 
 		{
-			$tag_list = test_input($_POST["tags_photo"]);
+			$tlist = "photo, " . $_POST['tags_photo'];
+			$tag_list = test_input($tlist);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
@@ -478,7 +479,8 @@ if(isset($_POST['quote_sub'])) {
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_quote'])) 
 		{
-			$tag_list = test_input($_POST["tags_quote"]);
+			$tlist = "quote, " . $_POST['tags_quote'];
+			$tag_list = test_input($tlist);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
@@ -525,54 +527,8 @@ if(isset($_POST['link_sub'])) {
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_link'])) 
 		{
-			$tag_list = test_input($_POST["tags_link"]);
-			$exploded = multiexplode(Array(","," "),$tag_list);
-
-			foreach ($exploded as $tag_element)
-			{
-				if($tag_element != NULL)
-				{
-					$sql_addpost2 = "INSERT INTO tags (Post_ID, Tag_label)
-							VALUES ($last_post, '$tag_element')";
-
-					check_sql($sql_addpost2, $conn);
-				}
-			}		
-		}
-		header("Location:index.php");
-	}
-}
-
-//chat field
-if(isset($_POST['chat_sub'])) {
-	$postsuccess = true;
-	
-	if (empty($_POST["chat_enter"])) {
-		$err_post += "Enter something! <br>";
-		$postsuccess = false;
-	} else {
-		$chat = test_input($_POST["chat_enter"]);
-	}
-	
-	//create new login and profile if form success
-	if ($postsuccess)
-	{
-		notifiy_friends($conn);
-		//echo "Link created!";
-		$err_post = "Submitted!";
-		
-		//sql login
-		$sql_addpost = "INSERT INTO posts (User_ID, type, info)
-		VALUES ($_SESSION[SESS_LOGIN_ID], 'chat', '$chat')";
-		
-		check_sql($sql_addpost, $conn);
-
-		$last_post = $conn->insert_id;
-
-		//check for tags------------------------------------------------------
-		if(isset($_POST['tags_chat'])) 
-		{
-			$tag_list = test_input($_POST["tags_chat"]);
+			$tlist = "link, " . $_POST['tags_link'];
+			$tag_list = test_input($tlist);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
@@ -620,7 +576,8 @@ if(isset($_POST['audio_sub'])) {
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_audio'])) 
 		{
-			$tag_list = test_input($_POST["tags_audio"]);
+			$tlist = "audio, " . $_POST['tags_audio'];
+			$tag_list = test_input($tlist);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
@@ -680,7 +637,8 @@ if(isset($_POST['vid_sub'])) {
 		//check for tags------------------------------------------------------
 		if(isset($_POST['tags_video'])) 
 		{
-			$tag_list = test_input($_POST["tags_video"]);
+			$tlist = "video, " . $_POST['tags_video'];
+			$tag_list = test_input($tlist);
 			$exploded = multiexplode(Array(","," "),$tag_list);
 
 			foreach ($exploded as $tag_element)
