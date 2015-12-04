@@ -35,25 +35,25 @@ function displayMessages()
 			echo $row['message'];
 			echo '<br>';
 			
-			$profileInfo= "SELECT * FROM profile WHERE profileID='$row[From_User_ID]'";
-					$profileQ = mysql_query($profileInfo);
-					//check if this is valid
-					if($profileQ)
-					{
-						if(mysql_num_rows($profileQ) > 0)
-						{
-								$getProfile = mysql_fetch_assoc($profileQ);
-								$username = $getProfile['username'];
-
-						}
-					}
-			
 			if($row['Is_FR'])
 			{
+				$profileInfo= "SELECT * FROM profile WHERE profileID='$row[From_User_ID]'";
+						$profileQ = mysql_query($profileInfo);
+						//check if this is valid
+						if($profileQ)
+						{
+							if(mysql_num_rows($profileQ) > 0)
+							{
+									$getProfile = mysql_fetch_assoc($profileQ);
+									$username = $getProfile['username'];
+
+							}
+						}
+				
 				$friend_success = true;
-				$query = "SELECT * from friends";
-				$result = mysql_query($query);
-				while ($row = mysql_fetch_array($result))
+				$query2 = "SELECT * from friends";
+				$result2 = mysql_query($query2);
+				while ($row = mysql_fetch_array($result2))
 				{
 					if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $From_User)
 					{
