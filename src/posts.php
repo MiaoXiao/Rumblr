@@ -32,6 +32,13 @@
 		text-align:right;
 	}
 
+	#tags{
+		margin-left: 1cm;
+		word-wrap: break-word;
+		margin-right: 2cm;
+		margin-bottom: 0.3cm;
+	}
+
 	#postInfo{
 		margin-left: 1cm;
 		word-wrap: break-word;
@@ -164,10 +171,30 @@ require_once('connect.php');
 					<?php echo $toPrint; ?> 
 				<?php
 				}
-
-				//SHOW TOP 3 MOST RECENT COMMENTS
 				?>
 				<br><br>
+
+				TAGS:
+				<div id = "tags">
+
+					<?php
+					//SHOW TOP 3 MOST RECENT COMMENTS
+
+					//check to see if the individual is already being followed
+					$query = "SELECT * from tags";
+					$result = mysql_query($query);
+					while ($row = mysql_fetch_array($result))
+					{
+						if ($row['Post_ID'] == $postID)
+						{
+							echo $row['Tag_label'] . " ";
+						}
+					}				
+
+					?>
+
+				</div>
+
 				<?php
 
 					$query2 = "SELECT * FROM comments ORDER BY Timestamp DESC"; //You don't need a ; like you do in SQL
