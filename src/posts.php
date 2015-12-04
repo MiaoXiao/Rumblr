@@ -119,6 +119,19 @@ if(isset($_POST['search']))
 				}
 			}
 			
+			$favorites_success = true;
+			
+			//check to see if this post was already favorited by this user
+			$query = "SELECT * from favorites";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_array($result))
+			{
+				if ($row['User_ID'] == $_SESSION['SESS_LOGIN_ID'] && $row['Post_ID'] == $postID)
+				{
+					$favorites_success = false;
+				}
+			}
+			
 			?>
 
 			<div id = "topbar">
@@ -159,7 +172,19 @@ if(isset($_POST['search']))
 				</form></TD>
 				<?php
 				}
-
+				
+				if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $favorites_success == true)
+				{
+				?>
+				<TD><form action="favorites.php" method="post">
+					<div id = "Reposting">
+						<input type = "hidden" value = "<?php echo $postID ?>" name = "favorites_enter"/>
+						<input type="submit" value = "Favorite" name =  "favorites_sub"/>
+					</div>
+				</form></TD>
+				<?php
+				}
+				
 				if($User_ID != $_SESSION['SESS_LOGIN_ID'])
 				{
 				?>
