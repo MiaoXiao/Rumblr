@@ -30,7 +30,6 @@ a:active {
 #header {
     color: White;
     background-color: CadetBlue;
-    font-family: "Times New Roman", Georgia, Serif;
     text-align:center;
     padding:1%;
 }
@@ -67,30 +66,6 @@ a:active {
    
 }
 
-input[type=text] {
-    width:100%;
-    resize:none;
-}
-
-input[type=password] {
-    width:100%;
-}
-
-input[type=date] {
-    width:100%;
-}
-
-textarea {
-	width:100%;
-	resize:none;
-}
-
-textarea[class=form-group] {
-    width:100%;
-    resize:none;
-}
-
-
 #createAcc{
    color:black;
    background-color:CadetBlue;
@@ -104,6 +79,7 @@ textarea[class=form-group] {
    text-align:left;
    visibility:hidden;
 }
+
 
 #topBar {
    background-color:CadetBlue;
@@ -125,15 +101,34 @@ textarea[class=form-group] {
 	visibility:hidden; 
 }
 
-#searchHolder{
-  background-color:CadetBlue;
-  padding: 1%;
-  position:relative;
-  margin-top:1%;
-  margin-left:3%;
-  width:45%;
-  text-align:left;
-  visibility:hidden; 
+#text{
+   color:black;
+   padding: 1% 1% 1% 1%;
+   width: 25%;
+   position: absolute;
+   text-align:left;
+   visibility:hidden;
+
+}
+
+#link{
+   color:black;
+   padding: 1% 1% 1% 1%;
+   width: 25%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
+}
+
+#quote{
+   color:black;
+   padding: 1% 1% 1% 1%;
+   width: 25%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
 }
 
 #profHolder{
@@ -142,13 +137,12 @@ textarea[class=form-group] {
   position:absolute;
   margin-top:1%;
   margin-left:3%;
-  width:45%;
-  text-align:left;
+    width:45%;
+    text-align:left;
   visibility:hidden; 
 }
 
 #upProf{
-  width:95%;
   position:absolute;
     text-align:left;
   visibility:hidden; 
@@ -178,35 +172,20 @@ textarea[class=form-group] {
 	position:absolute;
     float:left;
     text-align:left;
-    width:98%;
 	visibility:hidden;
 }
 
 #createMsg {
-	width:98%;
 	position:relative;
     float:left;
     text-align:left;
 	visibility:hidden;
 }
 
-#posting {
-	background-color:CadetBlue;
-	padding: 10px;
-	position:relative;
-    width:45%;
-    height:auto;
-    min-height:200px;
-    float:left;
-	margin-top: 1%; 
-	margin-left: 3%;
-	visibility:hidden;
-}
-
 #video{
    color:black;
    padding: 1% 1% 1% 1%;
-   width: 95%;
+   width: 28%;
    position: absolute;
    float:left;
    text-align:left;
@@ -216,7 +195,7 @@ textarea[class=form-group] {
 #audio{
    color:black;
    padding: 1% 1% 1% 1%;
-   width: 95%;
+   width: 25%;
    position: absolute;
    float:left;
    text-align:left;
@@ -226,37 +205,7 @@ textarea[class=form-group] {
 #photo{
    color:black;
    padding: 1% 1% 1% 1%;
-   width: 95%;
-   position: absolute;
-   float:left;
-   text-align:left;
-   visibility:hidden;
-}
-
-#text{
-   color:black;
-   padding: 1% 1% 1% 1%;
-   width: 95%;
-   position: absolute;
-   text-align:left;
-   visibility:hidden;
-
-}
-
-#link{
-   color:black;
-   padding: 1% 1% 1% 1%;
-   width: 95%;
-   position: absolute;
-   float:left;
-   text-align:left;
-   visibility:hidden;
-}
-
-#quote{
-   color:black;
-   padding: 1% 1% 1% 1%;
-   width: 95%;
+   width: 25%;
    position: absolute;
    float:left;
    text-align:left;
@@ -265,7 +214,6 @@ textarea[class=form-group] {
 
 #OtherProfile {
 	padding: 1%;
-    position:absolute;
     position:absolute;
     text-align:left;
 	visibility:hidden; 
@@ -285,6 +233,19 @@ textarea[class=form-group] {
 	padding:2%;
 	text-align:left;
 	float:left;
+}
+
+#posting {
+	background-color:CadetBlue;
+	padding: 10px;
+	position:relative;
+    width:45%;
+    height:auto;
+    min-height:250px;
+    float:left;
+	margin-top: 1%; 
+	margin-left: 3%;
+	visibility:hidden;
 }
 
 footer {
