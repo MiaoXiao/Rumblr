@@ -119,32 +119,75 @@ if(isset($_POST['search']))
 				}
 			}
 			
-			//Display the Follow button on post if valid
-			if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $follow_success == true)
-			{
 			?>
-			<form action="follow.php" method="post">
-				<div id = "following">
-					<input type = "hidden" value = "<?php echo $username ?>" name = "follow_enter"/>
-					<input type="submit" value = "Follow" name =  "follow_sub"/>
-				</div>
-			</form>
+
+			<div id = "topbar">
+			<TABLE BORDER="0" >
+			<TR>
 			<?php
-			}
-			
-			$Repost_success = true;
-			if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $Repost_success == true)
-			{
-			?>
-			<form action="repost.php" method="post">
-				<div id = "Reposting">
-					<input type = "hidden" value = "<?php echo $postID ?>" name = "repost_enter"/>
-					<input type="submit" value = "Repost" name =  "repost_sub"/>
-				</div>
-			</form>
+
+				//-----------------display likes-----------
+				$query = "SELECT * from posts WHERE postID=$postID";
+				$result = mysql_query($query);
+				while ($row = mysql_fetch_array($result))
+				{
+					$amount_of_likes = $row['Likes'];
+				}
+
+
+				//Display the Follow button on post if valid
+				if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $follow_success == true)
+				{
+				?>
+				<TD><form action="follow.php" method="post">
+					<div id = "following">
+						<input type = "hidden" value = "<?php echo $username ?>" name = "follow_enter"/>
+						<input type="submit" value = "Follow" name =  "follow_sub"/>
+					</div>
+				</form></TD>
+				<?php
+				}
+				$Repost_success = true;
+				if($User_ID != $_SESSION['SESS_LOGIN_ID'] && $Repost_success == true)
+				{
+				?>
+				<TD><form action="repost.php" method="post">
+					<div id = "Reposting">
+						<input type = "hidden" value = "<?php echo $postID ?>" name = "repost_enter"/>
+						<input type="submit" value = "Repost" name =  "repost_sub"/>
+					</div>
+				</form></TD>
+				<?php
+				}
+
+				if($User_ID != $_SESSION['SESS_LOGIN_ID'])
+				{
+				?>
+
+				<TD><form action="likes.php" method="post">
+					<div id = "likes">
+						<input type = "hidden" value = "<?php echo $postID ?>" name = "likes_enter"/>
+						<input type="submit" value = "Like: <?php echo $amount_of_likes ?>" name =  "likes_sub"/>
+					</div>
+				</form></TD>
+
+				<?php
+				}
+				else
+				{
+				?>
+					<div id= "Likes_text">
+						<?php echo "Likes: " . $amount_of_likes; ?>
+					</div>
+				<?php
+				}
+				?>
+			</TR>
+			</TABLE>
+			</div>
+
 			<?php
-			}
-			
+
 			//repost check
 			$query = "SELECT * from posts";
 			$result = mysql_query($query);
