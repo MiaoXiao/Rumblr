@@ -87,7 +87,7 @@ crossorigin="anonymous">
 						<button type="submit" class="btn btn-default" onclick = "hide(6)">Submit</button>
 					</div>
 					<ul class="nav navbar-nav">
-						<li><a href= "http://localhost:80/Rumblr/logout.php">Sign out?</a></li>
+						<li><a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a></li>
 						<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
 					</ul>
 					</div><!-- /.navbar-collapse -->
@@ -356,14 +356,31 @@ crossorigin="anonymous">
 						$friend_success = false;
 					}
 				}
+				require_once('connect.php');
+				$result = mysql_query($query);
+				while($row = mysql_fetch_array($result))
+				{   //Creates a loop to loop through results
+					$profileInfo= "SELECT * FROM profile WHERE profileID='$_SESSION[PID]'";
+					$profileQ = mysql_query($profileInfo);
+					//check if this is valid
+					if($profileQ)
+					{
+						if(mysql_num_rows($profileQ) > 0)
+						{
+								$getProfile = mysql_fetch_assoc($profileQ);
+								$username = $getProfile['username'];
+
+						}
+					}
+				}
 				
 				if($_SESSION['PID'] != $_SESSION['SESS_LOGIN_ID'] && $friend_success == true)
 				{
 					?>
-					<form action="follow.php" method="post">
-						<div id = "friends">
-							<input type = "hidden" value = "<?php echo $username ?>" name = "friend_enter"/>
-							<input type="submit" value = "Friend" name =  "friend_sub"/>
+					<form action="inbox.php" method="post">
+						<div id = "Friend_Request">
+							<input type = "hidden" value = "<?php echo $username ?>" name = "FR_enter"/>
+							<input type="submit" value = "Add Friend!" name =  "FR_sub"/>
 						</div>
 					</form>
 					<?php

@@ -26,6 +26,7 @@ function displayMessages()
 			$messagecount++;
 			echo '<br>';
 			echo returnUser($row['From_User_ID']);
+			$From_User = $row['From_User_ID'];
 			echo '<br>';
 			echo date("M d, Y", strtotime($row['Time_Stamp']));
 			echo '<br>';
@@ -33,6 +34,44 @@ function displayMessages()
 			echo '<br>';
 			echo $row['message'];
 			echo '<br>';
+			
+			$profileInfo= "SELECT * FROM profile WHERE profileID='$row[From_User_ID]'";
+					$profileQ = mysql_query($profileInfo);
+					//check if this is valid
+					if($profileQ)
+					{
+						if(mysql_num_rows($profileQ) > 0)
+						{
+								$getProfile = mysql_fetch_assoc($profileQ);
+								$username = $getProfile['username'];
+
+						}
+					}
+			
+			if($row['Is_FR'])
+			{
+				$friend_success = true;
+				$query = "SELECT * from friends";
+				$result = mysql_query($query);
+				while ($row = mysql_fetch_array($result))
+				{
+					if ($row['User_ID_1'] == $_SESSION['SESS_LOGIN_ID'] && $row['User_ID_2'] == $From_User)
+					{
+						$friend_success = false;
+					}
+				}
+				if($From_User != $_SESSION['SESS_LOGIN_ID'] && $friend_success == true)
+				{
+					?>
+					<form action="follow.php" method="post">
+						<div id = "friends">
+							<input type = "hidden" value = "<?php echo $username ?>" name = "friend_enter"/>
+							<input type="submit" value = "Friend" name =  "friend_sub"/>
+						</div>
+					</form>
+					<?php
+				}
+			}
 		}
 	}
 	if ($messagecount == 0)
@@ -98,15 +137,47 @@ if(isset($_POST['send_message'])) {
 	{
 		$message = test_input($_POST["messagefield"]);
 	}
+		$Friend_Request = false;
 	//if success, send message to friend
 	if ($formsuccess)
 	{
 		//sql login
-		$sql_newmessage = "INSERT INTO inbox (From_User_ID, To_User_ID, message)
-		VALUES ('$sessionid', '$sendto', '$message')";
+		$sql_newmessage = "INSERT INTO inbox (From_User_ID, To_User_ID, message, Is_FR)
+		VALUES ('$sessionid', '$sendto', '$message', '$Friend_Request')";
 		check_sql($sql_newmessage, $conn);
 		header("location: index.php");
 	}
 	header("location: index.php");
+}
+
+//friend request field
+if(isset($_POST['FR_sub'])) {
+	$followsuccess = true;
+	session_start();
+	$query = "SELECT * from profile";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
+	{
+		if ($row['username'] == $_POST['FR_enter'])
+		{
+			$Temp_ID = $row['profileID'];
+		}
+	}
+	$sessionid = $_SESSION['SESS_LOGIN_ID'];
+	$sendto = $_POST['FR_sub'];
+	$message = "You have recieved a friend request from this user!";
+	$Friend_Request = true;
+	
+	//create new friend link
+	if ($followsuccess)
+	{
+		$err_post = "Friended!";
+		
+		$sql_newmessage = "INSERT INTO inbox (From_User_ID, To_User_ID, message, Is_FR)
+		VALUES ('$sessionid', '$Temp_ID', '$message', '$Friend_Request')";
+		check_sql($sql_newmessage, $conn);
+		//header("location: index.php");
+	}
+	header("Location:index.php");
 }
 ?>
