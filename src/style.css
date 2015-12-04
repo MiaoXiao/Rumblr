@@ -30,6 +30,7 @@ a:active {
 #header {
     color: White;
     background-color: CadetBlue;
+    font-family: "Times New Roman", Georgia, Serif;
     text-align:center;
     padding:1%;
 }
