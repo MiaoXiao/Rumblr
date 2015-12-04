@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2015 at 07:34 AM
--- Server version: 10.0.17-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Dec 04, 2015 at 08:26 AM
+-- Server version: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,13 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `comments`
 --
 
-CREATE TABLE `comments` (
-  `Comment_ID` int(11) UNSIGNED NOT NULL,
-  `Post_ID` int(11) UNSIGNED NOT NULL,
-  `User_ID` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `comments` (
+  `Comment_ID` int(11) unsigned NOT NULL,
+  `Post_ID` int(11) unsigned NOT NULL,
+  `User_ID` int(11) unsigned NOT NULL,
   `Comment` text NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comments`
@@ -63,11 +63,11 @@ INSERT INTO `comments` (`Comment_ID`, `Post_ID`, `User_ID`, `Comment`, `Timestam
 -- Table structure for table `following`
 --
 
-CREATE TABLE `following` (
+CREATE TABLE IF NOT EXISTS `following` (
   `Order_ID` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL,
   `Followed_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -75,11 +75,11 @@ CREATE TABLE `following` (
 -- Table structure for table `friends`
 --
 
-CREATE TABLE `friends` (
+CREATE TABLE IF NOT EXISTS `friends` (
   `Order_ID` int(11) NOT NULL,
   `User_ID_1` int(11) NOT NULL,
   `User_ID_2` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -87,14 +87,14 @@ CREATE TABLE `friends` (
 -- Table structure for table `inbox`
 --
 
-CREATE TABLE `inbox` (
+CREATE TABLE IF NOT EXISTS `inbox` (
   `Order_ID` int(11) NOT NULL,
   `From_User_ID` int(11) NOT NULL,
   `To_User_ID` int(11) NOT NULL,
   `message` varchar(255) NOT NULL,
   `Time_Stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Is_FR` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE `inbox` (
 -- Table structure for table `labels`
 --
 
-CREATE TABLE `labels` (
+CREATE TABLE IF NOT EXISTS `labels` (
   `User_ID` int(11) NOT NULL,
   `Tag` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,11 +113,11 @@ CREATE TABLE `labels` (
 -- Table structure for table `login`
 --
 
-CREATE TABLE `login` (
+CREATE TABLE IF NOT EXISTS `login` (
   `loginID` int(11) NOT NULL,
   `login` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -136,37 +136,38 @@ INSERT INTO `login` (`loginID`, `login`, `password`) VALUES
 -- Table structure for table `posts`
 --
 
-CREATE TABLE `posts` (
-  `postID` int(11) UNSIGNED NOT NULL,
-  `User_ID` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `posts` (
+  `postID` int(11) unsigned NOT NULL,
+  `User_ID` int(11) unsigned NOT NULL,
+  `IsRepost` tinyint(1) NOT NULL,
   `type` varchar(50) NOT NULL,
   `info` varchar(255) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`postID`, `User_ID`, `type`, `info`, `timestamp`) VALUES
-(14, 0, 'photo', 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Western_Sushi.jpg', '2015-11-18 05:08:00'),
-(14, 0, 'text', 'asdfasdf', '2015-11-13 08:45:50'),
-(14, 0, 'text', 'asdfasdfasdfasdfasdf', '2015-11-13 07:59:48'),
-(14, 0, 'text', 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', '2015-11-18 04:59:18'),
-(15, 0, 'text', 'adsfasdf', '2015-11-13 08:59:58'),
-(15, 0, 'text', 'asdf', '2015-11-13 09:00:09'),
-(15, 0, 'text', 'asdf', '2015-11-18 05:23:47'),
-(15, 0, 'text', 'asdfasdf', '2015-11-13 08:59:24'),
-(15, 0, 'text', 'asdff', '2015-11-13 08:46:52'),
-(16, 0, 'text', 'asdfasdf', '2015-11-13 09:05:59'),
-(17, 14, 'text', 'asdfasdfasdfagawef', '2015-12-01 07:12:23'),
-(18, 14, 'text', 'asdfasdfasdf', '2015-12-01 07:12:31'),
-(19, 15, 'text', 'asdgasdfasdf', '2015-12-01 07:23:11'),
-(20, 15, 'text', 'asdfasdfasdf', '2015-12-01 07:23:44'),
-(21, 14, 'text', 'asdf', '2015-12-01 08:03:11'),
-(22, 15, 'text', 'agasdfaefe', '2015-12-01 08:56:03'),
-(23, 13, 'text', 'hello', '2015-12-01 18:12:15'),
-(24, 17, 'text', 'hi', '2015-12-04 04:23:35');
+INSERT INTO `posts` (`postID`, `User_ID`, `IsRepost`, `type`, `info`, `timestamp`) VALUES
+(14, 0, 0, 'photo', 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Western_Sushi.jpg', '2015-11-18 05:08:00'),
+(14, 0, 0, 'text', 'asdfasdf', '2015-11-13 08:45:50'),
+(14, 0, 0, 'text', 'asdfasdfasdfasdfasdf', '2015-11-13 07:59:48'),
+(14, 0, 0, 'text', 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', '2015-11-18 04:59:18'),
+(15, 0, 0, 'text', 'adsfasdf', '2015-11-13 08:59:58'),
+(15, 0, 0, 'text', 'asdf', '2015-11-13 09:00:09'),
+(15, 0, 0, 'text', 'asdf', '2015-11-18 05:23:47'),
+(15, 0, 0, 'text', 'asdfasdf', '2015-11-13 08:59:24'),
+(15, 0, 0, 'text', 'asdff', '2015-11-13 08:46:52'),
+(16, 0, 0, 'text', 'asdfasdf', '2015-11-13 09:05:59'),
+(17, 14, 0, 'text', 'asdfasdfasdfagawef', '2015-12-01 07:12:23'),
+(18, 14, 0, 'text', 'asdfasdfasdf', '2015-12-01 07:12:31'),
+(19, 15, 0, 'text', 'asdgasdfasdf', '2015-12-01 07:23:11'),
+(20, 15, 0, 'text', 'asdfasdfasdf', '2015-12-01 07:23:44'),
+(21, 14, 0, 'text', 'asdf', '2015-12-01 08:03:11'),
+(22, 15, 0, 'text', 'agasdfaefe', '2015-12-01 08:56:03'),
+(23, 13, 0, 'text', 'hello', '2015-12-01 18:12:15'),
+(24, 17, 0, 'text', 'hi', '2015-12-04 04:23:35');
 
 -- --------------------------------------------------------
 
@@ -174,7 +175,7 @@ INSERT INTO `posts` (`postID`, `User_ID`, `type`, `info`, `timestamp`) VALUES
 -- Table structure for table `profile`
 --
 
-CREATE TABLE `profile` (
+CREATE TABLE IF NOT EXISTS `profile` (
   `profileID` int(11) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `fname` varchar(255) NOT NULL,
@@ -187,7 +188,7 @@ CREATE TABLE `profile` (
   `blogdesc` text,
   `username` varchar(255) NOT NULL,
   `privacy` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `profile`
@@ -199,6 +200,52 @@ INSERT INTO `profile` (`profileID`, `lname`, `fname`, `nickname`, `gender`, `bir
 (15, 'asdf', 'asdf', '', 'Male', '2015-11-18', '2015-12-01 07:26:02', 0x68747470733a2f2f7062732e7477696d672e636f6d2f70726f66696c655f696d616765732f3633333930363639333833313732303936302f5a624858367136502e6a7067, '', '', 'asdff', 'Private'),
 (16, 'asdhd', 'asdh', NULL, 'Male', '2015-11-19', '2015-11-13 09:04:37', 0x687474703a2f2f733764342e7363656e65372e636f6d2f69732f696d6167652f5472656b42696379636c6550726f64756374732f64656661756c742d6e6f2d696d6167653f7769643d31343930266865693d31303830266669743d6669742c3126666d743d706e6726716c743d38302c31266f705f75736d3d302c302c302c3026696363456d6265643d30266267633d3234302c3234302c323430, NULL, NULL, 'asdfasdfdsaf', 'Open'),
 (17, 'test', 'test', NULL, 'Female', '2015-12-01', '2015-12-04 04:22:58', 0x687474703a2f2f733764342e7363656e65372e636f6d2f69732f696d6167652f5472656b42696379636c6550726f64756374732f64656661756c742d6e6f2d696d6167653f7769643d31343930266865693d31303830266669743d6669742c3126666d743d706e6726716c743d38302c31266f705f75736d3d302c302c302c3026696363456d6265643d30266267633d3234302c3234302c323430, NULL, NULL, 'test', 'Open');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tags`
+--
+
+CREATE TABLE IF NOT EXISTS `tags` (
+  `Tag_ID` int(11) unsigned NOT NULL COMMENT 'Tag ID Is Post ID',
+  `Post_ID` int(10) unsigned NOT NULL,
+  `Tag_label` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tags`
+--
+
+INSERT INTO `tags` (`Tag_ID`, `Post_ID`, `Tag_label`) VALUES
+(1, 23, ''),
+(2, 23, ''),
+(3, 23, ''),
+(4, 34, ''),
+(5, 36, ''),
+(6, 38, ''),
+(7, 40, ''),
+(8, 42, ''),
+(9, 44, ''),
+(10, 48, ''),
+(11, 50, ''),
+(12, 54, ''),
+(13, 56, 'PLEASE'),
+(14, 56, 'WORK'),
+(15, 58, 'PLEASE'),
+(16, 58, 'WORK'),
+(17, 60, 'PLEASE'),
+(18, 60, ''),
+(19, 60, 'WORK'),
+(20, 62, 'PLEASE'),
+(21, 62, ''),
+(22, 62, 'WORK'),
+(23, 64, 'PLEASE'),
+(24, 64, 'WORK'),
+(25, 66, 'PLEASE'),
+(26, 66, 'WORK'),
+(27, 68, 'baby'),
+(28, 68, 'gee');
 
 --
 -- Indexes for dumped tables
@@ -247,6 +294,12 @@ ALTER TABLE `profile`
   ADD PRIMARY KEY (`profileID`);
 
 --
+-- Indexes for table `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`Tag_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -254,37 +307,42 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `Comment_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `Comment_ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `following`
 --
 ALTER TABLE `following`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `friends`
 --
 ALTER TABLE `friends`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `inbox`
 --
 ALTER TABLE `inbox`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `loginID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `loginID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `postID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profileID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `profileID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `Tag_ID` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag ID Is Post ID',AUTO_INCREMENT=29;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
