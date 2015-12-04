@@ -167,6 +167,8 @@ textarea[class=form-group] {
 
 
 #messageHolder{
+	color:white;
+	font-family: "Times New Roman", Georgia, Serif;
 	background-color:CadetBlue;
 	padding: 1%;
 	position:absolute;
