@@ -80,14 +80,18 @@ crossorigin="anonymous">
 								</ul>
 							</li>
 						</ul>
+						
 					<div class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" style="color:darkCyan" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default" onclick = "hide(6)">Submit</button>
+						<form method="post" action="posts.php">
+							<div class="form-group">
+								<input type="text" name="search_enter"class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-default" name = "search">Submit</button>
+						</form>
 					</div>
+					
 					<ul class="nav navbar-nav">
-						<li><a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a></li>
+						<li><a href= "http://localhost:80/Rumblr/Rumblr/src/logout.php">Sign out?</a></li>
 						<!--<a href= "http://localhost:80/Rumblr/src/logout.php">Sign out?</a>-->
 					</ul>
 					</div><!-- /.navbar-collapse -->
@@ -199,18 +203,27 @@ crossorigin="anonymous">
 								$profile_ID = $row['User_ID'];
 								$post_ID = $row['postID'];
 
-								//created the function for it
-								if($privacy == 'Open')
-								{
-									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+								if(!isset($_SESSION['SEARCHV'])) {
+								$_SESSION['SEARCHV'] = '';
 								}
-								else if($privacy == 'Private' && $username == $_SESSION['SESS_ACTUAL_USER'])
+								//echo $_SESSION['SEARCHV'];
+								$validPost = checkLabels($_SESSION['SEARCHV'], $post_ID);
+								
+								if ($validPost)
 								{
-									posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
-								}
-								else if($privacy == 'Friends Only')
-								{
-									//do nothing
+									//created the function for it
+									if($privacy == 'Open')
+									{
+										posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+									}
+									else if($privacy == 'Private' && $username == $_SESSION['SESS_ACTUAL_USER'])
+									{
+										posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+									}
+									else if($privacy == 'Friends Only')
+									{
+										posting($typee, $printThis, $username, $privacy, $date, $time, $profile_ID, $post_ID);
+									}
 								}
 						}
 					}

@@ -67,6 +67,37 @@ $err_post = "";
 
 require_once('connect.php');
 
+								//returns true if a label matches the search element
+function checkLabels($searchelement, $id)
+{
+	if ($searchelement == '') return true;
+	$query = "SELECT * from tags";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
+	{
+		if ($row['Post_ID'] == $id)
+		{
+			if ($row['Tag_label'] == $searchelement)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+if(isset($_POST['search'])) 
+{
+	$searchvar = $_POST["search_enter"];
+	if (empty($searchvar)) {
+		$_SESSION['SEARCHV'] = '';
+	} else {
+		$_SESSION['SEARCHV'] = test_input($_POST["search_enter"]);
+	}
+	echo $_SESSION['SEARCHV'];
+	header("Location:index.php");
+	exit();
+}
 	//----------------------------------------------------------------------------------------------------//
 	//							FUNCTION FOR POSTING ONTO THE MAIN PAGE
 	//----------------------------------------------------------------------------------------------------//
