@@ -130,7 +130,7 @@ function postingComments($user_name, $comment_to_print, $commentTime, $posterID,
 						$_SESSION['PID'] = $usererID;
 						echo "hide(5)";
 					}
-					?> > <?php echo $user_name; ?> </a><?php echo " " . humanTiming($commentTime). ' ago'; ?></strong>
+					?> > <?php echo $user_name; ?> </a><?php /*echo " " . humanTiming($commentTime). ' ago'; */?></strong>
 		</div>
 
 		<div id="commentContent">
