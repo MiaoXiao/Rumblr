@@ -79,10 +79,16 @@ input[type=date] {
     width:100%;
 }
 
-.text-area] {
+textarea {
+	width:100%;
+	resize:none;
+}
+
+textarea[class=form-group] {
     width:100%;
     resize:none;
 }
+
 
 #createAcc{
    color:black;
@@ -131,6 +137,7 @@ input[type=date] {
 }
 
 #upProf{
+  width:90%;
   position:absolute;
     text-align:left;
   visibility:hidden; 
@@ -160,10 +167,12 @@ input[type=date] {
 	position:absolute;
     float:left;
     text-align:left;
+    width:95%;
 	visibility:hidden;
 }
 
 #createMsg {
+width:95%;
 	position:relative;
     float:left;
     text-align:left;
@@ -245,6 +254,7 @@ input[type=date] {
 
 #OtherProfile {
 	padding: 1%;
+    position:absolute;
     position:absolute;
     text-align:left;
 	visibility:hidden; 

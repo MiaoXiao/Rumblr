@@ -227,7 +227,7 @@ crossorigin="anonymous">
 			<form action="posts.php" method="post">
 			<div id = "quote">
 					Submit a Quote:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
+					<textarea class = "form-group" rows="4" name = "quote_enter"/></textarea> <br>
 					<input type="submit" value = "Submit" name =  "quote_sub"/>
 
 			</div>
@@ -289,7 +289,7 @@ crossorigin="anonymous">
 					</select>
 					<br>
 					Create new message: <br>
-						<textarea rows="4" cols="50" name = "messagefield"/></textarea> <br>
+						<textarea rows="4" name = "messagefield"/></textarea> <br>
 						<br><br>
 						<input type="submit" value = "SEND" name = "send_message"/>
 						<button type="button" onclick = "showCreateMsg(1)">Cancel</button>
@@ -308,10 +308,10 @@ crossorigin="anonymous">
 					<input type="text" name = "nickname_update"/> <br>
 				
 					Update Interests: <br>
-					<textarea rows="4" cols="50" name = "interests_update"/></textarea> <br>
+					<textarea rows="4" name = "interests_update"/></textarea> <br>
 
 					Update Blog Description: <br>
-					<textarea rows="4" cols="50" name = "blogdes_update"/></textarea> <br>
+					<textarea rows="4" name = "blogdes_update"/></textarea> <br>
 					
 					Update Blog Privacy: <br>
 					<select name="privacy_update">
@@ -319,7 +319,7 @@ crossorigin="anonymous">
 						<option value="Open">Open</option>
 						<option value="Friends Only">Friends Only</option>
 						<option value="Private">Private</option>
-					</select><br>
+					</select><br><br>
 				
 					<input type ="submit" name = "update_profile" Value = "Update Profile"/>
 					<button type="button" onclick = "showUpdate(1)">Cancel</button>
