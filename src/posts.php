@@ -182,35 +182,35 @@ if(isset($_POST['search']))
 			<div id = "postInfo">
 				<?php if($type_of_post == 'photo')
 				{ ?>
-					<br><strong>PHOTO: </strong><br>
+					<br><strong>Photo: </strong><br>
 					<td bgcolor='#F8F7F1'><img height = '200px' width = '200px' src ="<?php echo $toPrint; ?>"/></td>
 							<?php
 				}
 				else if ($type_of_post == 'link')
 				{
 				?>
-					<br><strong>LINK: <strong><br>
+					<br><strong>Link: <strong><br>
 					<td bgcolor='#F8F7F1'><a href="<?php echo $toPrint;?>"> Link </a></td>
 				<?php
 				}
 				else if ($type_of_post == 'quote')
 				{
 				?>
-					<br><strong>QUOTE: </strong><br>
+					<br><strong>Quote: </strong><br>
 					<td bgcolor='#F8F7F1'><?php echo " \"" . $toPrint . "\" "; ?></td>
 				<?php	
 				}
 				else if ($type_of_post == 'chat')
 				{
 				?>
-					<strong>CHAT: <br></strong><br>
+					<strong>Chat: <br></strong><br>
 					<?php echo " \"" . $toPrint . "\" "; ?>
 				<?php	
 				}
 				else if ($type_of_post == 'audio')
 				{
 				?>
-					<br><strong>AUDIO: </strong><br>
+					<br><strong>Audio: </strong><br>
 					<audio controls>
 					  <source src="<?php echo $toPrint;?>" type="audio/ogg">
 					  <source src="<?php echo $toPrint;?>" type="audio/mpeg">
@@ -221,7 +221,7 @@ if(isset($_POST['search']))
 				else if ($type_of_post == 'video')
 				{
 				?>
-					<br><strong>VIDEO: </strong><br>
+					<br><strong>Video: </strong><br>
 					<iframe width="420" height="315"
 					src="<?php echo $toPrint; ?>">
 					</iframe>
@@ -231,14 +231,14 @@ if(isset($_POST['search']))
 				{
 				?>
 
-					<br><strong>TEXT: </strong><br>
+					<br><strong>Text: </strong><br>
 					<?php echo $toPrint; ?> 
 				<?php
 				}
 				?>
 				<br><br>
 
-				TAGS:
+				<b>Tags:</b>
 				<div id = "tags">
 
 					<?php
