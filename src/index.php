@@ -227,8 +227,7 @@ crossorigin="anonymous">
 			<form action="posts.php" method="post">
 			<div id = "quote">
 					Submit a Quote:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
-					TAGS: <input type = "text" size = "50" name = "tags_quote"> <br><br>
+					<textarea class = "form-group" rows="4" name = "quote_enter"/></textarea> <br>
 					<input type="submit" value = "Submit" name =  "quote_sub"/>
 
 			</div>
@@ -237,41 +236,39 @@ crossorigin="anonymous">
 
 					Submit Text:<br>
 					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
-					TAGS: <input type = "text" size = "50" name = "tags_text"> <br><br>
 					<input type="submit" value = "Submit" name = "text_sub"/>
 
 			</div>
 
 			<div id = "link">
 					Submit any URL:<br>
-					<input type = "text" size = "50" name = "link_enter"> <br>
-					TAGS: <input type = "text" size = "50" name = "tags_link"> <br><br>
+					<input type = "text" size = "50" name = "link_enter"> <br><br>
 					<input type="submit" value = "Submit" name = "link_sub"/>
 
 			</div>
-
+			
 			<div id = "photo">
-						Submit a photo URL:<br>
-						<input type = "text" size = "50" name = "pic_enter"> <br>
-						TAGS: <input type = "text" size = "50" name = "tags_photo"> <br><br>
-						<input type="submit" value = "Submit" name = "pic_sub"/>
-			</div>
+					Submit a photo URL:<br>
 
+					<input type = "text" size = "50" name = "pic_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "pic_sub"/>
+
+			</div>
 			<div id = "video">
 					Submit a Youtube link:<br>
-					<input type = "text" size = "50" name = "vid_enter"> <br>
-					TAGS: <input type = "text" size = "50" name = "tags_video"> <br><br>
+					<input type = "text" size = "50" name = "vid_enter"> <br><br>
 					<input type="submit" value = "Submit" name = "vid_sub"/>
 
-			</div>
 
+			</div>
 			<div id = "audio">
-						Submit an MP4 link:<br>
-						<input type = "text" size = "50" name = "audio_enter"> <br>
-						TAGS: <input type = "text" size = "50" name = "tags_audio"> <br><br>
-						<input type="submit" value = "Submit" name = "audio_sub"/>
-			</div>
+					Submit an MP4 link:<br>
+					<input type = "text" size = "50" name = "audio_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "audio_sub"/>
 
+
+				
+				</div>
 			</form>
 
 		</div>
