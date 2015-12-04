@@ -76,7 +76,6 @@ function showUpdate(enter)
 
 function check(num)
 {
-	window.alert(num);
 	if(num != 0 )
 		hide(2);
 }
@@ -91,11 +90,6 @@ function showCreateMsg(enter)
 		document.getElementById("displayMsg").style.visibility = "visible";
 	}
 
-}
-
-function check()
-{
-		hide(2);
 }
 
 function post(input) {

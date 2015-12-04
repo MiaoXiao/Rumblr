@@ -66,6 +66,24 @@ a:active {
    
 }
 
+input[type=text] {
+    width:100%;
+    resize:none;
+}
+
+input[type=password] {
+    width:100%;
+}
+
+input[type=date] {
+    width:100%;
+}
+
+.text-area] {
+    width:100%;
+    resize:none;
+}
+
 #createAcc{
    color:black;
    background-color:CadetBlue;
@@ -99,36 +117,6 @@ a:active {
 	margin-top: 1%; 
 	margin-left: 3%;
 	visibility:hidden; 
-}
-
-#text{
-   color:black;
-   padding: 1% 1% 1% 1%;
-   width: 25%;
-   position: absolute;
-   text-align:left;
-   visibility:hidden;
-
-}
-
-#link{
-   color:black;
-   padding: 1% 1% 1% 1%;
-   width: 25%;
-   position: absolute;
-   float:left;
-   text-align:left;
-   visibility:hidden;
-}
-
-#quote{
-   color:black;
-   padding: 1% 1% 1% 1%;
-   width: 25%;
-   position: absolute;
-   float:left;
-   text-align:left;
-   visibility:hidden;
 }
 
 #profHolder{
@@ -182,10 +170,23 @@ a:active {
 	visibility:hidden;
 }
 
+#posting {
+	background-color:CadetBlue;
+	padding: 10px;
+	position:relative;
+    width:45%;
+    height:auto;
+    min-height:200px;
+    float:left;
+	margin-top: 1%; 
+	margin-left: 3%;
+	visibility:hidden;
+}
+
 #video{
    color:black;
    padding: 1% 1% 1% 1%;
-   width: 28%;
+   width: 95%;
    position: absolute;
    float:left;
    text-align:left;
@@ -195,7 +196,7 @@ a:active {
 #audio{
    color:black;
    padding: 1% 1% 1% 1%;
-   width: 25%;
+   width: 95%;
    position: absolute;
    float:left;
    text-align:left;
@@ -205,7 +206,37 @@ a:active {
 #photo{
    color:black;
    padding: 1% 1% 1% 1%;
-   width: 25%;
+   width: 95%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
+}
+
+#text{
+   color:black;
+   padding: 1% 1% 1% 1%;
+   width: 95%;
+   position: absolute;
+   text-align:left;
+   visibility:hidden;
+
+}
+
+#link{
+   color:black;
+   padding: 1% 1% 1% 1%;
+   width: 95%;
+   position: absolute;
+   float:left;
+   text-align:left;
+   visibility:hidden;
+}
+
+#quote{
+   color:black;
+   padding: 1% 1% 1% 1%;
+   width: 95%;
    position: absolute;
    float:left;
    text-align:left;
@@ -233,19 +264,6 @@ a:active {
 	padding:2%;
 	text-align:left;
 	float:left;
-}
-
-#posting {
-	background-color:CadetBlue;
-	padding: 10px;
-	position:relative;
-    width:45%;
-    height:auto;
-    min-height:200px;
-    float:left;
-	margin-top: 1%; 
-	margin-left: 3%;
-	visibility:hidden;
 }
 
 footer {

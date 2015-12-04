@@ -25,8 +25,9 @@ crossorigin="anonymous">
 		echo session_status();
 	}
 ?>
+
 <html>
-<body style="background-color:DarkCyan"  >
+<body style="background-color:DarkCyan" >
 	<head> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="handling.js"></script>
@@ -39,9 +40,10 @@ crossorigin="anonymous">
 	</head>
 	<div id = "header" role = "navigation">
 		<header id = "title">
-			<h1 onclick = "hide(5)" >UCRumbler</h1>
+			<h1 >UCRumbler</h1>
 		</header>
 	</div>
+	
 	<div id = "Body">
 				
 				
@@ -222,56 +224,6 @@ crossorigin="anonymous">
 				?>
 		</div>
 		
-		<		<div id = "posting">
-			<form action="posts.php" method="post">
-			<div id = "quote">
-					Submit a Quote:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
-					<input type="submit" value = "Submit" name =  "quote_sub"/>
-
-			</div>
-
-			<div id = "text">
-
-					Submit Text:<br>
-					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
-					<input type="submit" value = "Submit" name = "text_sub"/>
-
-			</div>
-
-			<div id = "link">
-					Submit any URL:<br>
-					<input type = "text" size = "50" name = "link_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "link_sub"/>
-
-			</div>
-			
-			<div id = "photo">
-					Submit a photo URL:<br>
-
-					<input type = "text" size = "50" name = "pic_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "pic_sub"/>
-
-			</div>
-			<div id = "video">
-					Submit a Youtube link:<br>
-					<input type = "text" size = "50" name = "vid_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "vid_sub"/>
-
-
-			</div>
-			<div id = "audio">
-					Submit an MP4 link:<br>
-					<input type = "text" size = "50" name = "audio_enter"> <br><br>
-					<input type="submit" value = "Submit" name = "audio_sub"/>
-
-
-				
-				</div>
-			</form>
-
-		</div>
-
 		<div id = "messageHolder">
 			<div id = "displayMsg">	
 				<p> Messages: </p> <br>
@@ -445,5 +397,63 @@ crossorigin="anonymous">
 				
 			</div>
 		</div>
+		
+		<div id = "posting">
+			<form action="posts.php" method="post">
+			<div id = "quote" width = "100%">
+					Submit a Quote:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "quote_enter"/></textarea> <br>
+					<input type="submit" value = "Submit" name =  "quote_sub"/>
+
+			</div>
+
+			<div id = "text">
+
+					Submit Text:<br>
+					<textarea class = "form-group" rows="4" cols="80" name = "text_enter" /></textarea> <br>
+					<input type="submit" value = "Submit" name = "text_sub"/>
+
+			</div>
+
+			<div id = "link" width = "100%">
+					Submit any URL:<br>
+					<input type = "text" size = "50" name = "link_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "link_sub"/>
+
+			</div>
+			
+			<div id = "photo">
+					Submit a photo URL:<br>
+
+					<input type = "text" size = "50" name = "pic_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "pic_sub"/>
+
+			</div>
+			<div id = "video">
+					Submit a Youtube link:<br>
+					<input type = "text" size = "50" name = "vid_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "vid_sub"/>
+
+
+			</div>
+			<div id = "audio">
+					Submit an MP4 link:<br>
+					<input type = "text" size = "50" name = "audio_enter"> <br><br>
+					<input type="submit" value = "Submit" name = "audio_sub"/>
+
+
+				
+				</div>
+			</form>
+
+		</div>
 	</body>
 </html>
+
+<script type = "text/javascript">
+
+var sessionValue = <?php echo $SESS_LOGIN_ID; ?>;
+console.log(sessionValue);
+check(sessionValue);
+	
+</script>
