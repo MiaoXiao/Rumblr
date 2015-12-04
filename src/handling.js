@@ -1,4 +1,3 @@
-
 function hide(enter){
 	document.getElementById("upProf").style.visibility = "hidden";
 	if(enter == 0){

@@ -82,7 +82,7 @@ crossorigin="anonymous">
 						</ul>
 					<div class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" style="color:darkCyan" class="form-control" placeholder="Search">
 						</div>
 						<button type="submit" class="btn btn-default" onclick = "hide(6)">Submit</button>
 					</div>
